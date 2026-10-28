@@ -151,10 +151,10 @@ dst = FRONT + body + TAIL
 (DST_DIR / "main.tex").write_text(dst, encoding="utf-8")
 
 # share the bibliography rather than copying it, so the two versions cannot drift
+# always refreshed, so the two submissions cannot cite different bibliographies
 bib_link = DST_DIR / "refs.bib"
-if not bib_link.exists():
-    bib_link.write_text((ROOT / "paper" / "refs.bib").read_text(encoding="utf-8"),
-                        encoding="utf-8")
+bib_link.write_text((ROOT / "paper" / "refs.bib").read_text(encoding="utf-8"),
+                    encoding="utf-8")
 
 # ---- prove the body survived unchanged --------------------------------------
 def strip_ws(t):

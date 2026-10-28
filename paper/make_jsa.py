@@ -37,6 +37,14 @@ body = body.replace(r"\bibliographystyle{IEEEtran}", r"\bibliographystyle{elsart
 # IEEEtran provides \appendices; elsarticle uses \appendix
 body = body.replace(r"\appendices", r"\appendix")
 
+# The IEEE version carries a Data Availability section before the bibliography;
+# the Elsevier front matter already has its own, so drop it here rather than
+# printing the statement twice.
+_da0 = body.find(r"\section*{Data Availability}")
+if _da0 >= 0:
+    _da1 = body.index(r"\bibliographystyle", _da0)
+    body = body[:_da0] + body[_da1:]
+
 # ---- front matter ------------------------------------------------------------
 TITLE = (r"The cache is cheaper than the weights: measured bit costs and "
          r"device-dependent capacity for LLM inference on 8\,GB devices")
@@ -152,10 +160,16 @@ if not bib_link.exists():
 def strip_ws(t):
     return re.sub(r"\s+", " ", t).strip()
 
-orig_body = strip_ws(src[b0:b1]
-                     .replace(r"\bibliographystyle{IEEEtran}",
-                              r"\bibliographystyle{elsarticle-num}")
-                     .replace(r"\appendices", r"\appendix"))
+orig_body = (src[b0:b1]
+             .replace(r"\bibliographystyle{IEEEtran}",
+                      r"\bibliographystyle{elsarticle-num}")
+             .replace(r"\appendices", r"\appendix"))
+# mirror the Data Availability removal applied to the body above
+_s0 = orig_body.find(r"\section*{Data Availability}")
+if _s0 >= 0:
+    _s1 = orig_body.index(r"\bibliographystyle", _s0)
+    orig_body = orig_body[:_s0] + orig_body[_s1:]
+orig_body = strip_ws(orig_body)
 new_body = strip_ws(body)
 if orig_body != new_body:
     for k in range(min(len(orig_body), len(new_body))):

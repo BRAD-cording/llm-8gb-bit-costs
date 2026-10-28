@@ -1,0 +1,38 @@
+{
+  "model": "C:\\models\\Qwen3-1.7B",
+  "rows": [
+    {
+      "seq_len": 4096,
+      "config": "default",
+      "precision": "nf4",
+      "kv_bits": 16,
+      "mean_nll": 3.618586,
+      "rel_pct_vs_default": 0.0,
+      "ttft_ms": 885.0,
+      "tpot_ms": 32.7,
+      "peak_prefill_MB": 2949.0
+    },
+    {
+      "seq_len": 4096,
+      "config": "policy",
+      "precision": "fp16",
+      "kv_bits": 4,
+      "mean_nll": 3.570703,
+      "rel_pct_vs_default": -4.675,
+      "ttft_ms": 858.9,
+      "tpot_ms": 100.9,
+      "peak_prefill_MB": 4942.0
+    },
+    {
+      "seq_len": 4096,
+      "config": "all4",
+      "precision": "nf4",
+      "kv_bits": 4,
+      "mean_nll": 3.619335,
+      "rel_pct_vs_default": 0.075,
+      "ttft_ms": 952.2,
+      "tpot_ms": 96.0,
+      "peak_prefill_MB": 2948.0
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "host": "OMEN",
+  "machine": "AMD64",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.12",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "total_mem_GB": 8.0,
+  "sm_count": 24,
+  "capability": "8.9",
+  "bandwidth": {
+    "GBps": 161.91,
+    "bytes_moved": 1073741824,
+    "seconds": 0.00663170000188984
+  },
+  "decode_gemv": {
+    "fp16_GBps": 179.76,
+    "fp32_GBps": 105.29,
+    "weight_MB": 90.2
+  },
+  "prefill_matmul": [
+    {
+      "batch": 1,
+      "TFLOPs": 0.21,
+      "GBps": 209.9
+    },
+    {
+      "batch": 2,
+      "TFLOPs": 0.398,
+      "GBps": 199.0
+    },
+    {
+      "batch": 4,
+      "TFLOPs": 0.8,
+      "GBps": 200.1
+    },
+    {
+      "batch": 8,
+      "TFLOPs": 1.495,
+      "GBps": 186.9
+    },
+    {
+      "batch": 16,
+      "TFLOPs": 3.217,
+      "GBps": 201.0
+    },
+    {
+      "batch": 32,
+      "TFLOPs": 6.447,
+      "GBps": 201.5
+    },
+    {
+      "batch": 64,
+      "TFLOPs": 12.805,
+      "GBps": 200.1
+    },
+    {
+      "batch": 128,
+      "TFLOPs": 22.359,
+      "GBps": 174.7
+    }
+  ],
+  "alloc_overhead": {
+    "requested_MB": 2147.5,
+    "reserved_MB": 2147.5,
+    "rho_alloc": 0.0
+  }
+}

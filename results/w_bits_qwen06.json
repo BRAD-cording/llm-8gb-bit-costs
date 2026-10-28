@@ -1,0 +1,30 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "baseline_ppl": 44.545362,
+  "include_lm_head": false,
+  "n_layers": 196,
+  "window_tokens": 1024,
+  "n_windows": 6,
+  "rows": [
+    {
+      "w_bits": 8,
+      "ppl": 44.57822,
+      "relative": 0.000738
+    },
+    {
+      "w_bits": 4,
+      "ppl": 48.59077,
+      "relative": 0.090815
+    },
+    {
+      "w_bits": 3,
+      "ppl": 86.80246,
+      "relative": 0.948631
+    },
+    {
+      "w_bits": 2,
+      "ppl": 1742362.19631,
+      "relative": 39113.33491
+    }
+  ]
+}

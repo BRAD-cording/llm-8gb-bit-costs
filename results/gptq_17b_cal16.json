@@ -1,0 +1,11 @@
+{
+  "model": "C:\\models\\Qwen3-1.7B",
+  "bits": 4,
+  "group": 128,
+  "windows": 14,
+  "cal_windows": 2,
+  "impl": "gptqmodel 4.2.5 (official), Windows + 4060",
+  "fp16_mean_nll": 3.643934,
+  "gptq_mean_nll": 3.701861,
+  "weights_gptq_rel_pct": 5.964
+}

@@ -1,0 +1,56 @@
+{
+  "model": "/home/brad/models/Qwen3-0.6B",
+  "precision": "fp16",
+  "device": "Orin",
+  "total_mem_GB": 7.44,
+  "torch": "2.5.0a0+872d972e41.nv24.08",
+  "p_eff_tflops": 22.36,
+  "bw_gbps": 179.8,
+  "rows": [
+    {
+      "seq_len": 512,
+      "ttft_ms": 165.05,
+      "tpot_ms": 111.7,
+      "tok_per_s": 8.95,
+      "weights_MB": 1192.1,
+      "kv_MB": 58.7,
+      "peak_prefill_MB": 1334.1,
+      "peak_decode_MB": 1264.8,
+      "achieved_GBps": 11.2,
+      "arith_intensity": 0.95,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 1024,
+      "ttft_ms": 307.6,
+      "tpot_ms": 108.453,
+      "tok_per_s": 9.22,
+      "weights_MB": 1192.1,
+      "kv_MB": 117.4,
+      "peak_prefill_MB": 1467.5,
+      "peak_decode_MB": 1327.7,
+      "achieved_GBps": 12.1,
+      "arith_intensity": 0.91,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 2048,
+      "ttft_ms": 638.03,
+      "tpot_ms": 105.982,
+      "tok_per_s": 9.44,
+      "weights_MB": 1192.1,
+      "kv_MB": 234.9,
+      "peak_prefill_MB": 1734.4,
+      "peak_decode_MB": 1453.6,
+      "achieved_GBps": 13.5,
+      "arith_intensity": 0.84,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    }
+  ]
+}

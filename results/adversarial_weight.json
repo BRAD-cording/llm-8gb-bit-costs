@@ -1,0 +1,54 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "baseline_ppl": 44.545362,
+  "bits": 4,
+  "kv_reference": 0.0558,
+  "claim_survives": true,
+  "rows": [
+    {
+      "case": "rtn  g=128 sym  (as published)",
+      "bits": 4,
+      "group": 128,
+      "asym": false,
+      "ppl": 48.59077,
+      "relative": 0.090815,
+      "verdict": "above cache"
+    },
+    {
+      "case": "rtn  g=64  sym",
+      "bits": 4,
+      "group": 64,
+      "asym": false,
+      "ppl": 51.21947,
+      "relative": 0.149827,
+      "verdict": "above cache"
+    },
+    {
+      "case": "rtn  g=32  sym",
+      "bits": 4,
+      "group": 32,
+      "asym": false,
+      "ppl": 52.28258,
+      "relative": 0.173693,
+      "verdict": "above cache"
+    },
+    {
+      "case": "rtn  g=32  asym",
+      "bits": 4,
+      "group": 32,
+      "asym": true,
+      "ppl": 49.4726,
+      "relative": 0.110612,
+      "verdict": "above cache"
+    },
+    {
+      "case": "rtn  g=16  asym",
+      "bits": 4,
+      "group": 16,
+      "asym": true,
+      "ppl": 47.60595,
+      "relative": 0.068707,
+      "verdict": "above cache"
+    }
+  ]
+}

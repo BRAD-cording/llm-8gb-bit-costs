@@ -1,0 +1,182 @@
+{
+  "Qwen/Qwen3-0.6B": {
+    "info": {
+      "layers": 28,
+      "hidden": 1024,
+      "heads": 16,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "params_M": 440.4,
+      "kv_bytes_per_token": 114688
+    },
+    "rows": [
+      {
+        "bits": 2,
+        "weights_GB": 0.11,
+        "L_equal_KB": 959,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 3.868
+      },
+      {
+        "bits": 3,
+        "weights_GB": 0.165,
+        "L_equal_KB": 1439,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 3.923
+      },
+      {
+        "bits": 4,
+        "weights_GB": 0.22,
+        "L_equal_KB": 1919,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 3.978
+      },
+      {
+        "bits": 8,
+        "weights_GB": 0.44,
+        "L_equal_KB": 3839,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 4.198
+      }
+    ]
+  },
+  "Qwen/Qwen3-1.7B": {
+    "info": {
+      "layers": 28,
+      "hidden": 2048,
+      "heads": 16,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "params_M": 1409.3,
+      "kv_bytes_per_token": 114688
+    },
+    "rows": [
+      {
+        "bits": 2,
+        "weights_GB": 0.352,
+        "L_equal_KB": 3072,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 4.11
+      },
+      {
+        "bits": 3,
+        "weights_GB": 0.528,
+        "L_equal_KB": 4608,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 4.287
+      },
+      {
+        "bits": 4,
+        "weights_GB": 0.705,
+        "L_equal_KB": 6144,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 4.463
+      },
+      {
+        "bits": 8,
+        "weights_GB": 1.409,
+        "L_equal_KB": 12288,
+        "kv_GB_at_8k": 0.94,
+        "kv_GB_at_32k": 3.758,
+        "total_GB_at_32k": 5.167
+      }
+    ]
+  },
+  "Qwen/Qwen3-4B": {
+    "info": {
+      "layers": 36,
+      "hidden": 2560,
+      "heads": 32,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "params_M": 3633.3,
+      "kv_bytes_per_token": 147456
+    },
+    "rows": [
+      {
+        "bits": 2,
+        "weights_GB": 0.908,
+        "L_equal_KB": 6159,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 5.74
+      },
+      {
+        "bits": 3,
+        "weights_GB": 1.362,
+        "L_equal_KB": 9239,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 6.194
+      },
+      {
+        "bits": 4,
+        "weights_GB": 1.817,
+        "L_equal_KB": 12319,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 6.648
+      },
+      {
+        "bits": 8,
+        "weights_GB": 3.633,
+        "L_equal_KB": 24639,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 8.465
+      }
+    ]
+  },
+  "Qwen/Qwen3-8B": {
+    "info": {
+      "layers": 36,
+      "hidden": 4096,
+      "heads": 32,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "params_M": 8190.4,
+      "kv_bytes_per_token": 147456
+    },
+    "rows": [
+      {
+        "bits": 2,
+        "weights_GB": 2.048,
+        "L_equal_KB": 13886,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 6.879
+      },
+      {
+        "bits": 3,
+        "weights_GB": 3.071,
+        "L_equal_KB": 20829,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 7.903
+      },
+      {
+        "bits": 4,
+        "weights_GB": 4.095,
+        "L_equal_KB": 27772,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 8.927
+      },
+      {
+        "bits": 8,
+        "weights_GB": 8.19,
+        "L_equal_KB": 55544,
+        "kv_GB_at_8k": 1.208,
+        "kv_GB_at_32k": 4.832,
+        "total_GB_at_32k": 13.022
+      }
+    ]
+  }
+}

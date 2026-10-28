@@ -1,0 +1,77 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "rows": [
+    {
+      "config": "naive16",
+      "precision": "fp16",
+      "kv_bits": 16,
+      "runs": [
+        {
+          "len": 32754,
+          "depth": 0.5,
+          "key": "60494",
+          "answer": "60494. Remember it",
+          "ok": true,
+          "error": null,
+          "peak_MB": 5578
+        }
+      ],
+      "accuracy": 100.0,
+      "fits": true
+    },
+    {
+      "config": "default",
+      "precision": "nf4",
+      "kv_bits": 16,
+      "runs": [
+        {
+          "len": 32754,
+          "depth": 0.5,
+          "key": "60494",
+          "answer": "60494. Remember it",
+          "ok": true,
+          "error": null,
+          "peak_MB": 5020
+        }
+      ],
+      "accuracy": 100.0,
+      "fits": true
+    },
+    {
+      "config": "policy",
+      "precision": "fp16",
+      "kv_bits": 4,
+      "runs": [
+        {
+          "len": 32754,
+          "depth": 0.5,
+          "key": "60494",
+          "answer": "60494. Remember it",
+          "ok": true,
+          "error": null,
+          "peak_MB": 5580
+        }
+      ],
+      "accuracy": 100.0,
+      "fits": true
+    },
+    {
+      "config": "rtn4",
+      "precision": "fp16",
+      "kv_bits": 4,
+      "runs": [
+        {
+          "len": 32754,
+          "depth": 0.5,
+          "key": "60494",
+          "answer": "60494.\nThe grass",
+          "ok": true,
+          "error": null,
+          "peak_MB": 5646
+        }
+      ],
+      "accuracy": 100.0,
+      "fits": true
+    }
+  ]
+}

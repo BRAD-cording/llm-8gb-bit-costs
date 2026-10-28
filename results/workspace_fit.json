@@ -1,0 +1,17 @@
+{
+  "Qwen3-0.6B fp16 (fused)": {
+    "c_mb_per_token": 0.14182,
+    "c0_mb": 9.38,
+    "n_points": 4
+  },
+  "Qwen3-0.6B nf4  (fused)": {
+    "c_mb_per_token": 0.14387,
+    "c0_mb": 16.17,
+    "n_points": 4
+  },
+  "Qwen3-4B    nf4  (fused)": {
+    "c_mb_per_token": 0.21689,
+    "c0_mb": 161.22,
+    "n_points": 3
+  }
+}

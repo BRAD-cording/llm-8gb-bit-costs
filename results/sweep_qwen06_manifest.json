@@ -1,0 +1,10 @@
+{
+  "nf4": {
+    "rc": 1,
+    "out": "results/sweep_qwen06_nf4.json"
+  },
+  "fp16": {
+    "rc": 1,
+    "out": "results/sweep_qwen06_fp16.json"
+  }
+}

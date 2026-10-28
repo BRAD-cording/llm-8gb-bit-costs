@@ -1,0 +1,42 @@
+{
+  "model": "C:\\models\\Qwen3-4B",
+  "precision": "nf4",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "total_mem_GB": 8.0,
+  "torch": "2.6.0+cu124",
+  "p_eff_tflops": 22.36,
+  "bw_gbps": 179.8,
+  "rows": [
+    {
+      "seq_len": 1024,
+      "ttft_ms": 692.28,
+      "tpot_ms": 54.769,
+      "tok_per_s": 18.26,
+      "weights_MB": 2595.0,
+      "kv_MB": 151.0,
+      "peak_prefill_MB": 3433.1,
+      "peak_decode_MB": 2915.9,
+      "achieved_GBps": 50.1,
+      "arith_intensity": 1.61,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 4096,
+      "ttft_ms": 46672.29,
+      "tpot_ms": 492.235,
+      "tok_per_s": 2.03,
+      "weights_MB": 2595.0,
+      "kv_MB": 604.0,
+      "peak_prefill_MB": 9195.2,
+      "peak_decode_MB": 3528.5,
+      "achieved_GBps": 6.5,
+      "arith_intensity": 1.38,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": true,
+      "note": "EXCEEDED VRAM AND SPILLED TO HOST MEMORY - not a valid measurement"
+    }
+  ]
+}

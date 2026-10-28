@@ -1,0 +1,7 @@
+{
+  "model": "C:\\models\\Qwen3-1.7B",
+  "bits": 4,
+  "windows": 14,
+  "baseline_nll": 3.643825,
+  "cache_kivi_official_group32": 0.241
+}

@@ -1,0 +1,32 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "baseline_ppl": 44.544765,
+  "window_tokens": 1024,
+  "n_windows": 6,
+  "rows": [
+    {
+      "kv_bits": 8,
+      "attn": "gqa_sdpa",
+      "ppl": 44.54477,
+      "relative": 0.0
+    },
+    {
+      "kv_bits": 4,
+      "attn": "gqa_sdpa_kv4",
+      "ppl": 47.0318,
+      "relative": 0.055832
+    },
+    {
+      "kv_bits": 3,
+      "attn": "gqa_sdpa_kv3",
+      "ppl": 55.78558,
+      "relative": 0.252349
+    },
+    {
+      "kv_bits": 2,
+      "attn": "gqa_sdpa_kv2",
+      "ppl": 578.1237,
+      "relative": 11.978488
+    }
+  ]
+}

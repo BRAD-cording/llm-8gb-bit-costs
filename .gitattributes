@@ -1,0 +1,15 @@
+# Normalise line endings in the repository to LF.
+#
+# This is not cosmetic: an earlier revision of tools/jetson.py uploaded scripts
+# with CRLF and bash on the target tried to execute "$'/home/brad\r'". Anything
+# that runs on a Linux target has to be LF in the repository.
+* text=auto eol=lf
+
+# Keep binary assets untouched.
+*.pdf binary
+*.png binary
+*.pt binary
+*.safetensors binary
+
+# Windows-only helpers may keep CRLF if they ever need it.
+*.ps1 text eol=crlf

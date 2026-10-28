@@ -1,0 +1,11 @@
+{
+  "model": "/home/brad/models/Qwen3-0.6B",
+  "bits": 4,
+  "group": 128,
+  "windows": 14,
+  "cal_windows": 2,
+  "impl": "gptqmodel 4.2.5 (official)",
+  "fp16_mean_nll": 3.850961,
+  "gptq_mean_nll": 3.958809,
+  "weights_gptq_rel_pct": 11.388
+}

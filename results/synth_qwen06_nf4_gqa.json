@@ -1,0 +1,75 @@
+{
+  "model": "SYNTH:Qwen/Qwen3-0.6B",
+  "precision": "nf4",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "config": {
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "vocab_size": 151936
+  },
+  "rows": [
+    {
+      "seq_len": 1024,
+      "ttft_ms": 65.56,
+      "tpot_ms": 32.956,
+      "tok_per_s": 30.34,
+      "weights_MB": 531.5,
+      "kv_MB": 117.4,
+      "peak_prefill_MB": 810.5,
+      "peak_decode_MB": 675.2,
+      "achieved_GBps": 19.7,
+      "arith_intensity": 1.16,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 4096,
+      "ttft_ms": 361.08,
+      "tpot_ms": 31.429,
+      "tok_per_s": 31.82,
+      "weights_MB": 531.5,
+      "kv_MB": 469.8,
+      "peak_prefill_MB": 1598.2,
+      "peak_decode_MB": 1052.1,
+      "achieved_GBps": 31.9,
+      "arith_intensity": 0.75,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 8192,
+      "ttft_ms": 989.58,
+      "tpot_ms": 42.939,
+      "tok_per_s": 23.29,
+      "weights_MB": 531.5,
+      "kv_MB": 939.5,
+      "peak_prefill_MB": 2648.9,
+      "peak_decode_MB": 1555.4,
+      "achieved_GBps": 34.3,
+      "arith_intensity": 0.51,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 16384,
+      "ttft_ms": 2802.3,
+      "tpot_ms": 75.401,
+      "tok_per_s": 13.26,
+      "weights_MB": 531.5,
+      "kv_MB": 1879.0,
+      "peak_prefill_MB": 4750.4,
+      "peak_decode_MB": 2562.1,
+      "achieved_GBps": 32.0,
+      "arith_intensity": 0.31,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    }
+  ]
+}

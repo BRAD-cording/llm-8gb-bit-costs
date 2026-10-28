@@ -1,0 +1,49 @@
+{
+  "model": "C:\\models\\Qwen3-1.7B",
+  "bits": 4,
+  "windows": 14,
+  "cal_windows": 2,
+  "seq_len": 1024,
+  "residual": 128,
+  "group": 128,
+  "kv_group": 128,
+  "rows": {
+    "weights_rtn": {
+      "rel_pct": 11.576,
+      "ci95": [
+        9.045,
+        14.491
+      ]
+    },
+    "weights_awq": {
+      "rel_pct": 6.327,
+      "ci95": [
+        5.155,
+        7.729
+      ]
+    },
+    "cache_naive": {
+      "rel_pct": 2.022,
+      "ci95": [
+        1.048,
+        2.861
+      ]
+    },
+    "cache_kivi": {
+      "rel_pct": 1.957,
+      "ci95": [
+        1.134,
+        2.695
+      ]
+    },
+    "cache_kivi_grouped": {
+      "rel_pct": 0.952,
+      "ci95": [
+        0.441,
+        1.481
+      ]
+    }
+  },
+  "awq_layers_using_scaling": 196,
+  "ordering_holds": true
+}

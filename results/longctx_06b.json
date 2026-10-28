@@ -1,0 +1,47 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "rows": [
+    {
+      "config": "default",
+      "seq_len": 4096,
+      "ttft_ms": 679.2,
+      "tpot_ms": 35.59,
+      "peak_MB": 2166.0
+    },
+    {
+      "config": "default",
+      "seq_len": 16384,
+      "ttft_ms": 3194.9,
+      "tpot_ms": 306.54,
+      "peak_MB": 7094.0
+    },
+    {
+      "config": "default",
+      "seq_len": 32768,
+      "ttft_ms": 14906.2,
+      "tpot_ms": 1076.46,
+      "peak_MB": 13666.0
+    },
+    {
+      "config": "policy",
+      "seq_len": 4096,
+      "ttft_ms": 518.2,
+      "tpot_ms": 91.89,
+      "peak_MB": 3007.0
+    },
+    {
+      "config": "policy",
+      "seq_len": 16384,
+      "ttft_ms": 3452.9,
+      "tpot_ms": 886.33,
+      "peak_MB": 7934.0
+    },
+    {
+      "config": "policy",
+      "seq_len": 32768,
+      "ttft_ms": 10513.8,
+      "tpot_ms": 2322.27,
+      "peak_MB": 14507.0
+    }
+  ]
+}

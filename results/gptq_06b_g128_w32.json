@@ -1,0 +1,22 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "bits": 4,
+  "group": 128,
+  "windows": 28,
+  "cal_windows": 4,
+  "baseline_nll": 3.873852,
+  "weights_rtn": {
+    "rel_pct": 34.707,
+    "ci95": [
+      32.687,
+      36.513
+    ]
+  },
+  "weights_gptq": {
+    "rel_pct": 15.19,
+    "ci95": [
+      14.285,
+      16.168
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "rows": [
+    {
+      "config": "kivi2",
+      "precision": "fp16",
+      "kv_bits": 2,
+      "accuracy": 100.0,
+      "n": 5,
+      "peak_MB": 2747.0,
+      "details": [
+        {
+          "target": "74509",
+          "pos": 3207,
+          "answer": "74509. Remember it!!",
+          "ok": true
+        },
+        {
+          "target": "75503",
+          "pos": 3107,
+          "answer": "75503. The important!!",
+          "ok": true
+        },
+        {
+          "target": "37076",
+          "pos": 3732,
+          "answer": "37076. Remember it!!",
+          "ok": true
+        },
+        {
+          "target": "10653",
+          "pos": 3332,
+          "answer": "106533.\nThe!!",
+          "ok": true
+        },
+        {
+          "target": "55817",
+          "pos": 3732,
+          "answer": "55817. Remember it!!",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "config": "rtn2",
+      "precision": "fp16",
+      "kv_bits": 2,
+      "accuracy": 0.0,
+      "n": 5,
+      "peak_MB": 2768.0,
+      "details": [
+        {
+          "target": "74509",
+          "pos": 3207,
+          "answer": "is. The grass is. The is is.",
+          "ok": false
+        },
+        {
+          "target": "75503",
+          "pos": 3107,
+          "answer": "2. The sun is yellow. Here we go",
+          "ok": false
+        },
+        {
+          "target": "37076",
+          "pos": 3732,
+          "answer": ". The sun is. The sun is. and",
+          "ok": false
+        },
+        {
+          "target": "10653",
+          "pos": 3332,
+          "answer": "here. The sun is. and back again.",
+          "ok": false
+        },
+        {
+          "target": "55817",
+          "pos": 3732,
+          "answer": "The grass is green. The sky is. The",
+          "ok": false
+        }
+      ]
+    }
+  ]
+}

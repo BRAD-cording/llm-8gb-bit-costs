@@ -1,0 +1,45 @@
+{
+  "model": "SYNTH:Qwen/Qwen3-4B",
+  "precision": "int8",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "config": {
+    "num_hidden_layers": 36,
+    "hidden_size": 2560,
+    "num_attention_heads": 32,
+    "num_key_value_heads": 8,
+    "intermediate_size": 9728,
+    "vocab_size": 151936
+  },
+  "rows": [
+    {
+      "seq_len": 1024,
+      "ttft_ms": 288.63,
+      "tpot_ms": 96.828,
+      "tok_per_s": 10.33,
+      "weights_MB": 4411.6,
+      "kv_MB": 151.0,
+      "peak_prefill_MB": 4872.7,
+      "peak_decode_MB": 4616.6,
+      "achieved_GBps": 47.1,
+      "arith_intensity": 1.76,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    },
+    {
+      "seq_len": 4096,
+      "ttft_ms": 1612.8,
+      "tpot_ms": 128.534,
+      "tok_per_s": 7.78,
+      "weights_MB": 4411.6,
+      "kv_MB": 604.0,
+      "peak_prefill_MB": 6051.9,
+      "peak_decode_MB": 5098.7,
+      "achieved_GBps": 39.0,
+      "arith_intensity": 1.6,
+      "crossover_b": 124.4,
+      "decode_regime": "memory",
+      "spilled": false
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "host": "brad-desktop",
+  "machine": "aarch64",
+  "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+  "python": "3.10.12",
+  "torch": "2.5.0a0+872d972e41.nv24.08",
+  "cuda": "12.6",
+  "device": "Orin",
+  "total_mem_GB": 7.44,
+  "sm_count": 8,
+  "capability": "8.7",
+  "bandwidth": {
+    "GBps": 54.12,
+    "bytes_moved": 268435456,
+    "seconds": 0.004959569998391089
+  },
+  "decode_gemv": {
+    "fp16_GBps": 29.3,
+    "fp32_GBps": 30.41,
+    "weight_MB": 90.2
+  },
+  "prefill_matmul": [
+    {
+      "batch": 1,
+      "TFLOPs": 0.059,
+      "GBps": 58.8
+    },
+    {
+      "batch": 2,
+      "TFLOPs": 0.118,
+      "GBps": 58.9
+    },
+    {
+      "batch": 4,
+      "TFLOPs": 0.153,
+      "GBps": 38.1
+    },
+    {
+      "batch": 8,
+      "TFLOPs": 0.304,
+      "GBps": 38.0
+    },
+    {
+      "batch": 16,
+      "TFLOPs": 0.934,
+      "GBps": 58.4
+    },
+    {
+      "batch": 32,
+      "TFLOPs": 1.764,
+      "GBps": 55.1
+    },
+    {
+      "batch": 64,
+      "TFLOPs": 3.526,
+      "GBps": 55.1
+    },
+    {
+      "batch": 128,
+      "TFLOPs": 4.506,
+      "GBps": 35.2
+    }
+  ],
+  "alloc_overhead": {
+    "requested_MB": 536.9,
+    "reserved_MB": 536.9,
+    "rho_alloc": 0.0,
+    "succeeded_at_MB": 512
+  }
+}

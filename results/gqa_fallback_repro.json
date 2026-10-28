@@ -1,0 +1,43 @@
+{
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "rows": [
+    {
+      "kv": "as-is",
+      "backend": "mem_efficient",
+      "peak_mb": null,
+      "status": "RuntimeError: No available kernel. Aborting execution."
+    },
+    {
+      "kv": "as-is",
+      "backend": "flash",
+      "peak_mb": null,
+      "status": "RuntimeError: No available kernel. Aborting execution."
+    },
+    {
+      "kv": "as-is",
+      "backend": "math",
+      "peak_mb": null,
+      "status": "RuntimeError: The size of tensor a (16) must match the size of tensor b (8"
+    },
+    {
+      "kv": "expanded",
+      "backend": "mem_efficient",
+      "peak_mb": 83.9,
+      "status": "ok"
+    },
+    {
+      "kv": "expanded",
+      "backend": "flash",
+      "peak_mb": null,
+      "status": "RuntimeError: No available kernel. Aborting execution."
+    },
+    {
+      "kv": "expanded",
+      "backend": "math",
+      "peak_mb": 2692.9,
+      "status": "ok"
+    }
+  ],
+  "expansion_transparent": true
+}

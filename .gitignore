@@ -1,0 +1,27 @@
+.tmp/
+install.log
+tools/.jetson_creds.json
+_*_probe.py
+_env_probe.py
+__pycache__/
+*.pyc
+models/
+
+# LaTeX intermediates: the PDF is a deliverable, these are not
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.toc
+
+# QA renders (screenshots of pages for visual checking), not figures
+paper/figures/pg*.png
+
+# internal working notes: not part of the artifact
+SUBMISSION.md
+STATUS.md
+PLAN.md
+DELIVERABLES.md
+texput.log
+gptq_log_*.log

@@ -1,0 +1,54 @@
+{
+  "model": "SYNTH:Qwen/Qwen3-0.6B",
+  "precision": "fp16",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "config": {
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "vocab_size": 151936
+  },
+  "rows": [
+    {
+      "seq_len": 128,
+      "ttft_ms": 34.13,
+      "tpot_ms": 29.726,
+      "tok_per_s": 33.64,
+      "weights_MB": 1192.1,
+      "kv_MB": 14.7,
+      "peak_alloc_MB": 1270.1,
+      "achieved_GBps": 40.6,
+      "arith_intensity": 0.99,
+      "crossover_b": 124.4,
+      "decode_regime": "memory"
+    },
+    {
+      "seq_len": 1024,
+      "ttft_ms": 176.86,
+      "tpot_ms": 30.826,
+      "tok_per_s": 32.44,
+      "weights_MB": 1192.1,
+      "kv_MB": 117.4,
+      "peak_alloc_MB": 1748.8,
+      "achieved_GBps": 42.5,
+      "arith_intensity": 0.91,
+      "crossover_b": 124.4,
+      "decode_regime": "memory"
+    },
+    {
+      "seq_len": 4096,
+      "ttft_ms": 2111.09,
+      "tpot_ms": 52.038,
+      "tok_per_s": 19.22,
+      "weights_MB": 1192.1,
+      "kv_MB": 469.8,
+      "peak_alloc_MB": 4835.1,
+      "achieved_GBps": 31.9,
+      "arith_intensity": 0.72,
+      "crossover_b": 124.4,
+      "decode_regime": "memory"
+    }
+  ]
+}

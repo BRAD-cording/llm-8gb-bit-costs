@@ -1,0 +1,108 @@
+{
+  "items": "results\\items_qwen06_v2.json",
+  "ws_token": 0.142,
+  "ws_const": 9.0,
+  "buckets": 2500,
+  "rows": [
+    {
+      "device": "RTX4060",
+      "eps": 0.01,
+      "max_L": 111184,
+      "error_at_max": 0.00399,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 7.71,
+      "bytes_MB": 6449.4,
+      "budget_MB": 6802.6
+    },
+    {
+      "device": "OrinNanoSuper",
+      "eps": 0.01,
+      "max_L": 67324,
+      "error_at_max": 0.00847,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 7.39,
+      "bytes_MB": 3988.5,
+      "budget_MB": 4126.6
+    },
+    {
+      "device": "RTX4060",
+      "eps": 0.02,
+      "max_L": 122404,
+      "error_at_max": 0.0152,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 6.91,
+      "bytes_MB": 6368.6,
+      "budget_MB": 6802.6
+    },
+    {
+      "device": "OrinNanoSuper",
+      "eps": 0.02,
+      "max_L": 73444,
+      "error_at_max": 0.01969,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 6.59,
+      "bytes_MB": 3894.3,
+      "budget_MB": 4126.6
+    },
+    {
+      "device": "RTX4060",
+      "eps": 0.05,
+      "max_L": 176464,
+      "error_at_max": 0.04437,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 4.82,
+      "bytes_MB": 6402.2,
+      "budget_MB": 6802.6
+    },
+    {
+      "device": "OrinNanoSuper",
+      "eps": 0.05,
+      "max_L": 108124,
+      "error_at_max": 0.04736,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 4.61,
+      "bytes_MB": 3991.4,
+      "budget_MB": 4126.6
+    },
+    {
+      "device": "RTX4060",
+      "eps": 0.1,
+      "max_L": 221344,
+      "error_at_max": 0.08967,
+      "weight_bits_mean": 7.98,
+      "kv_bits_mean": 3.83,
+      "bytes_MB": 6380.3,
+      "budget_MB": 6802.6
+    },
+    {
+      "device": "OrinNanoSuper",
+      "eps": 0.1,
+      "max_L": 121384,
+      "error_at_max": 0.05434,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 4.11,
+      "bytes_MB": 3994.1,
+      "budget_MB": 4126.6
+    },
+    {
+      "device": "RTX4060",
+      "eps": 0.2,
+      "max_L": 243784,
+      "error_at_max": 0.18793,
+      "weight_bits_mean": 7.98,
+      "kv_bits_mean": 3.33,
+      "bytes_MB": 6134.7,
+      "budget_MB": 6802.6
+    },
+    {
+      "device": "OrinNanoSuper",
+      "eps": 0.2,
+      "max_L": 143824,
+      "error_at_max": 0.17076,
+      "weight_bits_mean": 8.0,
+      "kv_bits_mean": 3.42,
+      "bytes_MB": 3943.8,
+      "budget_MB": 4126.6
+    }
+  ]
+}

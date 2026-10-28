@@ -1,0 +1,5 @@
+{
+  "stage": "fp16",
+  "windows": 14,
+  "mean_nll": 3.850961
+}

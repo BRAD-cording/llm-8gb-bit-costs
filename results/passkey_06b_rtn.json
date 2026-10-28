@@ -1,0 +1,45 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "rows": [
+    {
+      "config": "rtn4",
+      "precision": "fp16",
+      "kv_bits": 4,
+      "accuracy": 100.0,
+      "n": 5,
+      "peak_MB": 2768.0,
+      "details": [
+        {
+          "target": "74509",
+          "pos": 3207,
+          "answer": "74509.\nThe grass is green",
+          "ok": true
+        },
+        {
+          "target": "75503",
+          "pos": 3107,
+          "answer": "75503. Remember it.",
+          "ok": true
+        },
+        {
+          "target": "37076",
+          "pos": 3732,
+          "answer": "37076.\nThe grass is green",
+          "ok": true
+        },
+        {
+          "target": "10653",
+          "pos": 3332,
+          "answer": "10653. Remember it.",
+          "ok": true
+        },
+        {
+          "target": "55817",
+          "pos": 3732,
+          "answer": "55817.\nThe grass is green",
+          "ok": true
+        }
+      ]
+    }
+  ]
+}

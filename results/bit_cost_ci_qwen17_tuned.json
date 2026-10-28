@@ -1,0 +1,47 @@
+{
+  "model": "C:\\models\\Qwen3-1.7B",
+  "bits": 4,
+  "windows": 48,
+  "seq_len": 1024,
+  "baseline_mean_nll": 3.663997,
+  "weights": {
+    "delta_nats": 0.03154,
+    "rel_ppl_pct": 3.205,
+    "ci95_nats": [
+      0.026,
+      0.03743
+    ],
+    "ci95_rel_ppl_pct": [
+      2.634,
+      3.814
+    ],
+    "n_windows": 48
+  },
+  "cache": {
+    "delta_nats": 0.01959,
+    "rel_ppl_pct": 1.979,
+    "ci95_nats": [
+      0.01433,
+      0.02482
+    ],
+    "ci95_rel_ppl_pct": [
+      1.443,
+      2.513
+    ],
+    "n_windows": 48
+  },
+  "paired_cache_minus_weights": {
+    "delta_nats": -0.01195,
+    "rel_ppl_pct": -1.188,
+    "ci95_nats": [
+      -0.01984,
+      -0.00379
+    ],
+    "ci95_rel_ppl_pct": [
+      -1.964,
+      -0.378
+    ],
+    "n_windows": 48
+  },
+  "ordering_supported": true
+}

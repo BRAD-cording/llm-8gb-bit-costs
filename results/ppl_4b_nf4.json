@@ -1,0 +1,6 @@
+{
+  "model": "C:\\models\\Qwen3-4B",
+  "precision": "nf4",
+  "windows": 32,
+  "mean_nll": 3.520774
+}

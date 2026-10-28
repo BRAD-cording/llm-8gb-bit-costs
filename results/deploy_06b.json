@@ -1,0 +1,71 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "rows": [
+    {
+      "seq_len": 2048,
+      "config": "default",
+      "precision": "nf4",
+      "kv_bits": 16,
+      "mean_nll": 3.801068,
+      "rel_pct_vs_default": 0.0,
+      "ttft_ms": 183.7,
+      "tpot_ms": 33.3,
+      "peak_prefill_MB": 1344.0
+    },
+    {
+      "seq_len": 2048,
+      "config": "policy",
+      "precision": "fp16",
+      "kv_bits": 4,
+      "mean_nll": 3.705866,
+      "rel_pct_vs_default": -9.081,
+      "ttft_ms": 198.1,
+      "tpot_ms": 52.0,
+      "peak_prefill_MB": 1967.0
+    },
+    {
+      "seq_len": 2048,
+      "config": "all4",
+      "precision": "nf4",
+      "kv_bits": 4,
+      "mean_nll": 3.815961,
+      "rel_pct_vs_default": 1.5,
+      "ttft_ms": 217.4,
+      "tpot_ms": 51.4,
+      "peak_prefill_MB": 1345.0
+    },
+    {
+      "seq_len": 4096,
+      "config": "default",
+      "precision": "nf4",
+      "kv_bits": 16,
+      "mean_nll": 3.853936,
+      "rel_pct_vs_default": 0.0,
+      "ttft_ms": 448.7,
+      "tpot_ms": 32.4,
+      "peak_prefill_MB": 2185.0
+    },
+    {
+      "seq_len": 4096,
+      "config": "policy",
+      "precision": "fp16",
+      "kv_bits": 4,
+      "mean_nll": 3.748937,
+      "rel_pct_vs_default": -9.967,
+      "ttft_ms": 465.4,
+      "tpot_ms": 91.7,
+      "peak_prefill_MB": 3026.0
+    },
+    {
+      "seq_len": 4096,
+      "config": "all4",
+      "precision": "nf4",
+      "kv_bits": 4,
+      "mean_nll": 3.875844,
+      "rel_pct_vs_default": 2.215,
+      "ttft_ms": 514.5,
+      "tpot_ms": 93.2,
+      "peak_prefill_MB": 2405.0
+    }
+  ]
+}

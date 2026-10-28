@@ -1,0 +1,29 @@
+{
+  "model": "C:\\models\\Qwen3-0.6B",
+  "kv_per_token_MB": 0.10938,
+  "group": 32,
+  "rows": [
+    {
+      "seq_len": 8192,
+      "layers_captured": 28,
+      "fp16_kv_MB": 902.0,
+      "packed_nibble_MB": 225.0,
+      "scales_mn_MB": 56.0,
+      "packed_total_MB": 282.0,
+      "compression": 3.2,
+      "measured_resident_delta_MB": 3587.0,
+      "peak_MB": 4753.0
+    },
+    {
+      "seq_len": 32768,
+      "layers_captured": 28,
+      "fp16_kv_MB": 3611.0,
+      "packed_nibble_MB": 903.0,
+      "scales_mn_MB": 226.0,
+      "packed_total_MB": 1129.0,
+      "compression": 3.2,
+      "measured_resident_delta_MB": 11034.0,
+      "peak_MB": 17688.0
+    }
+  ]
+}

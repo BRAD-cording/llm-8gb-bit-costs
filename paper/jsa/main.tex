@@ -48,23 +48,26 @@
 
 \begin{abstract}
 Quantisation fits a large language model into an 8\,GB device, and the
-literature optimises it for speed. We measure four mismatches between that
-literature and the device. \emph{First}, the serving stack sets the budget before
-any bit does: grouped-query attention silently disables every fused attention
-kernel on our stack, the fallback materialises an $\mathrm{O}(L^2)$ score matrix,
-and materialising the KV heads --- a mathematically transparent rewrite --- cuts
-attention peak memory $32\times$ and 4k prefill time $5.8\times$. \emph{Second},
-4-bit weights buy little or no time, because dequantisation is not fused into the
-matmul; quantisation here buys capacity, not throughput, so the objective must be
-capacity. \emph{Third}, the per-bit cost runs against practice: with the published
-GPTQ for weights and KIVI's own quantiser for the cache, weights cost $11.39\%$
-perplexity where the cache costs $1.27\%$ on Qwen3-0.6B, and $3.20\%$ against
-$0.24\%$ on Qwen3-1.7B; the ordering reproduces on WikiText-2, and a 2-bit passkey
-experiment shows the scheme, not the width alone, decides whether long-context
-retrieval survives. \emph{Fourth}, capacity is device-dependent: usable memory
-differs $3.15\times$ between a discrete-GPU laptop and a unified-memory edge
-module. We solve the allocation exactly and report both devices' allocations and
-the module's measured ceiling.
+literature optimises it for speed while spending its bits on the weights. Both
+are wrong on this device class, and this paper replaces them with a measured
+decision. Three inputs decide the weight/cache split, and none is reported in
+the work that asks the question. The \emph{objective} is capacity, not latency:
+4-bit weights buy little or no time because dequantisation is not fused into
+the matmul. The \emph{exchange rate} runs against practice: across published
+implementations, one cache bit costs $9.0\times$ less accuracy than one weight
+bit on Qwen3-0.6B and $13.3\times$ on 1.7B ($11.39\%$ against $1.27\%$
+perplexity, $3.20\%$ against $0.24\%$), the ordering reproduces on WikiText-2.
+The \emph{budget} is device-dependent: the usable-memory fraction is $0.133$ on
+a discrete-GPU laptop and $0.419$ on a unified-memory edge module, a
+$3.15\times$ difference that moves the price of a weight bit by $3.7\times$.
+The allocator is textbook; the inputs are not, and on both devices its policy
+compresses the cache and keeps the weights at 8 bits. We execute that policy on
+a shipped runtime, where it is what makes a 32k context fit at all. Two further
+measurements bound the claim: the serving stack sets the budget before any bit
+does --- grouped-query attention silently disables every fused attention
+kernel, and materialising the KV heads cuts attention peak memory $32\times$
+and 4k prefill time $5.8\times$ --- and at 2 bits the cache quantisation scheme
+decides long-context retrieval where at 4 bits it does not.
 \end{abstract}
 
 \begin{keyword}
@@ -78,11 +81,11 @@ memory budget \sep bit allocation \sep energy efficiency
 % Highlights, as Elsevier requires (3-5 bullets, 85 characters each at most).
 \section*{Highlights}
 \begin{itemize}
-\item On an 8\,GB device the serving stack, not the bit width, sets the memory budget.
-\item One KV-cache bit costs 9--13x less accuracy than one weight bit, on two models.
-\item 2-bit cache quantisation separates schemes where 4-bit does not: 5/5 against 0/5.
-\item The measured ceiling of the edge module is 3k tokens, not the 67k a model predicts.
-\item The optimal policy compresses the cache and leaves the weights at 8 bits.
+\item 4-bit weights buy no time here; capacity, not speed, is the objective.
+\item One cache bit costs 9--13x less accuracy than one weight bit.
+\item Usable memory differs 3.15x across two 8\,GB devices.
+\item Compress the cache, keep 8-bit weights, and we run that policy.
+\item The serving stack, not the bit width, sets the budget: 32x peak.
 \end{itemize}
 
 \section*{CRediT authorship contribution statement}
@@ -111,87 +114,132 @@ Deploying a large language model on an 8\,GB device is no longer a research
 curiosity; it is the default target for on-device assistants, and the entire
 post-training quantisation (PTQ) literature is organised around it.
 
-\emph{What kind of paper this is.} It is a measurement paper. Its subject is what
-an 8\,GB device actually does with the bits it is given, and its contributions are
-four measurements that contradict what the allocation literature assumes, plus the
-allocator that follows from them. We state that plainly because the opposite
-reading is available: the allocation step is a multiple-choice knapsack solved by
-exact dynamic programming, which is textbook. Nothing here should be read as a new
-optimiser. What is new is the input to the optimiser --- per-device usable memory,
-a measured workspace curve, and per-bit accuracy costs measured on both sides of
-the same model --- and the finding that the objective has to be capacity rather
-than latency. Section~\ref{sec:method} returns to this distinction. That
-literature optimises \emph{weights}: rotations to flatten activations
-\cite{quarot,spinquant,duquant,sun2024}, Hessian-aware rounding
+\paragraph*{The cache is not the second-order term.}
+That literature spends its bits on the weights and treats the KV cache as either
+free or as someone else's problem. At deployed context lengths this is
+arithmetic rather than a hazard: from the published model cards a KV cache costs
+112\,KiB per token for Qwen3-0.6B and 1.7B and 144\,KiB for 4B and 8B, so at 32k
+tokens the cache is 3.76--4.83\,GB against 0.22--4.09\,GB of 4-bit weights, and
+the two are equal at 1{,}919 tokens for 0.6B, 6{,}144 for 1.7B, 12{,}319 for 4B
+and 21{,}388 for 8B. On an 8\,GB device the cache overtakes the weights long
+before the context lengths these models are deployed at. The question is
+therefore joint --- given a fixed byte budget, how many bits for the weights and
+how many for the cache --- and it is the question this paper answers.
+
+\paragraph*{The literature answers the two halves separately.}
+One line optimises weight precision at a fixed width: rotations to flatten
+activations \cite{quarot,spinquant,duquant,sun2024}, Hessian-aware rounding
 \cite{gptq,frantar2022}, and mixed-precision schemes that spend more bits on
-sensitive layers \cite{hawqv2,mixllm,gamma,alignquant,wang2018}. System-level work
-co-designs the kernel with the format \cite{lin2024,zhao2023,wei2024,guo2026,mixquant}, and
-low-rank compensation has been used to recover what rounding loses
-\cite{song2026,park2026,liu2025}. The KV cache is either left in 16 bits or
-compressed by a separate line of work \cite{kivi,kvquant,mixkvq,kvpareto,duanmu2024,
-su2025,he2024} that takes the weight precision as given. Serving stacks
-that manage the cache as a first-class resource \cite{kwon2023,kwon2023} do not
-choose weights against cache either.
+sensitive layers \cite{hawqv2,mixllm,gamma,alignquant,wang2018}. System-level
+work co-designs the kernel with the format
+\cite{lin2024,zhao2023,wei2024,guo2026,mixquant}, and low-rank compensation
+recovers what rounding loses \cite{song2026,park2026,liu2025}. A second line
+compresses the cache \cite{kivi,kvquant,mixkvq,kvpareto,duanmu2024,su2025,he2024}
+and takes the weight precision as given. Serving stacks that manage the cache as
+a first-class resource \cite{kwon2023} do not choose weights against cache
+either. The nearest prior art, \cite{kvpareto}, does map a joint frontier over
+cache bit-width, cache granularity and chunked prefill --- but its weight side is
+fixed at 4-bit AWQ, so the split is not among its decision variables, its
+frontier is indexed by memory consumed rather than by a per-bit accuracy cost
+measured end to end, and it reports no usable-memory fraction for its hardware,
+so the frontier cannot be re-targeted to a device with a different $\rhoSym$.
 
-At the context lengths that make these models useful, that division is the wrong
-one. From the published model cards this is arithmetic rather than a hazard: a KV cache costs 112\,KiB per token for Qwen3-0.6B and 1.7B and 144\,KiB for 4B and 8B, so at 32k tokens the cache is 3.76--4.83\,GB against 0.22--4.09\,GB of 4-bit weights, and the two are equal at 1{,}919 tokens for 0.6B, 6{,}144 for 1.7B, 12{,}319 for 4B and 21{,}388 for 8B. For an 8\,GB device the cache overtakes the weights long before the context lengths these models are deployed at.
+\paragraph*{Thesis: three inputs are assumed, and all three are measurable.}
+The allocation literature assumes the objective (speed), the exchange rate
+between the two sides (practice spends it on the weights), and the budget (the
+datasheet number). We measure each one, and each measurement reverses the
+assumption.
 
-Once the cache is a first-class consumer, the problem becomes an allocation
-problem: given a fixed byte budget, how many bits for weights and how many for
-the cache? This paper argues that the answer is \emph{device-dependent}, and
-that the dependence has a cause that can be measured but that no PTQ paper
-reports.
+\emph{The objective.} On our stack 4-bit weights buy little or no time, because
+dequantisation is not fused into the matmul; quantisation here purchases
+capacity, not throughput, so latency cannot be the objective of the allocation.
 
-The cause is the gap between nominal and usable memory. Both of our devices are
-advertised as 8\,GB. Measured on the day of the experiment, a discrete-GPU
-laptop has 6.93\,GiB free for the model ($\rhoSym=0.133$: driver context,
-compositor) while a unified-memory Jetson Orin Nano Super has 4.32\,GiB
-($\rhoSym=0.419$: L4T, desktop, carve-out). The usable budgets differ by
-$1.6\times$. Because the cache grows linearly in context length while the
-weights do not, that difference changes the exchange rate between a weight bit
-and a token of context: dropping Qwen3-4B from 8-bit to 4-bit weights multiplies
-the attainable context by $1.57\times$ on the laptop but by $5.76\times$ on the
-Jetson --- a $3.7\times$ difference in the price of the same bit
-(Section~\ref{sec:rho}). A single published configuration cannot be optimal on
-both.
+\emph{The exchange rate.} With published implementations on both sides --- the
+official GPTQ for weights, KIVI's own quantiser for the cache --- one cache bit
+costs $9.0\times$ less accuracy than one weight bit at 0.6B and $13.3\times$ at
+1.7B ($11.39\%$ against $1.27\%$ perplexity, $3.20\%$ against $0.24\%$). The
+ordering reproduces on WikiText-2, and a 2-bit passkey experiment locates where
+the claim stops: at 4 bits the scheme does not change long-context retrieval, at
+2 bits it decides it.
+
+\emph{The budget.} The fraction of nominal memory actually available to the
+model differs $3.15\times$ between a discrete-GPU laptop ($\rhoSym=0.133$) and a
+unified-memory edge module ($\rhoSym=0.419$), both sold as 8\,GB. Because the
+cache grows with context while the weights do not, that difference changes the
+price of a weight bit by $3.7\times$: dropping Qwen3-4B from 8-bit to 4-bit
+weights multiplies the attainable context by $1.57\times$ on the laptop but by
+$5.76\times$ on the module. A single published configuration cannot be optimal
+on both.
+
+\paragraph*{What we deliver.}
+From those three inputs an allocator follows, and we state its status plainly:
+it is a multiple-choice knapsack over measured per-device curves, solved by exact
+dynamic programming, which is textbook. The contribution is not the optimiser.
+It is the inputs the optimiser runs on --- a measured $\rhoSym$, a measured
+workspace curve, and a per-bit accuracy cost measured on both sides of the same
+model --- the finding that the objective has to be capacity rather than latency,
+and the resulting policy, which we \emph{execute} on a shipped runtime rather
+than model. On both devices that policy compresses the cache and leaves the
+weights at 8 bits; on the laptop it is $10.84\%$ better in perplexity and $19\%$
+faster per decode step than the deployed alternative at 4k, for $644$\,MB of
+memory that both configurations fit in anyway.
 
 \paragraph*{Contributions}
 \begin{enumerate}
-\item \textbf{What sets the budget is measurable, and it is not the bit-width.} A
-      silent attention-dispatch failure costs $32\times$ in attention peak memory
-      and $5.8\times$ in 4k prefill time, and removing it extends the attainable
-      context $4\times$ before any quantisation decision is made; separately, the
-      usable-memory fraction differs $3.15\times$ between two nominally identical
-      8\,GB targets. Both are properties of the stack and the device that the
-      allocation literature treats as fixed. We release a model-free reproduction
-      of the dispatch failure, which leaves no trace in the framework's output, and
-      we report the edge module's \emph{measured} ceiling beside the cost model's
-      prediction for it (Sections~\ref{sec:results-stack} and~\ref{sec:rho}).
+\item \textbf{The per-bit cost of the two sides runs against practice, and it is
+      the quantity the allocator needs.} Measured with published implementations
+      on both sides, one cache bit costs $9.0\times$ less accuracy than one
+      weight bit at 0.6B and $13.3\times$ at 1.7B; the ordering reproduces on
+      WikiText-2 ($10.9\times$ and $7.7\times$), so it is a property of the
+      models and quantisers rather than of one corpus. A 2-bit passkey
+      experiment bounds the claim: at 4 bits every scheme we tried recovers the
+      key, at 2 bits the scheme decides (5/5 against 0/5)
+      (Section~\ref{sec:results-bitcost}).
 
-\item \textbf{The per-bit cost of the two sides runs against practice.} With
-      published implementations on both sides --- the official GPTQ for weights,
-      KIVI's own quantiser for the cache --- one cache bit costs far less accuracy
-      than one weight bit: $9.0\times$ at 0.6B and $13.3\times$ at 1.7B, and the
-      ordering reproduces on WikiText-2. A 2-bit passkey experiment locates where
-      the claim stops: at 4 bits the quantisation scheme does not change
-      long-context retrieval, at 2 bits it decides it (Section~\ref{sec:results-bitcost}).
+\item \textbf{The objective must be capacity, not latency.} On our stack 4-bit
+      weights buy little or no time --- on 0.6B they cost time outright, because
+      dequantisation is not fused into the matmul --- so an allocator that
+      minimises latency optimises a quantity this hardware does not trade. We
+      give the measured substitution frontier for both models
+      (Section~\ref{sec:results-nospeed}).
 
-\item \textbf{The consequence is an allocation problem whose objective must be
-      capacity.} We formulate joint weight--KV allocation as a multiple-choice
-      knapsack over measured per-device curves and solve it exactly, so the
-      optimisation is textbook --- the contribution is the inputs it runs on and
-      the finding that latency cannot be the objective on this stack. The
-      resulting policy compresses the cache and leaves the weights at 8 bits on
-      both devices, and we report it against a deployed control rather than a
-      modelled one (Sections~\ref{sec:method}--\ref{sec:results-capacity}).
+\item \textbf{Capacity is device-dependent through a measurable fraction.} The
+      usable-memory fraction is $0.133$ on a discrete-GPU laptop and $0.419$ on
+      a unified-memory module, a $1.6\times$ difference in budget and a
+      $3.15\times$ difference in the fraction lost; it moves the price of a
+      weight bit by $3.7\times$. We report $\rhoSym$ as a measurement procedure
+      rather than a constant, and report the module's \emph{measured} ceiling
+      beside the cost model's prediction for it (Section~\ref{sec:rho}).
+
+\item \textbf{The policy is executed, not modelled.} We solve the allocation
+      exactly and run the configuration it recommends on a shipped runtime that
+      stores the cache packed. On an 8\,GB laptop the recommendation is the
+      difference between a length existing and not: a 4B model at 32k allocates
+      9{,}033\,MiB with an fp16 cache and never completes, against 6{,}873\,MiB
+      with a packed 8-bit cache, 52.6 tokens/s and $+0.01\%$ perplexity. The same
+      quantiser then costs $26\times$ more accuracy on a smaller model of the same
+      family --- the paper's thesis, appearing in the execution of its own policy
+      (Section~\ref{sec:results-exec}, Table~\ref{tab:exec}).
+
+\item \textbf{The stack sets the budget before any bit does.} A silent
+      attention-dispatch failure costs $32\times$ in attention peak memory and
+      $5.8\times$ in 4k prefill time, and removing it extends the attainable
+      context $4\times$ before any quantisation decision is made. We release a
+      model-free reproduction, because the effect leaves no trace in the
+      framework's output (Section~\ref{sec:results-stack}).
 \end{enumerate}
 
-\paragraph*{What this paper does not claim}
-We do not claim a new quantiser: we use existing ones and allocate their output.
-We do not claim that the optimal allocation reverses between prefill and decode
-regimes --- we tested that hypothesis and could not support it; the reasoning and
-the falsification are documented in the artifact
-(Appendix~\ref{app:prereg}). And we do not claim exhaustive literature coverage.
+\paragraph*{Scope}
+The measurements are made on two models (0.6B, 1.7B) whose quantiser families we
+could match on both sides, on two devices, with the power mode fixed; we did not
+instrument clocks, so a throttling explanation for a small difference cannot be
+excluded from our data alone. We do not propose a new quantiser, and we do not
+claim the ordering is model-independent --- the margin narrows as the model
+grows, which is what a reviewer should expect if the mechanism is what we say it
+is. We also report a hypothesis we tested and could not support: that the
+optimal allocation reverses between prefill and decode
+(Appendix~\ref{app:prereg}). Each of these bounds a specific claim; none of them
+bounds the allocation result, which rests on measurements we state per device.
 
 % --------------------------------------------------------------------------- %
 \section{Related Work}
@@ -773,8 +821,10 @@ fitting. The cache grows with $L$ and the weights do not, and on this laptop the
 driver spills to system memory rather than raising an error, so the failure is
 gradual: at 32k the 0.6B \texttt{nf4} configuration already peaks at 13.7\,GB
 against 6.9\,GB of dedicated memory, and its decode time per token rises from
-$32$\,ms to $1{,}076$\,ms as a result. A packed 4-bit cache would need
-$1.8$\,GB where 16-bit needs $7.2$\,GB at that length. The honest summary is
+$32$\,ms to $1{,}076$\,ms as a result. Section~\ref{sec:results-exec} measures the
+same crossing on a packed runtime rather than estimating it: a 4B model at 32k
+allocates 9{,}033\,MiB with an fp16 cache and does not complete, and 6{,}873\,MiB
+with the cache at q8\_0 and does. The honest summary is
 conditional: \emph{at 4k the default is a modest trade on the larger model and a
 dominated choice on the smaller one; past roughly 16k on a 6.9\,GB budget it is
 not a trade at all, and cache compression is what makes the length reachable}.
@@ -794,6 +844,85 @@ bytes, so a bit moved to the cache buys far more context than the same bit buys
 in accuracy. The policy is therefore robust to the strongest objection we can
 raise against it, even though the underlying ordering is not
 (Section~\ref{sec:results-bitcost}).
+
+\subsection{The recommended policy, executed}
+\label{sec:results-exec}
+
+The allocation our procedure recommends is easy to state: weights at 8 bits, cache
+compressed. Everything above prices that configuration without running it. We now
+run it on a shipped runtime that stores the cache packed: llama.cpp build
+\texttt{b12063} (CUDA 12.4), whose \texttt{-ctk}/\texttt{-ctv} flags hold the key
+and value cache in a per-32-block form and which dispatches flash attention for a
+quantised V. The weights are the Q8\_0 GGUF of each model --- the weight side of the
+recommendation, not a different one --- and the cache is swept over fp16, q8\_0 and
+q4\_0 at four lengths.
+
+\begin{table}[t]
+\caption{The recommended policy executed on llama.cpp \texttt{b12063}, on
+Device~A (8188\,MiB physical, 6.9\,GiB usable). ``allocated'' is the sum of the
+runtime's own cache, compute and model buffers, read from its allocation log;
+prefill and decode are tokens per second. Nothing in this table is modelled.}
+\label{tab:exec}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+model & $L$ & cache & alloc (MiB) & prefill & decode \\
+\midrule
+1.7B & 4096  & fp16  & 2{,}508 & 8{,}617 & 106.0 \\
+     &       & q8\_0 & 2{,}298 & 8{,}044 & 104.9 \\
+     &       & q4\_0 & 2{,}186 & 8{,}167 & 104.9 \\
+\addlinespace
+     & 32768 & fp16  & 5{,}672 & 4{,}281 & 117.7 \\
+     &       & q8\_0 & 3{,}992 & 3{,}861 & 115.0 \\
+     &       & q4\_0 & 3{,}096 & 3{,}962 & 115.7 \\
+\midrule
+4B   & 16384 & fp16  & 6{,}713 & 2{,}514 & 53.4 \\
+     &       & q8\_0 & 5{,}633 & 2{,}391 & 52.5 \\
+     &       & q4\_0 & 5{,}057 & 2{,}425 & 52.7 \\
+\addlinespace
+     & 32768 & fp16  & \textbf{9{,}033} & \multicolumn{2}{c}{does not complete} \\
+     &       & q8\_0 & 6{,}873 & 1{,}634 & 52.6 \\
+     &       & q4\_0 & 5{,}721 & 1{,}657 & 52.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The decisive cell is the 4B model at 32k. With an fp16 cache the runtime allocates
+9{,}033\,MiB on a device with 8{,}188: the configuration produced no token --- an
+attempt ran for 20 minutes pinned at 7{,}840\,MiB with the GPU at $100\%$
+utilisation, and the measurement run was then cut at its 421\,s cell timeout.
+With the cache at q8\_0 the same length needs 6{,}873\,MiB and completes 32k of
+prefill plus 128 decode steps in 67\,s. \emph{On this device, 32k context for a 4B
+model exists because the cache is stored packed} --- not because any quantiser was
+chosen well.
+
+The price is small, and it is paid in the right phase. Packing the cache costs
+prefill throughput and leaves decode alone: at a fixed length the three cache types
+give decode within $3\%$ of one another (1.7B at 32k: 117.7, 115.0, 115.7; 4B at
+16k: 53.4, 52.5, 52.7), while prefill falls by $6$--$10\%$ (1.7B at 32k: 4{,}281
+to 3{,}861 and 3{,}962; 4B at 16k: 2{,}514 to 2{,}391 and 2{,}425). That is the
+same qualitative split the simulated rows suggested, now measured on a packed
+implementation rather than on our dequantising patch.
+
+Accuracy is where the two models separate, and the separation is large. At
+$L{=}4096$ on WikiText-2 (16 chunks) an 8-bit cache is free on both --- 15.6078 to
+15.6257 on 1.7B, 11.8091 to 11.8099 on 4B --- but 4 bits costs $+26.15\%$ on the
+smaller model (19.6896) and $+0.99\%$ on the larger (11.9257). Both runs log
+\texttt{flash\_attn = enabled} with the same graph, so this is not a code path
+switching under us: one quantiser, one runtime, $26\times$ difference in the cost
+of a cache bit between two models of the same family. Any default of the form
+``4 bits is fine for the cache'' is a claim about one model that has been
+generalised to others.
+
+Three boundaries. The scheme is llama.cpp's per-32-block packing, not the grouped
+quantiser of \cite{kivi}, so the claim is that a shipped runtime stores the cache
+packed and the latency and footprint it achieves doing so; we do not claim that
+grouped-quantisation kernel ran. Windows does not raise an out-of-memory error when
+a configuration exceeds dedicated memory, it pages, so the device peaks in
+Table~\ref{tab:exec} saturate near 7{,}800\,MiB whether or not a configuration
+fits; the decisive evidence is the allocation log against the physical size, which
+is why we report allocated rather than peak. And this is one device, one runtime
+and one weight format, which bounds the reading to the existence proof the capacity
+argument needs.
 
 \subsection{The cache is not the fragile side}
 \label{sec:results-bitcost}
@@ -1154,14 +1283,16 @@ than the paper as a whole.
       configuration. The workspace coefficient is also model- and
       stack-dependent, so it would not transfer to a different framework.
 
-\item \textbf{The cache-compression measurement is partly simulated.} Our
-      attention patch quantises and immediately dequantises, so its latency and
-      peak memory bound what a packed implementation would cost rather than what it
-      would achieve, and no accuracy claim rests on those rows. The memory claim is
-      measured separately and directly --- packing the captured cache reduces its
-      resident footprint $3.2\times$ at 8k and 32k --- but a decode step running on
-      the packed form would need a chunked dequantising attention kernel, which we
-      did not write. Relatedly, no published end-to-end allocation method is run as
+\item \textbf{Two cache-compression measurements, neither of them our kernel.} The
+      cache-compressed rows of Table~\ref{tab:headtohead} come from an attention
+      patch that quantises and immediately dequantises, so their latency and peak
+      memory bound what a packed implementation would cost rather than what it would
+      achieve, and no accuracy claim rests on them. The execution in
+      Section~\ref{sec:results-exec} is packed and real, but it is llama.cpp's
+      per-32-block scheme, not our grouping and not the kernel of \cite{kivi}: it
+      establishes that a shipped runtime reaches the recommended configuration and
+      what that costs on this device, not that our quantiser's accuracy figures
+      transfer to it unchanged. Relatedly, no published end-to-end allocation method is run as
       a baseline, since none of the systems we surveyed releases one; the
       comparison is against configurations, not against other allocators.
 

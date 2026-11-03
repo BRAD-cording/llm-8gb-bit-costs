@@ -1,0 +1,11 @@
+0.20 minutes
+[1]14.7165,[2]14.7782,[3]11.4011,[4]10.8274,[5]11.2950,[6]11.3530,[7]11.6855,[8]11.8459,
+
+0.00.338.563 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.842.031 I cmn          init: llama threadpool init, n_threads = 24
+0.01.892.534 I 
+0.01.892.567 I system_info: n_threads = 24 (n_threads_batch = 24) / 32 | CUDA : ARCHS = 500,610,700,750,800,860,890,900 | USE_GRAPHS = 1 | FA_QUANTS = q4_0-q4_0,q8_0-q8_0,f16-f16,bf16-bf16 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.892.573 I perplexity: tokenizing the input ..
+0.02.137.946 I perplexity: tokenization took 245.364 ms
+0.02.138.526 I perplexity: calculating perplexity over 8 chunks, n_ctx=4096, batch_size=2048, n_seq=1
+0.03.707.970 I perplexity: 1.57 seconds per pass - ETA 0.13.480.496 I Final estimate: PPL = 11.8459 +/- 0.30347

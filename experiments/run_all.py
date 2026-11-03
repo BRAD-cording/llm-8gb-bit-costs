@@ -61,6 +61,7 @@ def main() -> int:
                                    "--wbits", "results/w_bits_qwen06_v2.json",
                                    "--kvbits", "results/kv_bits_qwen06.json",
                                    "--out", "results/items_qwen06_v2.json"], None),
+        ("executed-policy summary", [PY, "experiments/make_c2_summary.py"], None),
         ("solver invariants", [PY, "tests/test_alloc.py"], None),
         ("solver optimality", [PY, "tests/test_alloc_optimality.py"], None),
         ("quantiser self-test", [PY, "src/quant/fakequant.py"], None),

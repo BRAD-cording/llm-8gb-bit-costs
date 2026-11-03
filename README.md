@@ -2,7 +2,8 @@
 
 Artifact for the manuscript *"The cache is cheaper than the weights: measured bit
 costs and device-dependent capacity for LLM inference on 8 GB devices"*
-(submitted to the *Journal of Systems Architecture*).
+(desk-rejected by the *Journal of Systems Architecture* on 2026-11-04 for lack of
+novelty; repositioned and targeted at the *IEEE Internet of Things Journal*).
 
 Every number, table and figure in the paper is produced by a script in this
 repository, and every table is generated from a measurement file rather than
@@ -10,7 +11,7 @@ transcribed. A single command rebuilds the results, the figures, the allocator
 inputs and both manuscript versions, and then runs the checks.
 
 ```bash
-python experiments/run_all.py      # 16 stages; prints ALL OK on success
+python experiments/run_all.py      # 17 stages; prints ALL OK on success
 ```
 
 ## What the paper claims, and where to check it
@@ -23,6 +24,7 @@ python experiments/run_all.py      # 16 stages; prints ALL OK on success
 | Same ordering on WikiText-2 ($10.9\times$, $7.7\times$) | `src/eval/strength_matched.py --text data/wikitext2_test.txt` | `results/strength_*_wikitext.json` |
 | At 4 bits the cache scheme does not change long-context retrieval; at 2 bits it decides (5/5 vs 0/5) | `src/eval/passkey_eval.py`, `src/eval/passkey_long.py` | `results/passkey_*.json` |
 | Packed 4-bit cache is $3.2\times$ smaller, measured on the allocator | `src/eval/packed_cache_footprint.py` | `results/packed_cache_06b.json` |
+| The recommended policy executed on a shipped runtime: 8-bit weights, packed cache, 32k context that fp16 cannot reach (9,033 MiB allocated vs 6,873 MiB) | `src/eval/c2_llamacpp.py`, `experiments/make_c2_summary.py` | `results/c2_summary.json`, `results/c2_alloc.txt`, `results/C2_LLAMACPP.md` |
 | Device-dependent capacity, and the edge module's measured 3k ceiling | `src/alloc/dp_alloc.py`, `results/jetson_kv16_limit.json` | `results/capacity_table.json` |
 
 ## Layout
@@ -32,7 +34,8 @@ src/bench/      attention dispatch, regime sweeps, the GQA reproduction
 src/quant/      fake-quant reference implementations, AWQ-style, KIVI-style,
                 our GPTQ, and the adapter around KIVI's own quantiser
 src/eval/       perplexity, bit-cost, strength-matched, GPTQ, KIVI, passkey,
-                packed-footprint and deployment measurements
+                packed-footprint, deployment and the llama.cpp executed-policy
+                sweep
 src/alloc/      the multiple-choice knapsack solver and its inputs
 experiments/    the 16-stage pipeline plus the individual checkers
 results/        measurement files, and short notes explaining the failures

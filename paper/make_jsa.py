@@ -115,11 +115,11 @@ memory budget \sep bit allocation \sep energy efficiency
 % Highlights, as Elsevier requires (3-5 bullets, 85 characters each at most).
 \section*{Highlights}
 \begin{itemize}
-\item On an 8\,GB device the serving stack, not the bit width, sets the memory budget.
-\item One KV-cache bit costs 9--13x less accuracy than one weight bit, on two models.
-\item 2-bit cache quantisation separates schemes where 4-bit does not: 5/5 against 0/5.
-\item The measured ceiling of the edge module is 3k tokens, not the 67k a model predicts.
-\item The optimal policy compresses the cache and leaves the weights at 8 bits.
+\item 4-bit weights buy no time here; capacity, not speed, is the objective.
+\item One cache bit costs 9--13x less accuracy than one weight bit.
+\item Usable memory differs 3.15x across two 8\,GB devices.
+\item Compress the cache, keep 8-bit weights, and we run that policy.
+\item The serving stack, not the bit width, sets the budget: 32x peak.
 \end{itemize}
 
 \section*{CRediT authorship contribution statement}

@@ -1,0 +1,339 @@
+{
+  "device": "RTX 4060 Laptop (device A)",
+  "total_vram_mib": 8188,
+  "usable_mib": 7066,
+  "runtime": "llama.cpp b12063, CUDA 12.4, flash attention enabled",
+  "note": "alloc_* from llama.cpp own logs; peak_* from nvidia-smi sampling; perplexity on WikiText-2, L=4096, 16 chunks",
+  "models": {
+    "Qwen3-1.7B-Q8_0": {
+      "rows": [
+        {
+          "context": 4096,
+          "cache": "f16",
+          "kv_mib": 448.0,
+          "compute_mib": 316.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2508.5,
+          "prefill_tps": 8617.24,
+          "decode_tps": 106.04,
+          "peak_delta_mib": 2616.0,
+          "peak_total_mib": 3877.0,
+          "completed": true,
+          "seconds": 5.24
+        },
+        {
+          "context": 4096,
+          "cache": "q4_0",
+          "kv_mib": 126.0,
+          "compute_mib": 316.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2186.5,
+          "prefill_tps": 8167.49,
+          "decode_tps": 104.9,
+          "peak_delta_mib": 2299.0,
+          "peak_total_mib": 3538.0,
+          "completed": true,
+          "seconds": 5.36
+        },
+        {
+          "context": 4096,
+          "cache": "q8_0",
+          "kv_mib": 238.0,
+          "compute_mib": 316.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2298.5,
+          "prefill_tps": 8043.72,
+          "decode_tps": 104.86,
+          "peak_delta_mib": 2397.0,
+          "peak_total_mib": 3702.0,
+          "completed": true,
+          "seconds": 5.35
+        },
+        {
+          "context": 8192,
+          "cache": "f16",
+          "kv_mib": 896.0,
+          "compute_mib": 320.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2960.5,
+          "prefill_tps": 7406.46,
+          "decode_tps": 105.89,
+          "peak_delta_mib": 3118.0,
+          "peak_total_mib": 4358.0,
+          "completed": true,
+          "seconds": 7.14
+        },
+        {
+          "context": 8192,
+          "cache": "q4_0",
+          "kv_mib": 252.0,
+          "compute_mib": 320.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2316.5,
+          "prefill_tps": 7049.15,
+          "decode_tps": 108.83,
+          "peak_delta_mib": 2429.0,
+          "peak_total_mib": 3668.0,
+          "completed": true,
+          "seconds": 7.45
+        },
+        {
+          "context": 8192,
+          "cache": "q8_0",
+          "kv_mib": 476.0,
+          "compute_mib": 320.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2540.5,
+          "prefill_tps": 6876.62,
+          "decode_tps": 104.11,
+          "peak_delta_mib": 2649.0,
+          "peak_total_mib": 3892.0,
+          "completed": true,
+          "seconds": 7.44
+        },
+        {
+          "context": 16384,
+          "cache": "f16",
+          "kv_mib": 1792.0,
+          "compute_mib": 328.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 3864.5,
+          "prefill_tps": 6199.08,
+          "decode_tps": 117.6,
+          "peak_delta_mib": 3967.0,
+          "peak_total_mib": 5227.0,
+          "completed": true,
+          "seconds": 11.4
+        },
+        {
+          "context": 16384,
+          "cache": "q4_0",
+          "kv_mib": 504.0,
+          "compute_mib": 328.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 2576.5,
+          "prefill_tps": 5792.83,
+          "decode_tps": 115.12,
+          "peak_delta_mib": 2689.0,
+          "peak_total_mib": 3943.0,
+          "completed": true,
+          "seconds": 11.97
+        },
+        {
+          "context": 16384,
+          "cache": "q8_0",
+          "kv_mib": 952.0,
+          "compute_mib": 328.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 3024.5,
+          "prefill_tps": 5670.5,
+          "decode_tps": 115.07,
+          "peak_delta_mib": 3137.0,
+          "peak_total_mib": 4391.0,
+          "completed": true,
+          "seconds": 12.2
+        },
+        {
+          "context": 32768,
+          "cache": "f16",
+          "kv_mib": 3584.0,
+          "compute_mib": 344.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 5672.5,
+          "prefill_tps": 4280.96,
+          "decode_tps": 117.74,
+          "peak_delta_mib": 5781.0,
+          "peak_total_mib": 7035.0,
+          "completed": true,
+          "seconds": 26.51
+        },
+        {
+          "context": 32768,
+          "cache": "q4_0",
+          "kv_mib": 1008.0,
+          "compute_mib": 344.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 3096.5,
+          "prefill_tps": 3962.46,
+          "decode_tps": 115.69,
+          "peak_delta_mib": 3209.0,
+          "peak_total_mib": 4463.0,
+          "completed": true,
+          "seconds": 28.3
+        },
+        {
+          "context": 32768,
+          "cache": "q8_0",
+          "kv_mib": 1904.0,
+          "compute_mib": 344.77,
+          "model_mib": 1743.77,
+          "alloc_total_mib": 3992.5,
+          "prefill_tps": 3860.96,
+          "decode_tps": 115.05,
+          "peak_delta_mib": 4105.0,
+          "peak_total_mib": 5359.0,
+          "completed": true,
+          "seconds": 28.92
+        }
+      ],
+      "perplexity_L4096_16chunk": {
+        "f16": {
+          "ppl": 15.6078,
+          "delta_pct": 0.0
+        },
+        "q8_0": {
+          "ppl": 15.6257,
+          "delta_pct": 0.115
+        },
+        "q4_0": {
+          "ppl": 19.6896,
+          "delta_pct": 26.152
+        }
+      }
+    },
+    "Qwen3-4B-Q8_0": {
+      "rows": [
+        {
+          "context": 8192,
+          "cache": "f16",
+          "kv_mib": 1152.0,
+          "compute_mib": 324.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 5553.2,
+          "prefill_tps": 3277.34,
+          "decode_tps": 53.43,
+          "peak_delta_mib": 5670.0,
+          "peak_total_mib": 6581.0,
+          "completed": true,
+          "seconds": 14.61
+        },
+        {
+          "context": 8192,
+          "cache": "q4_0",
+          "kv_mib": 324.0,
+          "compute_mib": 324.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 4725.2,
+          "prefill_tps": 3164.2,
+          "decode_tps": 52.45,
+          "peak_delta_mib": 4841.0,
+          "peak_total_mib": 5757.0,
+          "completed": true,
+          "seconds": 14.91
+        },
+        {
+          "context": 8192,
+          "cache": "q8_0",
+          "kv_mib": 612.0,
+          "compute_mib": 324.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 5013.2,
+          "prefill_tps": 3136.89,
+          "decode_tps": 52.47,
+          "peak_delta_mib": 5129.0,
+          "peak_total_mib": 6045.0,
+          "completed": true,
+          "seconds": 14.98
+        },
+        {
+          "context": 16384,
+          "cache": "f16",
+          "kv_mib": 2304.0,
+          "compute_mib": 332.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 6713.2,
+          "prefill_tps": 2514.16,
+          "decode_tps": 53.43,
+          "peak_delta_mib": 6825.0,
+          "peak_total_mib": 7741.0,
+          "completed": true,
+          "seconds": 26.65
+        },
+        {
+          "context": 16384,
+          "cache": "q4_0",
+          "kv_mib": 648.0,
+          "compute_mib": 332.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 5057.2,
+          "prefill_tps": 2424.59,
+          "decode_tps": 52.69,
+          "peak_delta_mib": 5173.0,
+          "peak_total_mib": 6089.0,
+          "completed": true,
+          "seconds": 27.43
+        },
+        {
+          "context": 16384,
+          "cache": "q8_0",
+          "kv_mib": 1224.0,
+          "compute_mib": 332.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 5633.2,
+          "prefill_tps": 2390.52,
+          "decode_tps": 52.49,
+          "peak_delta_mib": 5749.0,
+          "peak_total_mib": 6665.0,
+          "completed": true,
+          "seconds": 27.81
+        },
+        {
+          "context": 32768,
+          "cache": "f16",
+          "kv_mib": 4608.0,
+          "compute_mib": 348.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 9033.2,
+          "prefill_tps": null,
+          "decode_tps": null,
+          "peak_delta_mib": 6859.0,
+          "peak_total_mib": 7775.0,
+          "completed": false,
+          "seconds": 420.66
+        },
+        {
+          "context": 32768,
+          "cache": "q4_0",
+          "kv_mib": 1296.0,
+          "compute_mib": 348.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 5721.2,
+          "prefill_tps": 1657.37,
+          "decode_tps": 52.56,
+          "peak_delta_mib": 5837.0,
+          "peak_total_mib": 6722.0,
+          "completed": true,
+          "seconds": 66.46
+        },
+        {
+          "context": 32768,
+          "cache": "q8_0",
+          "kv_mib": 2448.0,
+          "compute_mib": 348.77,
+          "model_mib": 4076.43,
+          "alloc_total_mib": 6873.2,
+          "prefill_tps": 1633.65,
+          "decode_tps": 52.56,
+          "peak_delta_mib": 6901.0,
+          "peak_total_mib": 7810.0,
+          "completed": true,
+          "seconds": 67.3
+        }
+      ],
+      "perplexity_L4096_16chunk": {
+        "f16": {
+          "ppl": 11.8091,
+          "delta_pct": 0.0
+        },
+        "q8_0": {
+          "ppl": 11.8099,
+          "delta_pct": 0.007
+        },
+        "q4_0": {
+          "ppl": 11.9257,
+          "delta_pct": 0.987
+        }
+      }
+    }
+  }
+}

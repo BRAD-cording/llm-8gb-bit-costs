@@ -1,0 +1,39 @@
+{
+  "model": "C:\\Users\\HP\\c2\\models\\Qwen3-4B-Q8_0.gguf",
+  "usable_mb": 7065.6,
+  "physical_mb": 8187.0,
+  "device": "RTX 4060 Laptop (device A)",
+  "runtime": "llama.cpp",
+  "rows": [
+    {
+      "model": "Qwen3-4B-Q8_0",
+      "context": 4096,
+      "cache_type": "f16",
+      "ppl": 11.8459,
+      "ppl_peak_mb": 5085.0,
+      "ppl_seconds": 14.09,
+      "total_mb": 0,
+      "fits": true
+    },
+    {
+      "model": "Qwen3-4B-Q8_0",
+      "context": 4096,
+      "cache_type": "q8_0",
+      "ppl": 11.8461,
+      "ppl_peak_mb": 4819.0,
+      "ppl_seconds": 14.47,
+      "total_mb": 0,
+      "fits": true
+    },
+    {
+      "model": "Qwen3-4B-Q8_0",
+      "context": 4096,
+      "cache_type": "q4_0",
+      "ppl": 11.9419,
+      "ppl_peak_mb": 4675.0,
+      "ppl_seconds": 14.42,
+      "total_mb": 0,
+      "fits": true
+    }
+  ]
+}

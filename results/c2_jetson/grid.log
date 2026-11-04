@@ -1,0 +1,36 @@
+grid start 2026-11-04T21:33:51+08:00
+--- bench_L4096_f16 rc=0 "avg_ts": 1208.816533 "avg_ts": 24.314944 
+--- bench_L8192_f16 rc=1 
+--- bench_L4096_q8_0 rc=0 "avg_ts": 988.712430 "avg_ts": 24.620663 
+--- bench_L8192_q8_0 rc=0 "avg_ts": 1040.032690 "avg_ts": 21.969134 
+--- bench_L4096_q4_0 rc=0 "avg_ts": 1139.114273 "avg_ts": 22.877803 
+--- bench_L8192_q4_0 rc=0 "avg_ts": 1024.266421 "avg_ts": 25.028200 
+--- ppl_f16 rc=0 1.21.107.961 I Final estimate: PPL = 15.1822 +/- 0.29218
+--- ppl_q8_0 rc=0 1.28.122.492 I Final estimate: PPL = 15.1968 +/- 0.29255
+--- ppl_q4_0 rc=0 1.23.404.084 I Final estimate: PPL = 18.9865 +/- 0.38270
+grid done 2026-11-04T21:40:38+08:00
+census2 start 2026-11-04T21:43:10+08:00
+--- L=8192 f16 rc=0 | none | 
+--- L=8192 q8_0 rc=0 | none | 
+--- L=8192 q4_0 rc=0 | none | 
+--- L=16384 f16 rc=1 | size = 1792.00 MiB ( 16384 cells,  28 layers,  1/1 seqs), K (f16):  896.00 MiB, V (f16):  896.00 MiB | allocating 1792.00 MiB on device 0: cudaMalloc failed: out of memory
+--- L=16384 q8_0 rc=0 | none | 
+--- L=16384 q4_0 rc=0 | none | 
+--- bench_L16384_q4_0 rc=0 "avg_ts": 876.311517 "avg_ts": 22.765496 
+--- bench_L16384_q8_0 rc=0 "avg_ts": 853.635333 "avg_ts": 24.275317 
+--- bench_L32768_q4_0 rc=0 "avg_ts": 648.197442 "avg_ts": 24.181474 
+--- bench_L32768_q8_0 rc=1 
+census2 done 2026-11-04T21:48:45+08:00
+ram start 2026-11-04T21:50:31+08:00
+--- L=4096 f16 rc=0 peak_RAM=4531MB "avg_ts": 1009.219965 "avg_ts": 24.163397 
+--- L=16384 q8_0 rc=0 peak_RAM=5099MB "avg_ts": 966.032608 "avg_ts": 22.206376 
+--- L=32768 q4_0 rc=0 peak_RAM=5235MB "avg_ts": 645.193867 "avg_ts": 21.505299 
+ram done 2026-11-04T21:54:50+08:00
+repeat start 2026-11-04T21:55:35+08:00
+--- L=8192 f16 ok=3/3
+--- L=16384 f16 ok=0/3
+--- L=16384 q8_0 ok=3/3
+--- L=16384 q4_0 ok=3/3
+--- L=32768 q8_0 ok=0/3
+--- L=32768 q4_0 ok=3/3
+repeat done 2026-11-04T21:56:44+08:00

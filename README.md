@@ -25,6 +25,7 @@ python experiments/run_all.py      # 17 stages; prints ALL OK on success
 | At 4 bits the cache scheme does not change long-context retrieval; at 2 bits it decides (5/5 vs 0/5) | `src/eval/passkey_eval.py`, `src/eval/passkey_long.py` | `results/passkey_*.json` |
 | Packed 4-bit cache is $3.2\times$ smaller, measured on the allocator | `src/eval/packed_cache_footprint.py` | `results/packed_cache_06b.json` |
 | The recommended policy executed on a shipped runtime: 8-bit weights, packed cache, 32k context that fp16 cannot reach (9,033 MiB allocated vs 6,873 MiB) | `src/eval/c2_llamacpp.py`, `experiments/make_c2_summary.py` | `results/c2_summary.json`, `results/c2_alloc.txt`, `results/C2_LLAMACPP.md` |
+| The same policy on the unified-memory device: each halving of the per-token cache buys one context doubling (8k/16k/32k at fp16/q8_0/q4_0), and the device refuses a 1,792 MiB allocation while its peak sits at 5,235 of 7,620 MB | `tools/jetson_c2/*`, `experiments/make_c2_jetson_summary.py` | `results/c2_jetson/`, `results/c2_jetson_summary.json`, `results/C2_JETSON.md` |
 | Device-dependent capacity, and the edge module's measured 3k ceiling | `src/alloc/dp_alloc.py`, `results/jetson_kv16_limit.json` | `results/capacity_table.json` |
 
 ## Layout

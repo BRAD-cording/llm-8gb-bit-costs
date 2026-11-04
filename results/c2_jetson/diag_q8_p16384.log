@@ -1,0 +1,12 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 7619 MiB):
+  Device 0: Orin, compute capability 8.7, VMM: yes, VRAM: 7619 MiB
+NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+ggml_backend_cuda_buffer_type_alloc_buffer: allocating 952.00 MiB on device 0: cudaMalloc failed: out of memory
+ggml_backend_buft_alloc_buffer_n_default: failed to allocate CUDA0 buffer of size 998244352
+llama_init_from_model: failed to initialize the context: failed to allocate buffer for kv cache
+llama_bench: error: failed to create context with model '/home/brad/c2/models/Qwen3-1.7B-Q8_0.gguf'
+| model                          |       size |     params | backend    | ngl | type_k | type_v |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | -----: | -----: | --------------: | -------------------: |

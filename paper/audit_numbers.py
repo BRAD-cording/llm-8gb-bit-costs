@@ -74,6 +74,16 @@ def main() -> int:
     except Exception as e:
         checks.append(("bit cost", f"unreadable: {e}", None))
 
+    try:
+        j = json.loads((ROOT / "results" / "c2_jetson_summary.json").read_text("utf-8"))
+        ppl = j["perplexity_L4096_16chunk"]
+        checks.append(("orin q8_0 ppl delta %", round(ppl["q8_0"]["delta_pct"], 2), 0.10))
+        checks.append(("orin q4_0 ppl delta %", round(ppl["q4_0"]["delta_pct"], 2), 25.06))
+        checks.append(("orin 32k q4_0 peak RAM MB", j["peak_ram_mb"]["32768/q4_0"], 5235))
+        checks.append(("orin 16k fp16 fits", j["fits"]["16384/f16"], "0/3"))
+    except Exception as e:
+        checks.append(("c2_jetson", f"unreadable: {e}", None))
+
     for name, got, expect in checks:
         flag = ""
         if expect is not None and isinstance(got, (int, float)):

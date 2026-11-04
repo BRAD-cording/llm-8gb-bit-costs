@@ -1,0 +1,38 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 7619 MiB):
+  Device 0: Orin, compute capability 8.7, VMM: yes, VRAM: 7619 MiB
+NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+CUDA error: out of memory
+  current device: 0, in function alloc at /home/brad/c2/llama.cpp/ggml/src/ggml-cuda/ggml-cuda.cu:630
+  cuMemCreate(&handle, reserve_size, &prop, 0)
+| model                          |       size |     params | backend    | ngl | n_batch |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | --------------: | -------------------: |
+/home/brad/c2/llama.cpp/ggml/src/ggml-cuda/ggml-cuda.cu:110: CUDA error
+[New LWP 11920]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/aarch64-linux-gnu/libthread_db.so.1".
+0x0000ffff94109980 in __GI___wait4 (pid=<optimized out>, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+30	../sysdeps/unix/sysv/linux/wait4.c: 没有那个文件或目录.
+#0  0x0000ffff94109980 in __GI___wait4 (pid=<optimized out>, stat_loc=0x0, options=0, usage=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:30
+30	in ../sysdeps/unix/sysv/linux/wait4.c
+#1  0x0000ffff936c3844 in ggml_print_backtrace () from /home/brad/c2/llama.cpp/build/bin/libggml-base.so.0
+#2  0x0000ffff936c39d8 in ggml_abort () from /home/brad/c2/llama.cpp/build/bin/libggml-base.so.0
+#3  0x0000ffff86688eb4 in ggml_cuda_error(char const*, char const*, char const*, int, char const*) () from /home/brad/c2/llama.cpp/build/bin/libggml-cuda.so.0
+#4  0x0000ffff866a0270 in ggml_cuda_pool_vmm::alloc(unsigned long, unsigned long*) () from /home/brad/c2/llama.cpp/build/bin/libggml-cuda.so.0
+#5  0x0000ffff866e00e8 in ggml_cuda_mul_mat_q(ggml_backend_cuda_context&, ggml_tensor const*, ggml_tensor const*, ggml_tensor const*, ggml_tensor*, ggml_cuda_mm_fusion_args_host const*) () from /home/brad/c2/llama.cpp/build/bin/libggml-cuda.so.0
+#6  0x0000ffff8669c694 in ggml_backend_cuda_graph_compute(ggml_backend*, ggml_cgraph*) () from /home/brad/c2/llama.cpp/build/bin/libggml-cuda.so.0
+#7  0x0000ffff936e2394 in ggml_backend_sched_graph_compute_async () from /home/brad/c2/llama.cpp/build/bin/libggml-base.so.0
+#8  0x0000ffff9399a430 in llama_context::graph_compute(ggml_cgraph*, bool) () from /home/brad/c2/llama.cpp/build/bin/libllama.so.0
+#9  0x0000ffff9399cbd8 in llama_context::process_ubatch(llama_ubatch const&, llm_graph_type, llama_memory_context_i*, ggml_status&) () from /home/brad/c2/llama.cpp/build/bin/libllama.so.0
+#10 0x0000ffff939a70b0 in llama_context::decode(llama_batch_ext const&) () from /home/brad/c2/llama.cpp/build/bin/libllama.so.0
+#11 0x0000ffff94497a1c in test_prompt(llama_context*, int, int, int) () from /home/brad/c2/llama.cpp/build/bin/libllama-bench-impl.so
+#12 0x0000ffff944a0f5c in llama_bench(int, char**) () from /home/brad/c2/llama.cpp/build/bin/libllama-bench-impl.so
+#13 0x0000ffff94077400 in __libc_start_call_main (main=main@entry=0xaaaad6b910c0 <main>, argc=argc@entry=15, argv=argv@entry=0xfffffdb408f8) at ../sysdeps/nptl/libc_start_call_main.h:58
+58	../sysdeps/nptl/libc_start_call_main.h: 没有那个文件或目录.
+#14 0x0000ffff940774d8 in __libc_start_main_impl (main=0xaaaad6b910c0 <main>, argc=15, argv=0xfffffdb408f8, init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, stack_end=<optimized out>) at ../csu/libc-start.c:392
+392	../csu/libc-start.c: 没有那个文件或目录.
+#15 0x0000aaaad6b91130 in _start ()
+[Inferior 1 (process 11919) detached]
+timeout: 被监视的命令已核心转储

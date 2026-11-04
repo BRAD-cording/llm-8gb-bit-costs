@@ -1,0 +1,15 @@
+
+
+Loading model... |-\|/-\|/-\|/-\|/-\|/-\|/-\|/-NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+\|/-\|NvMapMemAllocInternalTagged: 1075072515 error 12
+NvMapMemHandleAlloc: error 0
+0.03.599.637 E ggml_backend_cuda_buffer_type_alloc_buffer: allocating 1792.00 MiB on device 0: cudaMalloc failed: out of memory
+0.03.599.662 E ggml_backend_buft_alloc_buffer_n_default: failed to allocate CUDA0 buffer of size 1879048192
+0.03.600.449 E llama_init_from_model: failed to initialize the context: failed to allocate buffer for kv cache
+0.03.600.475 E cmn  common_init_: failed to create context with model '/home/brad/c2/models/Qwen3-1.7B-Q8_0.gguf'
+0.03.600.486 E cmn  common_init_: failed to create context with model '/home/brad/c2/models/Qwen3-1.7B-Q8_0.gguf'
+0.03.600.502 E srv    load_model: failed to create_context with model '/home/brad/c2/models/Qwen3-1.7B-Q8_0.gguf'
+0.03.601.143 E srv  server_run_i: exiting due to model loading error
+/-\llama_server exited with code 1
+|/ Error: the server exited before becoming ready

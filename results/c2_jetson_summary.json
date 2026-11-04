@@ -1,0 +1,88 @@
+{
+  "device": "Jetson Orin Nano Super, 8 GB unified, 25 W, desktop running",
+  "runtime": "llama.cpp b12063, CUDA 12.6.68, sm_87",
+  "weights": "Qwen3-1.7B-Q8_0.gguf (1,834,426,016 B, byte-identical to the laptop copy)",
+  "fits": {
+    "8192/f16": "3/3",
+    "16384/f16": "0/3",
+    "16384/q8_0": "3/3",
+    "16384/q4_0": "3/3",
+    "32768/q8_0": "0/3",
+    "32768/q4_0": "3/3"
+  },
+  "throughput": {
+    "4096/f16": {
+      "prefill": 1208.8,
+      "prefill_stddev": 315.5,
+      "decode": 24.3,
+      "decode_stddev": 0.6
+    },
+    "4096/q8_0": {
+      "prefill": 988.7,
+      "prefill_stddev": 21.1,
+      "decode": 24.6,
+      "decode_stddev": 5.8
+    },
+    "4096/q4_0": {
+      "prefill": 1139.1,
+      "prefill_stddev": 296.2,
+      "decode": 22.9,
+      "decode_stddev": 3.0
+    },
+    "8192/f16": {
+      "prefill": 1068.7,
+      "prefill_stddev": 51.1,
+      "decode": 21.4,
+      "decode_stddev": 1.4
+    },
+    "8192/q8_0": {
+      "prefill": 1040.0,
+      "prefill_stddev": 182.0,
+      "decode": 22.0,
+      "decode_stddev": 3.3
+    },
+    "8192/q4_0": {
+      "prefill": 1024.3,
+      "prefill_stddev": 83.2,
+      "decode": 25.0,
+      "decode_stddev": 5.0
+    },
+    "16384/q8_0": {
+      "prefill": 853.6,
+      "prefill_stddev": 64.4,
+      "decode": 24.3,
+      "decode_stddev": 0.1
+    },
+    "16384/q4_0": {
+      "prefill": 876.3,
+      "prefill_stddev": 43.2,
+      "decode": 22.8,
+      "decode_stddev": 4.4
+    },
+    "32768/q4_0": {
+      "prefill": 648.2,
+      "prefill_stddev": 1.7,
+      "decode": 24.2,
+      "decode_stddev": 3.0
+    }
+  },
+  "perplexity_L4096_16chunk": {
+    "f16": {
+      "ppl": 15.1822,
+      "delta_pct": 0.0
+    },
+    "q8_0": {
+      "ppl": 15.1968,
+      "delta_pct": 0.096
+    },
+    "q4_0": {
+      "ppl": 18.9865,
+      "delta_pct": 25.058
+    }
+  },
+  "peak_ram_mb": {
+    "16384/q8_0": 5099,
+    "32768/q4_0": 5235,
+    "4096/f16": 4531
+  }
+}

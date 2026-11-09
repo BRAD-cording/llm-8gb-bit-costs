@@ -1,6 +1,6 @@
 # IoT-J 投稿检查清单（提交前逐项勾）
 
-生成时间：2026-11-09　·　稿件 commit：`79ee170`（与 `main.tex` 的 Data Availability 引用一致）
+生成时间：2026-11-09　·　稿件 commit：`a6ee375`（与 `main.tex` 的 Data Availability 引用一致）
 
 ## 一、已核实通过
 

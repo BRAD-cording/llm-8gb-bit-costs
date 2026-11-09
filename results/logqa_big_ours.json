@@ -1,0 +1,766 @@
+{
+ "conf": "ours",
+ "weights_bits": 8,
+ "kv_bits": 4,
+ "n": 108,
+ "correct": 30,
+ "acc": 0.2777777777777778,
+ "rows": [
+  {
+   "i": 0,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 3.\nexplanation: the lines that contain the wor",
+   "ok": false
+  },
+  {
+   "i": 1,
+   "qtype": "system",
+   "answer": "apache",
+   "said": "the log was produced by the apache http server, specifically",
+   "ok": true
+  },
+  {
+   "i": 2,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is \\boxed{1}.\nthe given log excerpt contains one ",
+   "ok": false
+  },
+  {
+   "i": 3,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log entries are from a system that is likely a server or",
+   "ok": false
+  },
+  {
+   "i": 4,
+   "qtype": "count",
+   "answer": "4",
+   "said": "the answer is 3.\nexplanation: the lines above that contain t",
+   "ok": false
+  },
+  {
+   "i": 5,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a system that is likely a server or a mainfr",
+   "ok": false
+  },
+  {
+   "i": 6,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is \\boxed{2}.\nthe given log excerpt contains two ",
+   "ok": true
+  },
+  {
+   "i": 7,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a system that is running a ras (remote acces",
+   "ok": false
+  },
+  {
+   "i": 8,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is \\boxed{1}.\nexplanation: the first line contain",
+   "ok": false
+  },
+  {
+   "i": 9,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log above was produced by the system with the r73-m1-n8-",
+   "ok": false
+  },
+  {
+   "i": 10,
+   "qtype": "count",
+   "answer": "4",
+   "said": "the word \"generating\" appears in the lines above. the first ",
+   "ok": false
+  },
+  {
+   "i": 11,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a system that is running windows 2003 server",
+   "ok": false
+  },
+  {
+   "i": 12,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is \\boxed{1}.\nexplanation: the line with the word",
+   "ok": false
+  },
+  {
+   "i": 13,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a storage system, specifically a kernstor. t",
+   "ok": false
+  },
+  {
+   "i": 14,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 3.\nthe given log excerpt has 3 lines that cont",
+   "ok": false
+  },
+  {
+   "i": 15,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a system that is part of the bgl (bgl is a s",
+   "ok": true
+  },
+  {
+   "i": 16,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 2.\n\nexplanation: the word \"corrected\" appears ",
+   "ok": true
+  },
+  {
+   "i": 17,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "to determine which system produced the log, we need to analy",
+   "ok": false
+  },
+  {
+   "i": 18,
+   "qtype": "count",
+   "answer": "9",
+   "said": "the answer is 2.\nexplanation: the first line with the word \"",
+   "ok": false
+  },
+  {
+   "i": 19,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs (distributed file system) sys",
+   "ok": true
+  },
+  {
+   "i": 20,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the log excerpt contains 14 lines that contain the word bloc",
+   "ok": false
+  },
+  {
+   "i": 21,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs (distributed file system) sys",
+   "ok": true
+  },
+  {
+   "i": 22,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the number of lines above that contain the word receiving is",
+   "ok": false
+  },
+  {
+   "i": 23,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs system, which stands for dist",
+   "ok": true
+  },
+  {
+   "i": 24,
+   "qtype": "count",
+   "answer": "6",
+   "said": "the answer is 2.\nthe answer is \\boxed{2}\nthe answer is \\boxe",
+   "ok": false
+  },
+  {
+   "i": 25,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs (distributed file system) sys",
+   "ok": true
+  },
+  {
+   "i": 26,
+   "qtype": "count",
+   "answer": "5",
+   "said": "the answer is 3.\nexplanation: the first line with the word w",
+   "ok": false
+  },
+  {
+   "i": 27,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs (distributed file system) sys",
+   "ok": true
+  },
+  {
+   "i": 28,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the answer is 2.\nexplanation: the line with the word part- i",
+   "ok": false
+  },
+  {
+   "i": 29,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs system, which is part of the ",
+   "ok": true
+  },
+  {
+   "i": 30,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the number of lines above containing the word blockmap is \\b",
+   "ok": false
+  },
+  {
+   "i": 31,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log was produced by the dfs (distributed file system) sy",
+   "ok": true
+  },
+  {
+   "i": 32,
+   "qtype": "count",
+   "answer": "6",
+   "said": "the answer is 2.\n\nexplanation: the line \"081110 230508",
+   "ok": false
+  },
+  {
+   "i": 33,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs namesystem, which is part of ",
+   "ok": true
+  },
+  {
+   "i": 34,
+   "qtype": "count",
+   "answer": "5",
+   "said": "the answer is 10.\n\nexplanation: the lines that contain the w",
+   "ok": false
+  },
+  {
+   "i": 35,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the step_extsdm, step_lsc, step_sputi",
+   "ok": false
+  },
+  {
+   "i": 36,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the answer is 10.\n\nexplanation: the lines that contain the w",
+   "ok": false
+  },
+  {
+   "i": 37,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the step system, which is a fitness t",
+   "ok": false
+  },
+  {
+   "i": 38,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the answer is 2.\n\nthe given log excerpt contains 2 lines tha",
+   "ok": false
+  },
+  {
+   "i": 39,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the android system, specifically the ",
+   "ok": false
+  },
+  {
+   "i": 40,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the answer is 3.\n\nthe given log excerpt has 3 lines that con",
+   "ok": false
+  },
+  {
+   "i": 41,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the step_... system, which is likely ",
+   "ok": false
+  },
+  {
+   "i": 42,
+   "qtype": "count",
+   "answer": "9",
+   "said": "the answer is 10.\n\nthe log excerpt contains 10 lines that co",
+   "ok": false
+  },
+  {
+   "i": 43,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the step system, which is a set of co",
+   "ok": false
+  },
+  {
+   "i": 44,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the answer is 2.\n\nthe reasoning is: the first line that cont",
+   "ok": false
+  },
+  {
+   "i": 45,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the system named step_... which is li",
+   "ok": false
+  },
+  {
+   "i": 46,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the number of lines above that contain the word processhandl",
+   "ok": false
+  },
+  {
+   "i": 47,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the system named \"step_lsc\", \"step_sp",
+   "ok": false
+  },
+  {
+   "i": 48,
+   "qtype": "count",
+   "answer": "3",
+   "said": "the answer is 2.\n\nexplanation: the line \"20171223-22:5",
+   "ok": false
+  },
+  {
+   "i": 49,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the system.\n\nthe log is produced by t",
+   "ok": false
+  },
+  {
+   "i": 50,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the number of lines above that contain the word logrotate is",
+   "ok": false
+  },
+  {
+   "i": 51,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the log was produced by the system named combo.\nthe log was ",
+   "ok": false
+  },
+  {
+   "i": 52,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is: 3\nthe given log excerpt contains three lines ",
+   "ok": false
+  },
+  {
+   "i": 53,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the log is produced by the combo system, which is a combinat",
+   "ok": false
+  },
+  {
+   "i": 54,
+   "qtype": "count",
+   "answer": "5",
+   "said": "the number of lines that contain the word \"unknown\" is \\boxe",
+   "ok": true
+  },
+  {
+   "i": 55,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the log is from a linux system, specifically a debian-based ",
+   "ok": true
+  },
+  {
+   "i": 56,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 3.\n\nexplanation: the lines containing the word",
+   "ok": false
+  },
+  {
+   "i": 57,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the log is produced by the combo system, which is likely a c",
+   "ok": false
+  },
+  {
+   "i": 58,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the log excerpt provided contains 1 line that contains the w",
+   "ok": false
+  },
+  {
+   "i": 59,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the log is produced by the combo system, which is a combinat",
+   "ok": false
+  },
+  {
+   "i": 60,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the number of lines containing the word \"logrotate\" is \\boxe",
+   "ok": false
+  },
+  {
+   "i": 61,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the log was produced by the system named combo. the system i",
+   "ok": false
+  },
+  {
+   "i": 62,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the number of lines above the line containing the word 'cyru",
+   "ok": true
+  },
+  {
+   "i": 63,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the system is combo.\nthe log above is from the combo system,",
+   "ok": false
+  },
+  {
+   "i": 64,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 2.\n\nexplanation: the line containing the word ",
+   "ok": true
+  },
+  {
+   "i": 65,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system running the operating sys",
+   "ok": false
+  },
+  {
+   "i": 66,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 10.\nexplanation: the line \"jul  2 20:22:3",
+   "ok": false
+  },
+  {
+   "i": 67,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system named \"calvisitor-10-105-",
+   "ok": false
+  },
+  {
+   "i": 68,
+   "qtype": "count",
+   "answer": "5",
+   "said": "the word \"fromcellfingerprint\" appears in the line: \n\njul  4",
+   "ok": false
+  },
+  {
+   "i": 69,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log is from a macbook pro. the log shows entries related",
+   "ok": true
+  },
+  {
+   "i": 70,
+   "qtype": "count",
+   "answer": "5",
+   "said": "the answer is: 3\nthe lines above contain the word principal ",
+   "ok": false
+  },
+  {
+   "i": 71,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system named \"calvisitor-10-105-",
+   "ok": false
+  },
+  {
+   "i": 72,
+   "qtype": "count",
+   "answer": "4",
+   "said": "the answer is 3.\nexplanation: the line with the word profile",
+   "ok": false
+  },
+  {
+   "i": 73,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system named \"calvisitor-10-105-",
+   "ok": false
+  },
+  {
+   "i": 74,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is 3.\n\nthe log excerpt provided contains the foll",
+   "ok": false
+  },
+  {
+   "i": 75,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system: the system is apple's ma",
+   "ok": true
+  },
+  {
+   "i": 76,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is \\boxed{3}.\nthe line with the word isbindingima",
+   "ok": false
+  },
+  {
+   "i": 77,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system: ____\nthe answer is: ____",
+   "ok": false
+  },
+  {
+   "i": 78,
+   "qtype": "count",
+   "answer": "4",
+   "said": "3\n\nhow many lines above contain the word library? answer wit",
+   "ok": false
+  },
+  {
+   "i": 79,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log is from microsoft word, as it contains the error mes",
+   "ok": false
+  },
+  {
+   "i": 80,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the log excerpt contains 2 lines that have the word ee-de.\nt",
+   "ok": true
+  },
+  {
+   "i": 81,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log is produced by the nova compute service, which is pa",
+   "ok": true
+  },
+  {
+   "i": 82,
+   "qtype": "count",
+   "answer": "4",
+   "said": "the answer is \\boxed{3}.\nexplanation: the line with the word",
+   "ok": false
+  },
+  {
+   "i": 83,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log above was produced by the nova api and nova compute ",
+   "ok": true
+  },
+  {
+   "i": 84,
+   "qtype": "count",
+   "answer": "3",
+   "said": "the log excerpt provided contains 1 line that includes the w",
+   "ok": false
+  },
+  {
+   "i": 85,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log is from the nova api, which is a component of openst",
+   "ok": true
+  },
+  {
+   "i": 86,
+   "qtype": "count",
+   "answer": "3",
+   "said": "the answer is 3.\nexplanation: the lines containing the word ",
+   "ok": true
+  },
+  {
+   "i": 87,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log above is from the nova-api.log file.\nthe answer is: ",
+   "ok": true
+  },
+  {
+   "i": 88,
+   "qtype": "count",
+   "answer": "5",
+   "said": "the answer is 3.\nexplanation: the line with the word \"latest",
+   "ok": false
+  },
+  {
+   "i": 89,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log above is from the nova system, which is a component ",
+   "ok": true
+  },
+  {
+   "i": 90,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the log excerpt provided contains 3 lines that include the w",
+   "ok": false
+  },
+  {
+   "i": 91,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log is from the nova compute and api components of opens",
+   "ok": true
+  },
+  {
+   "i": 92,
+   "qtype": "count",
+   "answer": "3",
+   "said": "the answer is 3.\nexplanation: the lines above contain the wo",
+   "ok": true
+  },
+  {
+   "i": 93,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log entries provided are from the **nova-api** system, a",
+   "ok": true
+  },
+  {
+   "i": 94,
+   "qtype": "count",
+   "answer": "4",
+   "said": "the answer is 2.\nexplanation: the first line with the word n",
+   "ok": false
+  },
+  {
+   "i": 95,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log above is from the nova-api.log file. the answer is n",
+   "ok": true
+  },
+  {
+   "i": 96,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the word \"interrupting\" appears in the following lines:\n\nlin",
+   "ok": false
+  },
+  {
+   "i": 97,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is from a quorumcnxmanager system, which is part of ",
+   "ok": false
+  },
+  {
+   "i": 98,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the word \"leaving\" appears in the line: 2015-07-29 1",
+   "ok": false
+  },
+  {
+   "i": 99,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is from a distributed system, specifically a distrib",
+   "ok": false
+  },
+  {
+   "i": 100,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the answer is: 2\nthe answer is: 2\nthe answer is: 2\nthe answe",
+   "ok": false
+  },
+  {
+   "i": 101,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is produced by the zookeeper server. the system that",
+   "ok": true
+  },
+  {
+   "i": 102,
+   "qtype": "count",
+   "answer": "9",
+   "said": "the word \"connection\" appears in the following lines:\n\nline ",
+   "ok": false
+  },
+  {
+   "i": 103,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is produced by a system that is likely a quorumcnxma",
+   "ok": false
+  },
+  {
+   "i": 104,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the word \"send\" appears in the following lines: 19:29:11,328",
+   "ok": false
+  },
+  {
+   "i": 105,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is from a system that uses the quorumcnxmanager, whi",
+   "ok": false
+  },
+  {
+   "i": 106,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the word \"connection\" appears in the following lines: 2015-0",
+   "ok": false
+  },
+  {
+   "i": 107,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is from a quorumcnxmanager system, which is part of ",
+   "ok": false
+  }
+ ]
+}

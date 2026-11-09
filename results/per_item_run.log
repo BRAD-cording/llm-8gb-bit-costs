@@ -1,0 +1,4 @@
+  File "C:\Users\HP\OneDrive\Desktop\Dev\harness\llm_8gb_bit_costs\src\eval\per_item_4b_nf4.py", line 123
+    lf.write(json.dumps(rec) + '
+                               ^
+SyntaxError: unterminated string literal (detected at line 123)

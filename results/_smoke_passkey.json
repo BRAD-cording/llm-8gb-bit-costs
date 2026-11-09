@@ -1,0 +1,28 @@
+{
+ "model": "C:/models/Qwen3-0.6B",
+ "seed": 0,
+ "rows": [
+  {
+   "config": "fp16",
+   "length": 11000,
+   "hit": 2,
+   "n": 2,
+   "rate": 1.0,
+   "wilson95": [
+    0.3424,
+    1.0
+   ]
+  },
+  {
+   "config": "k2g",
+   "length": 11000,
+   "hit": 0,
+   "n": 2,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.6576
+   ]
+  }
+ ]
+}

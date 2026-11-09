@@ -1,0 +1,131 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\emailauthor{zhang_yibo@ahsgs.uum.edu.my}{Yibo Zhang\corref {cor1}}
+\Newlabel{cor1}{1}
+\Newlabel{uum}{a}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{quarot,spinquant,duquant,sun2024}
+\citation{gptq,frantar2022}
+\citation{hawqv2,mixllm,gamma,alignquant,wang2018}
+\citation{lin2024,zhao2023,wei2024,guo2026,mixquant}
+\citation{song2026,park2026,liu2025}
+\citation{kivi,kvquant,mixkvq,kvpareto,duanmu2024,su2025,he2024}
+\citation{kwon2023}
+\citation{kvpareto}
+\citation{quarot,spinquant,duquant,prefixquant,ostquant,spectrumquant}
+\citation{gptq,gptaq}
+\citation{awq}
+\citation{kivi,kvquant,mixkvq}
+\citation{kvpareto}
+\citation{hawqv2,mixllm,gamma}
+\citation{alignquant}
+\citation{dq}
+\citation{mixquant}
+\citation{kvpareto}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{3}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Quantisation for speed}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Capacity-oriented compression}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Edge measurement and reporting}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Usable Memory and the Weight-Bit Exchange Rate}{3}{section.3}\protected@file@percent }
+\newlabel{sec:rho}{{3}{3}{Usable Memory and the Weight-Bit Exchange Rate}{section.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Attainable context versus weight width for Qwen3-4B with a 16-bit cache, from measured $\rho $ and workspace. The two curves have different slopes, which is the whole reason a single published configuration cannot be optimal on both devices.}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:exchange}{{1}{4}{Attainable context versus weight width for Qwen3-4B with a 16-bit cache, from measured $\rhoSym $ and workspace. The two curves have different slopes, which is the whole reason a single published configuration cannot be optimal on both devices}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Method}{4}{section.4}\protected@file@percent }
+\newlabel{sec:method}{{4}{4}{Method}{section.4}{}}
+\newlabel{eq:budget}{{1}{4}{Budget constraint}{equation.1}{}}
+\newlabel{eq:obj}{{2}{4}{Objective}{equation.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experimental Setup}{4}{section.5}\protected@file@percent }
+\newlabel{sec:setup}{{5}{4}{Experimental Setup}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{5}{section.6}\protected@file@percent }
+\newlabel{sec:results}{{6}{5}{Results}{section.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Attention peak memory, $q{=}16$ heads, $kv{=}8$ heads, $L{=}4096$, $d{=}128$, fp16. Identical output values in every successful row.}}{6}{table.1}\protected@file@percent }
+\newlabel{tab:gqa}{{1}{6}{Attention peak memory, $q{=}16$ heads, $kv{=}8$ heads, $L{=}4096$, $d{=}128$, fp16. Identical output values in every successful row}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}The stack decides the budget before any bit does}{6}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:results-stack}{{6.1}{6}{The stack decides the budget before any bit does}{subsection.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces End-to-end effect of the attention dispatch, on real checkpoints at both sizes. We first screened the 4B scale with an architecture-exact random-weight model and then re-ran every entry with the real checkpoint: the synthetic model predicted peak memory to within $0.7\%$ and prefill time to within $8\%$, so the screening procedure is sound, but every number below is real-weight. ``spilled'' marks runs that exceeded VRAM and were backed by system memory without raising an error, so their timings are not usable as latency.}}{6}{table.2}\protected@file@percent }
+\newlabel{tab:stack}{{2}{6}{End-to-end effect of the attention dispatch, on real checkpoints at both sizes. We first screened the 4B scale with an architecture-exact random-weight model and then re-ran every entry with the real checkpoint: the synthetic model predicted peak memory to within $0.7\%$ and prefill time to within $8\%$, so the screening procedure is sound, but every number below is real-weight. ``spilled'' marks runs that exceeded VRAM and were backed by system memory without raising an error, so their timings are not usable as latency}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Time to first token versus context length. Crosses mark runs that spilled or ran out of memory; they are drawn rather than dropped, because where the naive path stops working is the point.}}{6}{figure.2}\protected@file@percent }
+\newlabel{fig:stack}{{2}{6}{Time to first token versus context length. Crosses mark runs that spilled or ran out of memory; they are drawn rather than dropped, because where the naive path stops working is the point}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Quantisation buys capacity, not speed}{6}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:results-nospeed}{{6.2}{6}{Quantisation buys capacity, not speed}{subsection.6.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 4-bit nf4 versus fp16 on the real Qwen3-0.6B checkpoint, fused attention path. Every row is the mean of two interleaved runs, so both configurations saw the same background load. nf4 is slower at every length, and the penalty shrinks with context as the cache rather than the weights comes to dominate traffic.}}{7}{table.3}\protected@file@percent }
+\newlabel{tab:nospeed}{{3}{7}{4-bit nf4 versus fp16 on the real Qwen3-0.6B checkpoint, fused attention path. Every row is the mean of two interleaved runs, so both configurations saw the same background load. nf4 is slower at every length, and the penalty shrinks with context as the cache rather than the weights comes to dominate traffic}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Largest context length whose minimum achievable perplexity increase stays within $\epsilon $, computed from the measured $\rho $ and workspace curves and the measured weight/cache curves of Table~\ref {tab:bitcost}. The Jetson column is an \emph  {upper bound}, derived from that device's measured $\rho $ and a workspace curve validated on it to within $2\%$ (Section~\ref {sec:setup}). The extrapolation is not achieved in practice: direct measurement puts the Jetson's ceiling for 0.6B near 3k tokens, and a 4k prefill aborts the allocator outright. We report the column because the comparison between devices is the point, and flag it because a reader who took 67k as a working configuration would be misled. The allocator keeps weights at 8 bits and spends the budget on the cache at every budget shown, because a cache bit is not more expensive in accuracy and, at these context lengths, saves more bytes.}}{7}{table.4}\protected@file@percent }
+\newlabel{tab:capacity}{{4}{7}{Largest context length whose minimum achievable perplexity increase stays within $\epsilon $, computed from the measured $\rhoSym $ and workspace curves and the measured weight/cache curves of Table~\ref {tab:bitcost}. The Jetson column is an \emph {upper bound}, derived from that device's measured $\rhoSym $ and a workspace curve validated on it to within $2\%$ (Section~\ref {sec:setup}). The extrapolation is not achieved in practice: direct measurement puts the Jetson's ceiling for 0.6B near 3k tokens, and a 4k prefill aborts the allocator outright. We report the column because the comparison between devices is the point, and flag it because a reader who took 67k as a working configuration would be misled. The allocator keeps weights at 8 bits and spends the budget on the cache at every budget shown, because a cache bit is not more expensive in accuracy and, at these context lengths, saves more bytes}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Capacity is device-dependent}{7}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:results-capacity}{{6.3}{7}{Capacity is device-dependent}{subsection.6.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Four configurations deployed at $L{=}4096$ on Device~A over four windows of 1{,}024 tokens. $\Delta $PPL is relative perplexity against the \texttt  {nf4} row, so negative is better. ``full'' is full-precision weights with an untouched cache: the clean control for the weight-precision effect, since no cache quantisation sits on its path. The two cache-compressed rows are \emph  {simulated} --- our attention patch quantises and immediately dequantises --- so their latency and memory are upper bounds rather than what a packed 4-bit implementation would reach, and no claim in this paper rests on them.}}{7}{table.5}\protected@file@percent }
+\newlabel{tab:headtohead}{{5}{7}{Four configurations deployed at $L{=}4096$ on Device~A over four windows of 1{,}024 tokens. $\Delta $PPL is relative perplexity against the \texttt {nf4} row, so negative is better. ``full'' is full-precision weights with an untouched cache: the clean control for the weight-precision effect, since no cache quantisation sits on its path. The two cache-compressed rows are \emph {simulated} --- our attention patch quantises and immediately dequantises --- so their latency and memory are upper bounds rather than what a packed 4-bit implementation would reach, and no claim in this paper rests on them}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces The recommended policy executed on llama.cpp \texttt  {b12063}, on Device~A (8188\,MiB physical, 6.9\,GiB usable). ``allocated'' is the sum of the runtime's own cache, compute and model buffers, read from its allocation log; prefill and decode are tokens per second. Nothing in this table is modelled.}}{8}{table.6}\protected@file@percent }
+\newlabel{tab:exec}{{6}{8}{The recommended policy executed on llama.cpp \texttt {b12063}, on Device~A (8188\,MiB physical, 6.9\,GiB usable). ``allocated'' is the sum of the runtime's own cache, compute and model buffers, read from its allocation log; prefill and decode are tokens per second. Nothing in this table is modelled}{table.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}The recommended policy, executed}{8}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:results-exec}{{6.4}{8}{The recommended policy, executed}{subsection.6.4}{}}
+\citation{kivi}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces The same policy on a unified-memory device: Jetson Orin Nano Super (8\,GB, 25\,W, desktop running), llama.cpp \texttt  {b12063}, Qwen3-1.7B with Q8\_0 weights. ``KV'' is the cache the runtime allocates, not a model buffer it does not copy; ``refused'' means the allocation failed in all three attempts. Prefill on this device varies by up to $20\%$ between runs and decode by less than $5\%$; no claim here rests on prefill.}}{9}{table.7}\protected@file@percent }
+\newlabel{tab:exec-orin}{{7}{9}{The same policy on a unified-memory device: Jetson Orin Nano Super (8\,GB, 25\,W, desktop running), llama.cpp \texttt {b12063}, Qwen3-1.7B with Q8\_0 weights. ``KV'' is the cache the runtime allocates, not a model buffer it does not copy; ``refused'' means the allocation failed in all three attempts. Prefill on this device varies by up to $20\%$ between runs and decode by less than $5\%$; no claim here rests on prefill}{table.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}The cache is not the fragile side}{9}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:results-bitcost}{{6.5}{9}{The cache is not the fragile side}{subsection.6.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Relative perplexity increase when all weights, or the whole KV cache, are quantised to the same width, on two model sizes. Corpus: 2{,}000 arXiv abstracts, 48 windows of 1{,}024 tokens; intervals are 95\% bootstrap CIs over windows. The ``tuned'' row strengthens the weight side as far as group size and grid symmetry allow and is the honest worst case for our own claim. The ordering --- cache cheaper than weights at the same width --- reproduces at 1.7B, but the margin under a tuned quantiser shrinks to about one percentage point on both.}}{10}{table.8}\protected@file@percent }
+\newlabel{tab:bitcost}{{8}{10}{Relative perplexity increase when all weights, or the whole KV cache, are quantised to the same width, on two model sizes. Corpus: 2{,}000 arXiv abstracts, 48 windows of 1{,}024 tokens; intervals are 95\% bootstrap CIs over windows. The ``tuned'' row strengthens the weight side as far as group size and grid symmetry allow and is the honest worst case for our own claim. The ordering --- cache cheaper than weights at the same width --- reproduces at 1.7B, but the margin under a tuned quantiser shrinks to about one percentage point on both}{table.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces The same comparison under three quantiser pairs, each stronger than the last, with calibration windows held out from evaluation. The cache is cheaper per bit in every symmetric pair, by between $3.2\times $ and $14.3\times $. The single row where it is not --- weights at group 16 against an ungrouped cache --- is an artefact of giving one side finer granularity than the other; we report it because we produced it ourselves and it is the natural way to get this comparison wrong.}}{10}{table.9}\protected@file@percent }
+\newlabel{tab:strength}{{9}{10}{The same comparison under three quantiser pairs, each stronger than the last, with calibration windows held out from evaluation. The cache is cheaper per bit in every symmetric pair, by between $3.2\times $ and $14.3\times $. The single row where it is not --- weights at group 16 against an ungrouped cache --- is an artefact of giving one side finer granularity than the other; we report it because we produced it ourselves and it is the natural way to get this comparison wrong}{table.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Perplexity cost of quantising all weights versus the whole cache. At 3 bits the weights collapse while the cache still costs only $25\%$; below that the comparison stops being meaningful.}}{11}{figure.3}\protected@file@percent }
+\newlabel{fig:bitcost}{{3}{11}{Perplexity cost of quantising all weights versus the whole cache. At 3 bits the weights collapse while the cache still costs only $25\%$; below that the comparison stops being meaningful}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Negative results}{11}{subsection.6.6}\protected@file@percent }
+\newlabel{sec:results-negative}{{6.6}{11}{Negative results}{subsection.6.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Threats to validity}{11}{subsection.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Reproducibility}{11}{section.7}\protected@file@percent }
+\newlabel{sec:repro}{{7}{11}{Reproducibility}{section.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Passkey retrieval over prompts of about 11k tokens, Qwen3-0.6B, five prompts per row. ``grouped'' is KIVI's per-channel keys, per-token values and 128-token residual window; ``ungrouped'' is plain per-channel/per-token rounding. At four bits the task does not separate the schemes; at two bits it separates them completely.}}{12}{table.10}\protected@file@percent }
+\newlabel{tab:passkey}{{10}{12}{Passkey retrieval over prompts of about 11k tokens, Qwen3-0.6B, five prompts per row. ``grouped'' is KIVI's per-channel keys, per-token values and 128-token residual window; ``ungrouped'' is plain per-channel/per-token rounding. At four bits the task does not separate the schemes; at two bits it separates them completely}{table.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces The strength-matched comparison repeated on the WikiText-2 test set, same window protocol, same code, same calibration discipline. The ordering holds on both models and the margin is \emph  {larger} than on the abstract corpus, so the conclusion does not depend on the corpus.}}{12}{table.11}\protected@file@percent }
+\newlabel{tab:wikitext}{{11}{12}{The strength-matched comparison repeated on the WikiText-2 test set, same window protocol, same code, same calibration discipline. The ordering holds on both models and the margin is \emph {larger} than on the abstract corpus, so the conclusion does not depend on the corpus}{table.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Limitations}{12}{section.8}\protected@file@percent }
+\newlabel{sec:limitations}{{8}{12}{Limitations}{section.8}{}}
+\citation{kivi}
+\@writefile{toc}{\let\numberline\tmptocnumberline}
+\@writefile{toc}{\contentsline {section}{\numberline {Appendix~A}Pre-registration and Two Falsified Hypotheses}{13}{appendix.A}\protected@file@percent }
+\newlabel{app:prereg}{{Appendix~A}{13}{Pre-registration and Two Falsified Hypotheses}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {Appendix~B}Three Measurement Traps}{13}{appendix.B}\protected@file@percent }
+\newlabel{app:trap}{{Appendix~B}{13}{Three Measurement Traps}{appendix.B}{}}
+\bibstyle{elsarticle-num}
+\bibdata{refs}
+\bibcite{quarot}{{1}{}{{}}{{}}}
+\bibcite{spinquant}{{2}{}{{}}{{}}}
+\bibcite{duquant}{{3}{}{{}}{{}}}
+\bibcite{sun2024}{{4}{}{{}}{{}}}
+\bibcite{gptq}{{5}{}{{}}{{}}}
+\bibcite{frantar2022}{{6}{}{{}}{{}}}
+\bibcite{hawqv2}{{7}{}{{}}{{}}}
+\bibcite{mixllm}{{8}{}{{}}{{}}}
+\bibcite{gamma}{{9}{}{{}}{{}}}
+\bibcite{alignquant}{{10}{}{{}}{{}}}
+\bibcite{wang2018}{{11}{}{{}}{{}}}
+\bibcite{lin2024}{{12}{}{{}}{{}}}
+\bibcite{zhao2023}{{13}{}{{}}{{}}}
+\bibcite{wei2024}{{14}{}{{}}{{}}}
+\bibcite{guo2026}{{15}{}{{}}{{}}}
+\bibcite{mixquant}{{16}{}{{}}{{}}}
+\bibcite{song2026}{{17}{}{{}}{{}}}
+\bibcite{park2026}{{18}{}{{}}{{}}}
+\bibcite{liu2025}{{19}{}{{}}{{}}}
+\bibcite{kivi}{{20}{}{{}}{{}}}
+\bibcite{kvquant}{{21}{}{{}}{{}}}
+\bibcite{mixkvq}{{22}{}{{}}{{}}}
+\bibcite{kvpareto}{{23}{}{{}}{{}}}
+\bibcite{duanmu2024}{{24}{}{{}}{{}}}
+\bibcite{su2025}{{25}{}{{}}{{}}}
+\bibcite{he2024}{{26}{}{{}}{{}}}
+\bibcite{kwon2023}{{27}{}{{}}{{}}}
+\bibcite{prefixquant}{{28}{}{{}}{{}}}
+\bibcite{ostquant}{{29}{}{{}}{{}}}
+\bibcite{spectrumquant}{{30}{}{{}}{{}}}
+\bibcite{gptaq}{{31}{}{{}}{{}}}
+\bibcite{awq}{{32}{}{{}}{{}}}
+\bibcite{dq}{{33}{}{{}}{{}}}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\gdef \@abspage@last{15}

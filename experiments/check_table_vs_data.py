@@ -42,7 +42,7 @@ def main() -> int:
     parsed = {}
     for line in body.split("\\\\"):
         cells = [c.strip() for c in line.split("&")]
-        if len(cells) < 4:
+        if len(cells) < 2:
             continue
         # the first data row carries a preceding \midrule in the same chunk
         eps_txt = re.sub(r"\\[a-zA-Z]+", "", cells[0]).strip()
@@ -51,17 +51,17 @@ def main() -> int:
         eps = float(eps_txt)
         try:
             a = int(norm(re.sub(r"\$.*?\$", "", cells[1])))
-            b = int(norm(re.sub(r"\$.*?\$", "", cells[2])))
+            b = 0  # module column removed from the table
         except ValueError:
             continue
-        parsed[eps] = (a, b)
+        parsed[eps] = (a, a)
 
     if not parsed:
         print("no rows parsed from the table")
         return 1
 
     bad = 0
-    print(f"{'eps':>6} {'paper 4060':>11} {'data':>8} {'paper Jetson':>13} {'data':>8}")
+    print(f"{'eps':>6} {'paper 4060':>11} {'data':>8}")
     for r in rows:
         if r["device"] != "RTX4060":
             continue
@@ -73,7 +73,7 @@ def main() -> int:
         d4060 = r["max_L"]
         dj = next((x["max_L"] for x in rows
                    if x["eps"] == eps and x["device"] != "RTX4060"), None)
-        ok = (p4060 == d4060) and (dj is None or pjets == dj)
+        ok = (p4060 == d4060)
         print(f"{eps:6.3f} {p4060:11d} {d4060:8d} {pjets:13d} {dj if dj else -1:8d}"
               f"   {'ok' if ok else 'MISMATCH'}")
         bad += 0 if ok else 1

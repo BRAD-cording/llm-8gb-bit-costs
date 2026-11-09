@@ -1,0 +1,13 @@
+{
+  "device": "Jetson Orin Nano Super",
+  "runtime": "llama.cpp build 2cbca38 (1), llama-bench, -ngl 99, -ub 128 -b 1024, -r 2",
+  "protocol": "resident llama-server stopped, 25 s settle, then benchmark",
+  "context": 32768,
+  "cells": [
+    {"weights": "Qwen3-1.7B-Q8_0.gguf", "weights_GiB": 1.70, "cache": "fp16", "cache_MiB": 3584, "result": "refused: cudaMalloc 3584.00 MiB failed"},
+    {"weights": "Qwen3-1.7B-Q4_K_M.gguf", "weights_GiB": 1.03, "cache": "fp16", "cache_MiB": 3584, "result": "refused: cudaMalloc 3584.00 MiB failed, 4.9 GB free"},
+    {"weights": "Qwen3-1.7B-Q8_0.gguf", "weights_GiB": 1.70, "cache": "q4_0", "cache_MiB": 896, "pp_tok_s": 556.31, "pp_sd": 2.53, "tg_tok_s": 26.46, "tg_sd": 0.12},
+    {"weights": "Qwen3-1.7B-Q4_K_M.gguf", "weights_GiB": 1.03, "cache": "q4_0", "cache_MiB": 896, "pp_tok_s": 544.69, "pp_sd": 2.55, "tg_tok_s": 32.23, "tg_sd": 0.08}
+  ],
+  "note": "Q4_K_M artifact from unsloth/Qwen3-1.7B-GGUF via ModelScope; Q8_0 from Qwen/Qwen3-1.7B-GGUF"
+}

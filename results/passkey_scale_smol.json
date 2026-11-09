@@ -1,0 +1,61 @@
+{
+ "model": "C:/models/_smol/models/HuggingFaceTB--SmolLM2-135M/snapshots/master",
+ "seed": 0,
+ "rows": [
+  {
+   "config": "fp16",
+   "length": 6000,
+   "hit": 30,
+   "n": 30,
+   "rate": 1.0,
+   "wilson95": [
+    0.8865,
+    1.0
+   ]
+  },
+  {
+   "config": "k4g",
+   "length": 6000,
+   "hit": 29,
+   "n": 30,
+   "rate": 0.9666666666666667,
+   "wilson95": [
+    0.8333,
+    0.9941
+   ]
+  },
+  {
+   "config": "k4u",
+   "length": 6000,
+   "hit": 28,
+   "n": 30,
+   "rate": 0.9333333333333333,
+   "wilson95": [
+    0.7868,
+    0.9815
+   ]
+  },
+  {
+   "config": "k2g",
+   "length": 6000,
+   "hit": 0,
+   "n": 30,
+   "rate": 0.0,
+   "wilson95": [
+    -0.0,
+    0.1135
+   ]
+  },
+  {
+   "config": "k2u",
+   "length": 6000,
+   "hit": 0,
+   "n": 30,
+   "rate": 0.0,
+   "wilson95": [
+    -0.0,
+    0.1135
+   ]
+  }
+ ]
+}

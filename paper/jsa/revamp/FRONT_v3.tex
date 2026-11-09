@@ -1,0 +1,50 @@
+% ==========================================================================
+% Replacement for the front matter of jsa/main.tex: the abstract (lines
+% 49--68) and the Highlights block (lines 79--86).
+%
+% Same numbers, different subject. The old abstract's subject was "we measure
+% four mismatches"; the new abstract's subject is "the allocation is a decision
+% and here are its three measured inputs". Nothing here is a new number.
+% ==========================================================================
+
+\begin{abstract}
+Quantisation fits a large language model into an 8\,GB device, and the literature
+optimises it for speed while spending its bits on the weights. On this device
+class both choices are wrong, and this paper replaces them with a measured
+decision. Three inputs decide the weight/cache split, and none of them is
+reported in the work that asks the question. The \emph{objective} is capacity,
+not latency: 4-bit weights buy little or no time because dequantisation is not
+fused into the matmul. The \emph{exchange rate} runs against practice: with
+published implementations on both sides, one cache bit costs $9.0\times$ less
+accuracy than one weight bit on Qwen3-0.6B and $13.3\times$ on 1.7B
+($11.39\%$ against $1.27\%$ perplexity, $3.20\%$ against $0.24\%$), the ordering
+reproduces on WikiText-2, and a 2-bit passkey experiment locates where it stops.
+The \emph{budget} is device-dependent: the usable-memory fraction is $0.133$ on a
+discrete-GPU laptop and $0.419$ on a unified-memory edge module, a $3.15\times$
+difference in the fraction lost, which moves the price of a weight bit by
+$3.7\times$. The allocator that follows is textbook, and we say so; the inputs
+are not, and on both devices the resulting policy compresses the cache and
+leaves the weights at 8 bits. Two further measurements bound the claim: the
+serving stack sets the budget before any bit does --- grouped-query attention
+silently disables every fused attention kernel, and materialising the KV heads
+cuts attention peak memory $32\times$ and 4k prefill time $5.8\times$ --- and at
+2 bits the cache quantisation scheme decides long-context retrieval where at 4
+bits it does not.
+\end{abstract}
+
+\begin{keyword}
+quantisation \sep LLM inference \sep KV cache \sep edge inference \sep
+memory budget \sep bit allocation \sep energy efficiency
+\end{keyword}
+
+% --------------------------------------------------------------------------
+% Highlights, as Elsevier requires (3-5 bullets, 85 characters each at most).
+% Each bullet is now a claim, not an observation.
+\section*{Highlights}
+\begin{itemize}
+\item 4-bit weights buy no time on this stack; the objective must be capacity, not speed.
+\item One cache bit costs 9--13x less accuracy than one weight bit, with published quantisers.
+\item Usable memory differs 3.15x across two 8\,GB devices; no published split transfers.
+\item The optimal policy compresses the cache, leaves weights at 8 bits, and we execute it.
+\item The serving stack, not the bit width, sets the budget: 32x attention peak memory.
+\end{itemize}

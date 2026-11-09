@@ -1,0 +1,8 @@
+15:23:32 [Qwen/Qwen3-1.7B] start, 4.08 GB expected
+15:23:39 waiting for C:\models\Qwen3-0.6B\model.safetensors to reach 1503 MB before starting
+17:22:39 prerequisite complete, starting queue
+17:22:59 [Qwen/Qwen3-1.7B] start, 4.08 GB expected
+20:25:47 [Qwen/Qwen3-1.7B] rc=0 in 3.05 h
+20:25:47 [Qwen/Qwen3-4B] start, 8.06 GB expected
+20:53:02 [Qwen/Qwen3-4B] rc=0 in 0.45 h
+20:53:02 queue complete

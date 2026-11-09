@@ -1,0 +1,88 @@
+{
+  "model": "C:/models/Qwen3-0.6B",
+  "text": "data/calib_arxiv.txt",
+  "w_quant": "rtn",
+  "seq_len": 8192,
+  "windows": 4,
+  "group": 128,
+  "residual": 128,
+  "precision": "fp16",
+  "baseline_mean_nll": 8.905322,
+  "baseline_ppl": 7371.0966,
+  "n_quant_params": 440401920,
+  "n_lm_params": 155582464,
+  "rows": [
+    {
+      "w_bits": 4,
+      "k_bits": 8,
+      "mean_nll": 9.09064,
+      "ppl": 8871.8885,
+      "rel_pct": 20.36,
+      "fold_mean": 20.424,
+      "fold_std": 3.906,
+      "folds": [
+        24.924,
+        23.322,
+        18.306,
+        15.144
+      ],
+      "weight_MB": 531.4,
+      "kv_MB": 234.9,
+      "total_MB": 766.2
+    },
+    {
+      "w_bits": 4,
+      "k_bits": 16,
+      "mean_nll": 9.10536,
+      "ppl": 9003.3995,
+      "rel_pct": 22.145,
+      "fold_mean": 22.253,
+      "fold_std": 5.156,
+      "folds": [
+        19.291,
+        29.594,
+        24.192,
+        15.935
+      ],
+      "weight_MB": 531.4,
+      "kv_MB": 469.8,
+      "total_MB": 1001.1
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 8,
+      "mean_nll": 8.87757,
+      "ppl": 7169.3165,
+      "rel_pct": -2.737,
+      "fold_mean": -2.715,
+      "fold_std": 2.071,
+      "folds": [
+        -5.303,
+        0.162,
+        -1.825,
+        -3.896
+      ],
+      "weight_MB": 751.6,
+      "kv_MB": 234.9,
+      "total_MB": 986.4
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 16,
+      "mean_nll": 8.89426,
+      "ppl": 7289.9872,
+      "rel_pct": -1.1,
+      "fold_mean": -1.091,
+      "fold_std": 1.394,
+      "folds": [
+        -1.255,
+        -0.878,
+        0.848,
+        -3.077
+      ],
+      "weight_MB": 751.6,
+      "kv_MB": 469.8,
+      "total_MB": 1221.3
+    }
+  ]
+}

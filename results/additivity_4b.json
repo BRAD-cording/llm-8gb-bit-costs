@@ -1,0 +1,115 @@
+{
+ "summary": {
+  "pairs": 10,
+  "bits": 4,
+  "seq_len": 4096,
+  "windows": 1,
+  "mean_interaction_pp": 8.7937,
+  "max_abs_interaction_pp": 16.4419,
+  "median_abs_interaction_pp": 8.1516
+ },
+ "base_nll": 3.3288683321886445,
+ "base_ppl": 27.906742664408192,
+ "records": [
+  {
+   "a": "model.layers.35.mlp.down_proj",
+   "b": "model.layers.35.self_attn.o_proj",
+   "single_pct_a": 14.181,
+   "single_pct_b": -8.901,
+   "predicted_pct": 4.0177,
+   "joint_pct": 13.8722,
+   "interaction_pp": 9.8544,
+   "ratio_joint_over_pred": 3.453
+  },
+  {
+   "a": "model.layers.34.self_attn.v_proj",
+   "b": "model.layers.34.self_attn.o_proj",
+   "single_pct_a": -8.588,
+   "single_pct_b": -7.57,
+   "predicted_pct": -15.5079,
+   "joint_pct": 0.9341,
+   "interaction_pp": 16.4419,
+   "ratio_joint_over_pred": -0.06
+  },
+  {
+   "a": "model.layers.35.self_attn.v_proj",
+   "b": "model.layers.32.self_attn.q_proj",
+   "single_pct_a": -6.817,
+   "single_pct_b": -5.57,
+   "predicted_pct": -12.0073,
+   "joint_pct": -1.5844,
+   "interaction_pp": 10.4229,
+   "ratio_joint_over_pred": 0.132
+  },
+  {
+   "a": "model.layers.12.self_attn.k_proj",
+   "b": "model.layers.21.self_attn.o_proj",
+   "single_pct_a": -5.096,
+   "single_pct_b": -4.964,
+   "predicted_pct": -9.807,
+   "joint_pct": -0.129,
+   "interaction_pp": 9.6781,
+   "ratio_joint_over_pred": 0.013
+  },
+  {
+   "a": "model.layers.33.self_attn.v_proj",
+   "b": "model.layers.34.mlp.down_proj",
+   "single_pct_a": -4.92,
+   "single_pct_b": -4.841,
+   "predicted_pct": -9.5228,
+   "joint_pct": -4.1496,
+   "interaction_pp": 5.3733,
+   "ratio_joint_over_pred": 0.436
+  },
+  {
+   "a": "model.layers.11.mlp.gate_proj",
+   "b": "model.layers.13.mlp.up_proj",
+   "single_pct_a": -4.75,
+   "single_pct_b": -4.265,
+   "predicted_pct": -8.8124,
+   "joint_pct": -0.6979,
+   "interaction_pp": 8.1145,
+   "ratio_joint_over_pred": 0.079
+  },
+  {
+   "a": "model.layers.9.mlp.gate_proj",
+   "b": "model.layers.12.self_attn.o_proj",
+   "single_pct_a": -3.698,
+   "single_pct_b": -3.684,
+   "predicted_pct": -7.2458,
+   "joint_pct": 0.9059,
+   "interaction_pp": 8.1516,
+   "ratio_joint_over_pred": -0.125
+  },
+  {
+   "a": "model.layers.12.self_attn.v_proj",
+   "b": "model.layers.32.self_attn.o_proj",
+   "single_pct_a": -3.65,
+   "single_pct_b": -3.455,
+   "predicted_pct": -6.9789,
+   "joint_pct": -0.1326,
+   "interaction_pp": 6.8463,
+   "ratio_joint_over_pred": 0.019
+  },
+  {
+   "a": "model.layers.33.self_attn.o_proj",
+   "b": "model.layers.21.self_attn.q_proj",
+   "single_pct_a": -3.404,
+   "single_pct_b": -3.334,
+   "predicted_pct": -6.6245,
+   "joint_pct": 0.6925,
+   "interaction_pp": 7.317,
+   "ratio_joint_over_pred": -0.105
+  },
+  {
+   "a": "model.layers.13.mlp.gate_proj",
+   "b": "model.layers.9.mlp.down_proj",
+   "single_pct_a": -3.264,
+   "single_pct_b": -3.186,
+   "predicted_pct": -6.346,
+   "joint_pct": -0.6086,
+   "interaction_pp": 5.7374,
+   "ratio_joint_over_pred": 0.096
+  }
+ ]
+}

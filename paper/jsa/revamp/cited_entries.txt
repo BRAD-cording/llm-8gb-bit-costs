@@ -1,0 +1,297 @@
+KEY: quarot [misc]
+  title:   {QuaRot
+  author:  Saleh Ashkboos and Amirkeivan Mohtashami and Maximilian L. Croci and Bo Li and Pashmina Cameron and Martin Jaggi and Dan Alistarh and Torsten Hoefler and James Hensman
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2404.00456
+
+KEY: spinquant [misc]
+  title:   {SpinQuant
+  author:  Zechun Liu and Changsheng Zhao and Igor Fedorov and Bilge Soran and Dhruv Choudhary and Raghuraman Krishnamoorthi and Vikas Chandra and Yuandong Tian and Tijmen Blankevoort
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2405.16406
+
+KEY: duquant [misc]
+  title:   {DuQuant
+  author:  Haokun Lin and Haobo Xu and Yichen Wu and Jingzhi Cui and Yingtao Zhang and Linzhan Mou and Linqi Song and Zhenan Sun and Ying Wei
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2406.01721
+
+KEY: sun2024 [misc]
+  title:   FlatQuant: Flatness Matters for {LLM
+  author:  Yuxuan Sun and Ruikang Liu and Haoli Bai and Han Bao and Kang Zhao and Yuening Li and Jiaxin Hu and Xianzhi Yu and Lu Hou and Chun Yuan and Xin Jiang and Wulong Liu and Jun Yao
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2410.09426
+
+KEY: prefixquant [misc]
+  title:   {PrefixQuant
+  author:  Mengzhao Chen and Yi Liu and Jiahao Wang and Yi Bin and Wenqi Shao and Ping Luo
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2410.05265
+
+KEY: ostquant [misc]
+  title:   {OstQuant
+  author:  Xing Hu and Yuan Cheng and Dawei Yang and Zukang Xu and Zhihang Yuan and Jiangyong Yu and Chen Xu and Zhe Jiang and Sifan Zhou
+  year:    2025
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2501.13987
+
+KEY: su2025 [misc]
+  title:   RotateKV: Accurate and Robust 2-Bit {KV
+  author:  Zunhai Su and Zhe Chen and Wang Shen and Hanyu Wei and Linge Li and Huangqi Yu and Kehong Yuan
+  year:    2025
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2501.16383
+
+KEY: spectrumquant [misc]
+  title:   {SpectrumQuant
+  author:  Dwaipayan Haldar and Indranil Patra and Azhar Yousuf and Chandra Sekhar Seelamantula
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2610.20303
+
+KEY: gptq [misc]
+  title:   {GPTQ
+  author:  Elias Frantar and Saleh Ashkboos and Torsten Hoefler and Dan Alistarh
+  year:    2022
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2210.17323
+
+KEY: frantar2022 [misc]
+  title:   Optimal Brain Compression: A Framework for Accurate Post-Training Quantization and Pruning
+  author:  Elias Frantar and Sidak Pal Singh and Dan Alistarh
+  year:    2022
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2208.11580
+
+KEY: gptaq [misc]
+  title:   {GPTAQ
+  author:  Yuhang Li and Ruokai Yin and Donghyun Lee and Shiting Xiao and Priyadarshini Panda
+  year:    2025
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2504.02692
+
+KEY: park2026 [misc]
+  title:   SERQ: Saliency-Aware Low-Rank Error Reconstruction for {LLM
+  author:  Yeonsik Park and Hyeonseong Kim and Seungkyu Choi
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2603.08185
+
+KEY: song2026 [misc]
+  title:   Align, Then Correct: Training-Free Two-Stage Low-Rank Compensation for Extremely Quantized Large Language Models
+  author:  Seobin Song and Geonho Lee and Janghwan Lee and Jungwook Choi
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2610.08164
+
+KEY: gamma [misc]
+  title:   {GAMMA
+  author:  Zhangyang Yao and Haiyan Zhao and Haoyu Wang and Xu Han
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2605.18475
+
+KEY: kivi [misc]
+  title:   {KIVI
+  author:  Zirui Liu and Jiayi Yuan and Hongye Jin and Shaochen Zhong and Zhaozhuo Xu and Vladimir Braverman and Beidi Chen and Xia Hu
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2402.02750
+
+KEY: kvquant [misc]
+  title:   {KVQuant
+  author:  Coleman Hooper and Sehoon Kim and Hiva Mohammadzadeh and Michael W. Mahoney and Yakun Sophia Shao and Kurt Keutzer and Amir Gholami
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2401.18079
+
+KEY: he2024 [misc]
+  title:   {ZipCache
+  author:  Yefei He and Luoming Zhang and Weijia Wu and Jing Liu and Hong Zhou and Bohan Zhuang
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2405.14256
+
+KEY: duanmu2024 [misc]
+  title:   SKVQ: Sliding-window Key and Value Cache Quantization for Large Language Models
+  author:  Haojie Duanmu and Zhihang Yuan and Xiuhong Li and Jiangfei Duan and Xingcheng Zhang and Dahua Lin
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2405.06219
+
+KEY: dq [misc]
+  title:   {Disaggregated
+  author:  Andrei Panferov and Maximilian Kleinegger and Sweta Priyadarshi and Tijmen Blankevoort and Dan Alistarh
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2609.26333
+
+KEY: alignquant [misc]
+  title:   {AlignQuant
+  author:  Hanzhi Zhang and Qiao Zhang and Qinglei Cao and Heng Fan and Yan Huang and Kewei Sha and Yunhe Feng
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2610.07457
+
+KEY: mixquant [misc]
+  title:   {Mix-Quant
+  author:  Haiquan Lu and Zigeng Chen and Gongfan Fang and Xinyin Ma and Xinchao Wang
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2605.20315
+
+KEY: wang2018 [misc]
+  title:   HAQ: Hardware-Aware Automated Quantization with Mixed Precision
+  author:  Kuan Wang and Zhijian Liu and Yujun Lin and Ji Lin and Song Han
+  year:    2018
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/1811.08886
+
+KEY: hawqv2 [misc]
+  title:   {HAWQ-V2
+  author:  Zhen Dong and Zhewei Yao and Yaohui Cai and Daiyaan Arfeen and Amir Gholami and Michael W. Mahoney and Kurt Keutzer
+  year:    2019
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/1911.03852
+
+KEY: awq [misc]
+  title:   {HAWQV3
+  author:  Zhewei Yao and Zhen Dong and Zhangcheng Zheng and Amir Gholami and Jiali Yu and Eric Tan and Leyuan Wang and Qijing Huang and Yida Wang and Michael W. Mahoney and Kurt Keutzer
+  year:    2020
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2011.10680
+
+KEY: mixllm [misc]
+  title:   {MixLLM
+  author:  Zhen Zheng and Xiaonan Song and Chuanjie Liu
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2412.14590
+
+KEY: kwon2023 [misc]
+  title:   Efficient Memory Management for Large Language Model Serving with PagedAttention
+  author:  Woosuk Kwon and Zhuohan Li and Siyuan Zhuang and Ying Sheng and Lianmin Zheng and Cody Hao Yu and Joseph E. Gonzalez and Hao Zhang and Ion Stoica
+  year:    2023
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2309.06180
+
+KEY: zhao2023 [misc]
+  title:   Atom: Low-bit Quantization for Efficient and Accurate {LLM
+  author:  Yilong Zhao and Chien-Yu Lin and Kan Zhu and Zihao Ye and Lequn Chen and Size Zheng and Luis Ceze and Arvind Krishnamurthy and Tianqi Chen and Baris Kasikci
+  year:    2023
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2310.19102
+
+KEY: lin2024 [misc]
+  title:   QServe: W4A8KV4 Quantization and System Co-design for Efficient {LLM
+  author:  Yujun Lin and Haotian Tang and Shang Yang and Zhekai Zhang and Guangxuan Xiao and Chuang Gan and Song Han
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2405.04532
+
+KEY: wei2024 [misc]
+  title:   T-MAC: CPU Renaissance via Table Lookup for Low-Bit {LLM
+  author:  Jianyu Wei and Shijie Cao and Ting Cao and Lingxiao Ma and Lei Wang and Yanyong Zhang and Mao Yang
+  year:    2024
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2407.00088
+
+KEY: liu2025 [misc]
+  title:   MicroMix: Efficient Mixed-Precision Quantization with Microscaling Formats for Large Language Models
+  author:  Wenyuan Liu and Haoqian Meng and Yilun Luo and Yafei Zhao and Peng Zhang and Xindian Ma
+  year:    2025
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2508.02343
+
+KEY: guo2026 [misc]
+  title:   APEX4: Efficient Pure {W4A4
+  author:  Hong Guo and Nianhui Guo and Weixing Wang and Jona Otholt and Christoph Meinel and Haojin Yang
+  year:    2026
+  venue:   
+  doi:     
+  vol/pg:  /
+  url:     https://arxiv.org/abs/2606.08761
+
+KEY: kvpareto [inproceedings]
+  title:   {KV Pareto
+  author:  Gokhale, Sai and Das, Devleena and Patwari, Rajeev and Sirasao, Ashish and Delaye, Elliott
+  year:    2026
+  venue:   Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 5: Industry Track)
+  doi:     10.18653/v1/2026.eacl-industry.9
+  vol/pg:  /119--131
+  url:     https://aclanthology.org/2026.eacl-industry.9/
+
+KEY: mixkvq [inproceedings]
+  title:   {MixKVQ
+  author:  Zhang, Tao and Zeng, Ziqian and Peng, Hao and Zhuang, Huiping and Chen, Cen
+  year:    2026
+  venue:   Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+  doi:     10.18653/v1/2026.acl-long.326
+  vol/pg:  /7189--7204
+  url:     https://aclanthology.org/2026.acl-long.326/
+

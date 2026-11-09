@@ -1,0 +1,53 @@
+{
+ "device": "Pi 5 (Device C)",
+ "probe": "llama-cli -c L -n 1",
+ "ladder": [
+  32768,
+  49152,
+  65536,
+  98304,
+  131072
+ ],
+ "rows": [
+  {
+   "model": "1.7B_Q4_K_M",
+   "kv": "f16",
+   "ctx": 32768,
+   "ok": false,
+   "secs": 0.2,
+   "tail": [
+    "error: invalid argument: -no-cnv"
+   ]
+  },
+  {
+   "model": "1.7B_Q4_K_M",
+   "kv": "q4_0",
+   "ctx": 32768,
+   "ok": false,
+   "secs": 0.1,
+   "tail": [
+    "error: invalid argument: -no-cnv"
+   ]
+  },
+  {
+   "model": "4B_Q4_K_M",
+   "kv": "f16",
+   "ctx": 32768,
+   "ok": false,
+   "secs": 0.2,
+   "tail": [
+    "error: invalid argument: -no-cnv"
+   ]
+  },
+  {
+   "model": "4B_Q4_K_M",
+   "kv": "q4_0",
+   "ctx": 32768,
+   "ok": false,
+   "secs": 0.1,
+   "tail": [
+    "error: invalid argument: -no-cnv"
+   ]
+  }
+ ]
+}

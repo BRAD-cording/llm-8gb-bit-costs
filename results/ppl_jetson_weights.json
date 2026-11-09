@@ -1,0 +1,24 @@
+{
+ "device": "B",
+ "model": "Qwen3-1.7B",
+ "runtime": "llama.cpp",
+ "kv": "f16",
+ "rows": {
+  "Q8_0": {
+   "rc": 0,
+   "ppl": 34.3357,
+   "backend": "cpu",
+   "rel_pct": 0.0
+  },
+  "Q4_K_M": {
+   "rc": 0,
+   "ppl": 34.2792,
+   "rel_pct": -0.16
+  },
+  "Q2_K": {
+   "rc": 0,
+   "ppl": 42.49,
+   "rel_pct": 23.75
+  }
+ }
+}

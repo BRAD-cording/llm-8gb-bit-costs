@@ -49,6 +49,21 @@ def main() -> int:
                                    "--model", "C:/models/Qwen3-0.6B",
                                    "--text", "data/calib_arxiv.txt",
                                    "--windows", "48"], None),
+            ("weight x cache grid", [PY, "src/eval/bit_cost_cross.py",
+                                     "--model", "C:/models/Qwen3-0.6B",
+                                     "--text", "data/calib_arxiv.txt",
+                                     "--w-bits", "2,3,4,6,8",
+                                     "--k-bits", "2,3,4,8",
+                                     "--windows", "6",
+                                     "--out", "results/cross_06b_rtn.json"], None),
+            ("weight x cache grid at 4k", [PY, "src/eval/bit_cost_cross.py",
+                                           "--model", "C:/models/Qwen3-0.6B",
+                                           "--text", "data/calib_arxiv.txt",
+                                           "--w-bits", "4,8",
+                                           "--k-bits", "8,16",
+                                           "--seq-len", "4096",
+                                           "--windows", "4",
+                                           "--out", "results/cross_06b_4k.json"], None),
         ]
 
     steps += [

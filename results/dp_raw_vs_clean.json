@@ -1,0 +1,52 @@
+{
+ "L": 32768,
+ "budget_mb": 2746.5,
+ "variants": {
+  "raw_minimal_repair": {
+   "uniform4": {
+    "total_nats": -0.32942,
+    "ppl_change_pct": -28.066,
+    "bytes_mb": null,
+    "hist": {
+     "4": 252
+    }
+   },
+   "dp": {
+    "total_nats": -1.99562,
+    "ppl_change_pct": -86.407,
+    "bytes_mb": 1698,
+    "hist": {
+     "4": 46,
+     "2": 103,
+     "3": 41,
+     "8": 62
+    }
+   },
+   "dp_gain_nats": 1.6662,
+   "dp_gain_pct_points": 58.341
+  },
+  "isotonic_clean": {
+   "uniform4": {
+    "total_nats": -1.62305,
+    "ppl_change_pct": -80.27,
+    "bytes_mb": null,
+    "hist": {
+     "4": 252
+    }
+   },
+   "dp": {
+    "total_nats": -1.99562,
+    "ppl_change_pct": -86.407,
+    "bytes_mb": 2020,
+    "hist": {
+     "8": 84,
+     "3": 58,
+     "2": 50,
+     "4": 60
+    }
+   },
+   "dp_gain_nats": 0.37257,
+   "dp_gain_pct_points": 6.137
+  }
+ }
+}

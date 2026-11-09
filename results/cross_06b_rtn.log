@@ -1,0 +1,26 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  11%|#1        | 35/311 [00:00<00:00, 323.25it/s]Loading weights:  23%|##3       | 73/311 [00:00<00:00, 344.92it/s]Loading weights:  38%|###7      | 117/311 [00:00<00:00, 377.28it/s]Loading weights:  50%|#####     | 157/311 [00:00<00:00, 385.36it/s]Loading weights:  63%|######3   | 196/311 [00:00<00:00, 378.20it/s]Loading weights:  76%|#######6  | 237/311 [00:00<00:00, 386.00it/s]Loading weights:  90%|######### | 281/311 [00:00<00:00, 388.60it/s]Loading weights: 100%|##########| 311/311 [00:00<00:00, 392.02it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (574997 > 131072). Running this sequence through the model will result in indexing errors
+6 windows x 1024 tokens
+baseline mean NLL 3.7965  PPL 44.5448
+  W2 K2: ppl 58507443.0377  rel +131345172.08%  fold +201439106.31+-114080990.22  mem 421+7=429MB
+  W2 K3: ppl 33146116.9436  rel +74410701.81%  fold +93149238.57+-35883074.98  mem 421+11=432MB
+  W2 K4: ppl 31039580.7916  rel +69681669.92%  fold +103669993.69+-77273923.28  mem 421+15=436MB
+  W2 K8: ppl 23064029.1848  rel +51777093.31%  fold +89033845.27+-72861231.00  mem 421+29=451MB
+  W3 K2: ppl 15233.8423  rel +34098.95%  fold +34767.68+-11740.46  mem 476+7=484MB
+  W3 K3: ppl 3752.3190  rel +8323.70%  fold +8591.63+-5382.25  mem 476+11=487MB
+  W3 K4: ppl 2108.9697  rel +4634.50%  fold +4650.93+-1641.21  mem 476+15=491MB
+  W3 K8: ppl 2080.6816  rel +4570.99%  fold +4672.70+-2191.61  mem 476+29=506MB
+  W4 K2: ppl 1114.0577  rel +2400.98%  fold +2331.59+-572.56  mem 531+7=539MB
+  W4 K3: ppl   76.9078  rel   +72.65%  fold +72.99+-2.23  mem 531+11=542MB
+  W4 K4: ppl   63.6941  rel   +42.99%  fold +42.79+-3.16  mem 531+15=546MB
+  W4 K8: ppl   60.4307  rel   +35.66%  fold +35.66+-1.57  mem 531+29=561MB
+  W6 K2: ppl  416.8023  rel  +835.69%  fold +821.81+-143.83  mem 642+7=649MB
+  W6 K3: ppl   54.2900  rel   +21.88%  fold +21.50+-3.56  mem 642+11=652MB
+  W6 K4: ppl   48.1245  rel    +8.04%  fold +8.43+-1.37  mem 642+15=656MB
+  W6 K8: ppl   45.9213  rel    +3.09%  fold +3.25+-1.18  mem 642+29=671MB
+  W8 K2: ppl  427.7896  rel  +860.36%  fold +835.16+-126.21  mem 752+7=759MB
+  W8 K3: ppl   53.7189  rel   +20.60%  fold +19.68+-4.04  mem 752+11=763MB
+  W8 K4: ppl   47.0544  rel    +5.63%  fold +5.94+-1.37  mem 752+15=766MB
+  W8 K8: ppl   45.5730  rel    +2.31%  fold +2.29+-0.79  mem 752+29=781MB
+wrote results/cross_06b_rtn.json (20 cells)

@@ -1,0 +1,116 @@
+{
+ "model": "C:/models/Qwen3-0.6B",
+ "seed": 0,
+ "rows": [
+  {
+   "config": "fp16",
+   "length": 11000,
+   "hit": 50,
+   "n": 50,
+   "rate": 1.0,
+   "wilson95": [
+    0.9286,
+    1.0
+   ]
+  },
+  {
+   "config": "fp16",
+   "length": 16000,
+   "hit": 50,
+   "n": 50,
+   "rate": 1.0,
+   "wilson95": [
+    0.9286,
+    1.0
+   ]
+  },
+  {
+   "config": "k2g",
+   "length": 11000,
+   "hit": 0,
+   "n": 50,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.0714
+   ]
+  },
+  {
+   "config": "k2g",
+   "length": 16000,
+   "hit": 0,
+   "n": 50,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.0714
+   ]
+  },
+  {
+   "config": "k2u",
+   "length": 11000,
+   "hit": 0,
+   "n": 50,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.0714
+   ]
+  },
+  {
+   "config": "k2u",
+   "length": 16000,
+   "hit": 0,
+   "n": 50,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.0714
+   ]
+  },
+  {
+   "config": "k4g",
+   "length": 11000,
+   "hit": 50,
+   "n": 50,
+   "rate": 1.0,
+   "wilson95": [
+    0.9286,
+    1.0
+   ]
+  },
+  {
+   "config": "k4g",
+   "length": 16000,
+   "hit": 50,
+   "n": 50,
+   "rate": 1.0,
+   "wilson95": [
+    0.9286,
+    1.0
+   ]
+  },
+  {
+   "config": "k4u",
+   "length": 11000,
+   "hit": 50,
+   "n": 50,
+   "rate": 1.0,
+   "wilson95": [
+    0.9286,
+    1.0
+   ]
+  },
+  {
+   "config": "k4u",
+   "length": 16000,
+   "hit": 50,
+   "n": 50,
+   "rate": 1.0,
+   "wilson95": [
+    0.9286,
+    1.0
+   ]
+  }
+ ]
+}

@@ -1,0 +1,520 @@
+{
+ "areas": [
+  {
+   "area": "A1 — Rotation / equivalent-transformation PTQ (QuaRot, SpinQuant, GSQ, PrefixQuant, OSTQuant, DuQuant, RotateKV and 2025–2026 successors)",
+   "saturation": "high",
+   "papers": [
+    {
+     "title": "QuaRot: Outlier-Free 4-Bit Inference in Rotated LLMs",
+     "year": "2024",
+     "venue": "NeurIPS 2024",
+     "url": "https://arxiv.org/abs/2404.00456",
+     "method": "Applies random Hadamard rotations inside the residual stream, FFN and attention (including KV cache) so that a single 4-bit RTN quantizer suffices for weights, activations and KV with no outlier channels kept in high precision.",
+     "gap": "Fixes one uniform 4-bit budget for W/A/KV and reports LLaMA2-70B perplexity/zero-shot only; no 8GB-class GPU, no per-regime (prefill vs decode) bit allocation, and the online Hadamard multiplies it adds are not costed in a bandwidth-bound decode setting."
+    },
+    {
+     "title": "SpinQuant: LLM quantization with learned rotations",
+     "year": "2024",
+     "venue": "ICLR 2025",
+     "url": "https://arxiv.org/abs/2405.16406v4",
+     "method": "Parameterizes the rotation set that is functionally invariant in the transformer (R1/R2/R3/R4) and learns the rotations with Cayley/GPTQ-style optimization to minimize end-to-end quantized loss instead of using random rotations.",
+     "gap": "Optimizes accuracy under a fixed W4A4KV4 setting on datacenter GPUs; the learned-rotation search is compute- and calibration-heavy, and no result links rotation choice to a weight-vs-KV bit trade-off or to a memory-bandwidth-bound decode target."
+    },
+    {
+     "title": "DuQuant: Distributing Outliers via Dual Transformation Makes Stronger Quantized LLMs",
+     "year": "2024",
+     "venue": "NeurIPS 2024 (Oral)",
+     "url": "https://arxiv.org/abs/2406.01721v3",
+     "method": "Uses outlier-dimension-informed block-wise rotation followed by a zigzag permutation and a second rotation to spread both massive and normal activation outliers evenly across quantization blocks.",
+     "gap": "Targets activation flatness for W4A4 accuracy; permutation/rotation are applied online per token, and the paper never asks whether the same transform budget is worth paying in a decode-bound regime where arithmetic is not the bottleneck."
+    },
+    {
+     "title": "FlatQuant: Flatness Matters for LLM Quantization",
+     "year": "2024",
+     "venue": "ICML 2025",
+     "url": "https://arxiv.org/abs/2410.09426v4",
+     "method": "Learns per-layer affine (Kronecker-factored, hence cheap) transformations that maximize weight/activation flatness, then fuses them into a single kernel.",
+     "gap": "Reports 2.3x prefill / 1.7x decode speedup versus FP16 but only as uniform W4A4 on large models; there is no bit-width sweep over weight vs KV, no 8GB memory cap, and no test of whether the flatness-optimal transform changes with the prefill/decode balance."
+    },
+    {
+     "title": "PrefixQuant: Eliminating Outliers by Prefixed Tokens for Large Language Models Quantization",
+     "year": "2024",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2410.05265v2",
+     "method": "Exploits the observation that token-wise outliers concentrate on a few initial tokens by pre-filling the KV cache with learned prefix tokens so those tokens can be kept out of the quantized regime, enabling static W4A4KV4.",
+     "gap": "Changes the token sequence itself (a learned prefix) to make quantization easy, which perturbs attention and the KV content; it reports 2.74x prefill / 2.16x decode speedups but never separates how much of the gain comes from the weight side versus the KV side."
+    },
+    {
+     "title": "OstQuant: Refining Large Language Model Quantization with Orthogonal and Scaling Transformations for Better Distribution Fitting",
+     "year": "2025",
+     "venue": "ICLR 2025",
+     "url": "https://arxiv.org/abs/2501.13987v1",
+     "method": "Introduces the Quantization Space Utilization Rate (QSUR) metric, then learns an equivalent orthogonal plus scaling transformation maximizing it, trained with a KL-Top loss to tolerate tiny calibration sets.",
+     "gap": "Uses QSUR to maximize occupancy of a single, uniformly chosen bit-width grid (W4A4KV4 / W4-only); the metric is not connected to any latency or bandwidth objective, so it gives no guidance on how to reallocate bits between weights and KV when decode dominates."
+    },
+    {
+     "title": "RotateKV: Accurate and Robust 2-Bit KV Cache Quantization for LLMs via Outlier-Aware Adaptive Rotations",
+     "year": "2025",
+     "venue": "IJCAI 2025",
+     "url": "https://arxiv.org/abs/2501.16383v2",
+     "method": "Adapts rotations to per-layer channel-wise outlier distributions via channel reordering (keeping FWHT fast), adds a pre-RoPE grouped-head rotation, and protects attention sinks in 2-bit KV quantization.",
+     "gap": "Quantizes only the KV cache and leaves weights/activations untouched, so it cannot say how KV bits should trade off against weight bits; evaluation is 13B-class models for decode speedup, not an 8GB unified-memory box."
+    },
+    {
+     "title": "GSQ: Highly-Accurate Low-Precision Scalar Quantization for LLMs via Gumbel-Softmax Sampling",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2604.18556v2",
+     "method": "Learns per-coordinate grid assignments jointly with per-group scales through a Gumbel-Softmax relaxation whose cardinality is matched to the target level count, staying compatible with scalar (GGUF K-quant) inference kernels.",
+     "gap": "Not a rotation method at all (weight-only 2–3 bpp) and optimizes accuracy on Llama-3.1-8B/70B and Kimi-K2.5; no activation or KV quantization, and no measured effect of the resulting bit plan on prefill versus decode throughput on small-VRAM devices."
+    },
+    {
+     "title": "DuQuant++: Fine-grained Rotation Enhances Microscaling FP4 Quantization",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2604.17789v2",
+     "method": "Aligns DuQuant's outlier-aware rotation block size with the MXFP4 32-element microscaling group so a single rotation replaces the dual-rotation plus permutation pipeline.",
+     "gap": "Assumes Blackwell MXFP4 tensor-core support that neither the RTX 4060 (Ada) nor Jetson Orin (Ampere) provides; purely an accuracy study at W4A4, with no throughput, memory-traffic or bit-allocation analysis."
+    },
+    {
+     "title": "Transforms for LLM Quantization: The Great Inversion and Format Co-Design",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2608.25188v1",
+     "method": "Surveys and formalizes the function-preserving linear transform stage (rotation, scaling, permutation, affine) and states a 'Great Inversion': allocation-flexible coding rewards energy concentration while grouped shared-scale hardware quantizers reward within-group flattening.",
+     "gap": "A conceptual/format co-design argument with no experiments on any deployed device, no measured prefill-versus-decode crossover, and no method for choosing a bit allocation given a fixed bandwidth budget."
+    },
+    {
+     "title": "SpectrumQuant: Spectrum Alignment for LLM Quantization",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2610.20303v1",
+     "method": "Derives a closed-form covariance-aware orthogonal transform from calibration activations by maximizing covariance alignment (recovering Hadamard as a special case), avoiding gradient-based rotation learning.",
+     "gap": "Frames rotation as an accuracy-only, calibration-cheap substitute for SpinQuant/DartQuant; calibration cost is compared but runtime cost on 8GB hardware and any weight-vs-KV bit allocation question are absent."
+    },
+    {
+     "title": "LIRQuant: An Efficient Locally Isolated Rotation Quantization Method for Large Language Models",
+     "year": "2026",
+     "venue": "EMNLP 2026",
+     "url": "https://arxiv.org/abs/2610.25675v1",
+     "method": "Uses a noise-weighted sensitivity metric to apply expressive learnable rotations only to sensitive channels and fixed lightweight rotations elsewhere, with fused inference kernels.",
+     "gap": "Selects where to rotate, not how many bits to spend per tensor; reports 2.3x prefill speedup on GPUs but evaluates a single W4A4KV4 configuration, so the prefill-bound versus decode-bound reversal is untested."
+    },
+    {
+     "title": "HARP: Hadamard-Preconditioned Adaptive Rotation Processor for Extreme LLM Quantization",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2605.29843v2",
+     "method": "Replaces fixed randomized Hadamard transforms with a learnable structured two-sided orthogonal processor initialized from Hadamard, preserving exact full-precision equivalence while adapting the basis per layer and quantizer.",
+     "gap": "Motivated by memory and bandwidth constraints but validated on accuracy under extreme low-bit settings, with no end-to-end latency, VRAM-cap or decode-bandwidth measurement on a small consumer GPU."
+    },
+    {
+     "title": "Qift: Shift-Friendly No-Zero W2 Post-Training Quantization for Rotated W2A4/KV4 LLM Inference",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2606.02823v1",
+     "method": "Replaces the standard W2 level set {-2,-1,0,+1} with an asymmetric shift-friendly level set inside a Hadamard-rotated pipeline, arguing W2A4 collapse is a reconstruction-level rather than bit-width problem.",
+     "gap": "Studies the weight level set only at fixed 2-bit weights with 4-bit activations and KV; it does not sweep KV bit-width, and its analysis is over all 224 linear modules of LLaMA-2-7B/3.1-8B without any device-level timing."
+    },
+    {
+     "title": "OSCAR: Offline Spectral Covariance-Aware Rotation for 2-bit KV Cache Quantization",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2605.17757v1",
+     "method": "Estimates attention-aware covariance offline and derives fixed rotations plus clipping thresholds from it, paired with a custom INT2 attention kernel compatible with paged KV in SGLang/vLLM.",
+     "gap": "Optimizes the decode side only (KV at INT2) and reports up to 3x batch-1 decode acceleration on datacenter serving stacks; the prefill side, the weight bit-width and any 8GB unified-memory constraint are out of scope."
+    },
+    {
+     "title": "Quant.npu: Enabling Efficient Mobile NPU Inference for on-device LLMs via Fully Static Quantization",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2605.20295v1",
+     "method": "Builds an integer-only fully static quantization framework with learnable rotation matrices and a rotation/bit-width-aware initialization, plus sensitivity-guided mixed precision, to satisfy NPU constraints that forbid dynamic activation quantization.",
+     "gap": "Targets mobile NPUs (a different hardware contract from a CUDA laptop GPU or Jetson), and although it uses mixed precision, the allocation is sensitivity-driven rather than derived from a prefill-versus-decode bandwidth model."
+    },
+    {
+     "title": "GyRot: Leveraging Hidden Synergy between Rotation and Fine-grained Group Quantization for Low-bit LLM Inference",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2607.27694v1",
+     "method": "Co-designs coarse rotation with fine group scaling and a harmonic-aligned permutation, plus a dedicated accelerator, so that rotation and per-group scales stop fighting each other.",
+     "gap": "Shows rotation interacts badly with group size — directly relevant to bit allocation — yet the study is bound to a custom ASIC design point and never evaluates a fixed 8GB GPU memory budget or a prefill/decode trade-off."
+    },
+    {
+     "title": "QAM-W: Joint 2D Codebook Quantization for LLM Weights via Hadamard Rotation and Activation-Aware Scaling",
+     "year": "2026",
+     "venue": "unverified",
+     "url": "https://arxiv.org/abs/2605.26339v1",
+     "method": "L2-normalizes each weight row, applies a block-Hadamard rotation, pairs coordinates into 2D and quantizes them against a single Lloyd-Max codebook for the circular Gaussian, with activation-aware per-channel scaling.",
+     "gap": "Weight-only at about 5.5 bits per weight and evaluated for perplexity retention across 1.1B–13B models; no activation/KV quantization, no kernel-level timing, and no analysis of whether the ~5.5 bpw optimum shifts when decode bandwidth rather than capacity binds."
+    }
+   ],
+   "area_gaps": [
+    "No rotation paper reports a weight-versus-KV bit-allocation curve at a fixed VRAM cap: every method fixes one tuple (typically W4A4KV4, or KV-only INT2) and reports accuracy, so the allocative question is never posed, let alone tested for regime dependence.",
+    "Prefill and decode are reported as two speedup numbers against FP16 on datacenter GPUs (H100/A100, large batch); no paper measures the crossover on a 256 GB/s RTX 4060 or a 68 GB/s Jetson Orin Nano Super where the balance of arithmetic intensity and bandwidth is qualitatively different.",
+    "The online cost of rotation (Hadamard/FWHT multiplies, permutations, per-token scaling) is treated as fusion-overhead-free 'negligible'; nobody quantifies what those extra elementwise passes cost when decode is already bandwidth-bound, which is exactly the regime a unified-memory Jetson sits in.",
+    "Rotation quality is scored by perplexity or zero-shot accuracy on 7B–70B checkpoints; there is no accuracy-vs-bit-width frontier for 1–3B models that actually fit an 8GB budget at usable context length, so the small-model end of the frontier is unmeasured.",
+    "Mixed-precision rotation work (Quant.npu, LIRQuant) allocates by sensitivity or channel importance, never by a cost model; conversely the bit-allocation/waterfilling theory literature assumes allocation-flexible coding and ignores the grouped shared-scale layout that the deployed kernel actually executes.",
+    "Hardware-format assumptions diverge from the target: MXFP4 (DuQuant++, TORQ) needs Blackwell tensor cores, and GyRot/LightRot assume custom ASIC rotation units, so almost none of the 2026 rotation results are executable on Ada or Ampere-class 8GB parts.",
+    "'QuiRot' as named in the brief could not be verified: arXiv full-text search for the string returns zero hits and no indexed venue page surfaced, so the rotation/query-aware branch of this sub-area may be mis-cited in the paper's related-work table and should be re-checked before submission."
+   ],
+   "open_questions": [
+    "If the same 8GB budget must serve both a prefill-heavy and a decode-heavy workload, does the accuracy-optimal split between weight bits and KV bits actually invert, or does it merely flatten — and is the inversion predicted by bytes-per-token arithmetic or by outlier statistics?",
+    "Is a rotation learned to minimize W4A4KV4 reconstruction loss still the best rotation once weights are pushed to 2–3 bits to leave KV headroom, or do the two optimizations conflict (as GyRot's rotation/group-scale mismatch suggests)?",
+    "What is the real price of the rotation itself on a bandwidth-bound decoder — do the extra FWHT/permutation passes and the non-fused scale multiplies consume the bandwidth savings that lower bit-width was supposed to buy?",
+    "Can a single calibration produce a regime-conditional bit plan (per-tensor bit widths selected by measured prefill/decode ratio) without either retraining rotations per plan or storing multiple rotated checkpoints, given that rotated weights cannot be trivially re-grouped after the fact?",
+    "Do the small-model (1–3B) accuracy frontiers that matter for an 8GB device behave like the 7B–70B curves these methods report, or does reduced over-parameterization make rotation-based outlier smoothing unnecessary and bit reallocation more valuable?"
+   ]
+  },
+  {
+   "area": "A2 — Hessian/second-order PTQ and low-rank error compensation, incl. 2026 budget-aware bit allocation",
+   "saturation": "high",
+   "papers": [
+    {
+     "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+     "year": "2023",
+     "venue": "ICLR 2023 (arXiv 2022)",
+     "url": "https://arxiv.org/abs/2210.17323",
+     "method": "Layer-wise OBQ-style quantization that uses an approximate inverse Hessian from calibration activations to update the not-yet-quantized weights so each rounding error is partly cancelled downstream.",
+     "gap": "Chooses one uniform bit-width per model by perplexity on A100/A6000; no term for bytes moved per token, no KV-cache footprint, and no mechanism to trade weight bits against cache bits on an 8GB device."
+    },
+    {
+     "title": "Optimal Brain Compression: A Framework for Accurate Post-Training Quantization and Pruning",
+     "year": "2022",
+     "venue": "NeurIPS 2022",
+     "url": "https://arxiv.org/abs/2208.11580",
+     "method": "Exact realization of the OBS/Hessian framework at DNN scale, greedily selecting which weights to quantize or prune under a per-layer error budget.",
+     "gap": "Budget is a sparsity/bit count on BERT- and CNN-class models with CPU-style cost models; no LLM scale, no KV cache, no measured latency, and its allocation signal is accuracy-driven rather than bandwidth-aware."
+    },
+    {
+     "title": "ZeroQuant-V2: Exploring Post-training Quantization in LLMs from Comprehensive Study to Low Rank Compensation",
+     "year": "2023",
+     "venue": "arXiv preprint 2023 (venue unverified)",
+     "url": "https://arxiv.org/abs/2303.08302",
+     "method": "Large-scale PTQ study (125M-176B) plus Low-Rank Compensation (LoRC), which fits a low-rank term to a quantized layer's residual error to recover accuracy at small parameter cost.",
+     "gap": "Rank and placement are chosen by empirical grid search on perplexity; no joint optimization of bit-width versus rank under a hard memory ceiling, and all hardware discussion is server-GPU."
+    },
+    {
+     "title": "EfficientQAT: Efficient Quantization-Aware Training for Large Language Models",
+     "year": "2025",
+     "venue": "ACL 2025 (Main)",
+     "url": "https://arxiv.org/abs/2407.11062",
+     "method": "Block-AP trains all parameters of one transformer block at a time against a fixed quantization grid, then E2E-QP trains only step sizes end-to-end across the whole model.",
+     "gap": "Needs 41 GPU-hours on an A100-80GB for 70B, so even the calibration pass exceeds an 8GB device; reports accuracy for one fixed bit-width and never considers allocating bits across weights versus KV cache."
+    },
+    {
+     "title": "GPTAQ: Efficient Finetuning-Free Quantization for Asymmetric Calibration",
+     "year": "2025",
+     "venue": "ICML 2025",
+     "url": "https://arxiv.org/abs/2504.02692",
+     "method": "Asymmetric calibration that matches each quantized layer's output to the full-precision model's output instead of its own drifted input, folding accumulated inter-layer error into a closed-form OBS update.",
+     "gap": "Still a single global bit-width chosen by perplexity; assumes one calibration distribution stands in for all inputs, so it cannot say whether error tolerance differs between long compute-bound prefill and short traffic-bound decode."
+    },
+    {
+     "title": "RILQ: Rank-Insensitive LoRA-based Quantization Error Compensation for Boosting 2-bit Large Language Model Accuracy",
+     "year": "2025",
+     "venue": "AAAI 2025",
+     "url": "https://arxiv.org/abs/2412.01129",
+     "method": "Shows the model-wise activation-discrepancy loss of low-rank error compensation is rank-insensitive and uses it to cooperatively adjust LoRA-style adapters across layers at 2-bit.",
+     "gap": "Optimizes 2-bit LLaMA accuracy with adapters merged into weights; never charges the adapter bytes against the weight/KV budget and reports no runtime cost of the low-rank path on a memory-bound device."
+    },
+    {
+     "title": "First-Order Error Matters: Accurate Compensation for Quantized Large Language Models",
+     "year": "2026",
+     "venue": "AAAI 2026 (FOEM)",
+     "url": "https://arxiv.org/abs/2507.11017",
+     "method": "Adds the first-order Taylor term from accumulated latent-vs-full-precision weight drift to GPTQ's second-order compensation, approximating the gradient through the Hessian so no backpropagation is needed.",
+     "gap": "Evaluated only on WikiText-2 perplexity and MMLU at W3/W4A4 on server GPUs; the Hessian remains layer-input-based, so no output-side or bandwidth term enters the objective and no edge latency is measured."
+    },
+    {
+     "title": "ADMM-Q: An Improved Hessian-based Weight Quantizer for Post-Training Quantization of Large Language Models",
+     "year": "2026",
+     "venue": "arXiv preprint 2026 (venue unverified)",
+     "url": "https://arxiv.org/abs/2605.11222",
+     "method": "Reformulates the layer-wise weight quantization problem as a combinatorial ADMM with operator splitting, penalty scheduling, preconditioning and local-search post-processing, as a drop-in GPTQ replacement.",
+     "gap": "Solves only the per-layer reconstruction problem at a fixed bit-width; no cross-layer or weight-vs-KV allocation, and evidence is WikiText-2 perplexity improvements on datacenter GPUs."
+    },
+    {
+     "title": "KronQ: LLM Quantization via Kronecker-Factored Hessian",
+     "year": "2026",
+     "venue": "COLM 2026",
+     "url": "https://arxiv.org/abs/2607.07964",
+     "method": "Uses a Kronecker-factored Hessian that includes gradient covariance to add output-side incoherence rotation and a trace-based sensitivity metric for inter-layer mixed precision.",
+     "gap": "Sensitivity is still a reconstruction-error surrogate rather than measured bytes or time, and precision is allocated against an abstract average-bit target, not an 8GB ceiling with separate prefill and decode costs."
+    },
+    {
+     "title": "Rethinking Residual Errors in Compensation-based LLM Quantization",
+     "year": "2026",
+     "venue": "ICLR 2026",
+     "url": "https://arxiv.org/abs/2604.07955",
+     "method": "Redefines the residual-error target to align each step with the true full-precision output and adds a compensation-aware error term capturing within-layer compensated-vs-original weight discrepancy, reusing GPTAQ's neuron decomposition.",
+     "gap": "A pure accuracy refinement of the GPTQ/GPTAQ objective: no bit allocation, no low-rank component, no hardware cost model, and no evaluation outside perplexity and zero-shot accuracy."
+    },
+    {
+     "title": "SERQ: Saliency-Aware Low-Rank Error Reconstruction for LLM Quantization",
+     "year": "2026",
+     "venue": "ICLR 2026",
+     "url": "https://arxiv.org/abs/2603.08185",
+     "method": "W4A4 error reconstruction with a single low-rank compensation matrix, combining static activation flattening, saliency-aware reconstruction and offline weight permutation to preserve 4-bit matmul.",
+     "gap": "Adds a low-rank side path whose memory and latency overhead is never charged against the device budget, and reports server-GPU accuracy rather than prefill-versus-decode latency on a bandwidth-limited device."
+    },
+    {
+     "title": "Align, Then Correct: Training-Free Two-Stage Low-Rank Compensation for Extremely Quantized Large Language Models",
+     "year": "2026",
+     "venue": "arXiv preprint 2026 (venue unverified)",
+     "url": "https://arxiv.org/abs/2610.08164",
+     "method": "Two-stage closed-form low-rank compensation: a Fisher-weighted asymmetric alignment stage makes the compensation target rank-compressible, then a rank-constrained natural-gradient step absorbs the remaining first-order signal.",
+     "gap": "Rank is fixed by hand and experiments are 2-bit QuIP# on Qwen3 only; no bit-vs-rank-vs-KV allocation under a hard memory ceiling and no latency on memory-bound hardware."
+    },
+    {
+     "title": "GPTQ-intrinsic LoRA: A Near-optimal Algorithm for Low-precision Quantization with Low-rank Adaptation",
+     "year": "2026",
+     "venue": "arXiv preprint 2026 (venue unverified)",
+     "url": "https://arxiv.org/abs/2606.01412",
+     "method": "Incorporates the low-rank correction directly into a GPTQ-style pass by augmenting the calibration Hessian, with information-theoretic lower bounds for W ~= Q+LR and a Bid-Up fixed-grid refinement step.",
+     "gap": "Theory and experiments are layer-wise reconstruction on Qwen3 and DeiT; gives no rule for spending a fixed byte budget across layers or across weights versus KV, and reports no device timing."
+    },
+    {
+     "title": "Deflating the Hessian: Rank-4 W4A4 Quantization for Multimodal Diffusion Transformers",
+     "year": "2026",
+     "venue": "arXiv preprint 2026 (venue unverified)",
+     "url": "https://arxiv.org/abs/2610.11315",
+     "method": "Coupled low-rank plus residual quantization for W4A4, where eliminating the output-side low-rank factor yields a deflated Hessian that discounts errors already captured by the low-rank part, plus an activation-noise surrogate.",
+     "gap": "Targets diffusion transformers on datacenter GPUs with rank fixed at 4 rather than budgeted; edge relevance rests on one Qwen3-8B MMLU number with no latency or bandwidth measurement."
+    },
+    {
+     "title": "GAMMA: Global Bit Allocation for Mixed-Precision Models under Arbitrary Budgets",
+     "year": "2026",
+     "venue": "arXiv preprint 2026 (venue unverified)",
+     "url": "https://arxiv.org/abs/2605.18475",
+     "method": "Learns module-wise precision preferences post-training via teacher-forced hidden-state reconstruction under an augmented-Lagrangian budget constraint, then projects them to an exact budget-feasible integer assignment with reusable sensitivity scores.",
+     "gap": "The budget is a single static memory number with no KV-cache growth, sequence-length or prefill-versus-decode term; tested from 8B to 32B, i.e. models that cannot be resident in 8GB at these bit-widths."
+    },
+    {
+     "title": "MixQuant: Adaptive Mixed-Precision Quantization for Large Language Models",
+     "year": "2026",
+     "venue": "arXiv preprint 2026 (comments: Preprint)",
+     "url": "https://arxiv.org/abs/2607.23047",
+     "method": "Makes layer-sensitivity scores budget-agnostic by marginalizing each layer's distortion over randomly quantized upstream configurations, so one calibration plus a greedy pass serves any memory budget.",
+     "gap": "Closest existing work to budget-aware allocation, but the budget is still a static memory number with no bandwidth or latency model, and the allocation shift it reports is driven by upstream bit-widths rather than by serving regime."
+    },
+    {
+     "title": "SGSR-2: Measured-Cost Pareto Allocation of Bit-Width and Group-Size for On-Device LLM Quantization Language Models",
+     "year": "2026",
+     "venue": "Zenodo preprint (not peer-reviewed, single author)",
+     "url": "https://zenodo.org/records/21190586",
+     "method": "Measures per-block KL divergence of output logits for each bits-by-group-size configuration on consumer hardware and reduces budget-constrained allocation to an exact per-block Lagrangian rule, yielding a 3-5 bit/w Pareto frontier.",
+     "gap": "Single-author non-peer-reviewed preprint whose v2 retracts v1's entropy-sensitivity claim; measured on an Apple M1 Pro with MLX, cost is on-disk size rather than measured bandwidth or latency, and KV cache is out of scope."
+    }
+   ],
+   "area_gaps": [
+    "No paper in this sub-area writes its cost model as bytes moved per token. The 2026 allocators (GAMMA, MixQuant, KronQ) all minimize a reconstruction or sensitivity surrogate under a static memory or average-bit budget, so none can even represent the statement 'a weight bit and a KV bit buy different throughput in prefill than in decode'.",
+    "The reversal question is untested. I found no work, on either the RTX 4060 class or the Orin class, that holds the 8GB budget fixed and reports whether the accuracy-optimal weight/KV split moves when the workload shifts from prefill-dominated to decode-dominated — the closest paper (MixQuant) attributes allocation shift to upstream bit-widths, not to serving regime.",
+    "Second-order methods are evidenced almost entirely at 3-4 bits on 7B-70B models evaluated by WikiText-2 perplexity and MMLU. The 2-bit regime where Hessian versus low-rank compensation actually separates is demonstrated on 70B-class models that cannot inhabit 8GB at any bit-width, so the evidence base is structurally mismatched to the target deployment.",
+    "Low-rank compensation is treated as memory-free. LoRC, RILQ, SERQ, EoRA-style work and Align-Then-Correct all report accuracy at a chosen rank; none solves for the rank that maximizes accuracy per added byte, and none charges adapter bytes against the same ceiling as the weights and KV cache.",
+    "Prefill is largely unmeasured. Papers report accuracy plus at most one end-to-end or decode-only throughput number, so the compute-bound regime — where a lower bit-width can buy nothing because dequantization overhead dominates — is invisible in the reported results.",
+    "Calibration cost is never budgeted for edge. Block-AP requires an A100-80GB and GPTQ-family methods hold a layer's Hessian in memory; no paper reports whether the Hessian or compensation pipeline can run, or be streamed block-by-block, within 8GB of unified memory."
+   ],
+   "open_questions": [
+    "Does the accuracy-optimal weight/KV split under a fixed 8GB budget invert between prefill-bound and decode-bound serving, and is the inversion driven by raw bandwidth (Orin, ~68 GB/s) or by quantized-matmul and dequantization throughput (4060, 256 GB/s)?",
+    "Do Hessian-based sensitivity rankings remain the right allocation signal once cost is bytes-moved-per-token rather than parameter count, or does the optimum collapse toward low uniform weight bits with the remainder spent on KV cache?",
+    "Can low-rank compensation be made budget-neutral — is the rank that maximizes accuracy per added byte the same rank that maximizes tokens/s on a memory-bound device, given that the extra matmul may help at large prefill batches and hurt at batch-1 decode?",
+    "How much of the reported 3-4 bit advantage survives at 2-bit on the 1B-4B models that actually fit in 8GB, given that nearly all Hessian and low-rank evidence comes from models an order of magnitude larger?"
+   ]
+  },
+  {
+   "area": "A3 — KV cache quantization and compression (KIVI, KVQuant, MixKVQ, KV Pareto, ZipCache, query-aware mixed precision, 2025-2026 phase-aware work)",
+   "saturation": "high",
+   "area_gaps": [
+    "No paper in this sub-area indexes KV or weight bit allocation by roofline regime. Every method reports accuracy at a memory budget, so the question of whether the optimal allocation reverses between prefill-bound and decode-bound execution is not merely unanswered — it is never posed.",
+    "KV bit-width is selected per layer, per head, per channel, per token or per chunk, but essentially never per phase. Apart from Disaggregated Quantization and Mix-Quant (which specialize weights and activations, not the KV cache), no method re-allocates the same fixed budget between the prefill and decode portions of a request.",
+    "Edge evidence is thin and disjoint. On-device work uses <=2B models or a 33.6 MB testbed, while the KV-efficiency claims that dominate the literature come from A100/H100-class hardware. The surveyed set contains no measurement on an RTX 4060-class 8GB laptop GPU and none on Jetson Orin Nano, so the two deployment targets are supported only by extrapolation.",
+    "Weight quantization and KV quantization are optimized in separate literatures. Only KV Pareto and AlignQuant touch joint allocation, and neither uses measured latency or achieved bandwidth as the frontier axis, so the coupling that the reversal hypothesis depends on is unmeasured.",
+    "Accuracy metrics do not separate prefill damage from decode error accumulation. KVarN explicitly observes that most baselines are evaluated in prefill-like settings, yet no accepted protocol reports the two phases' contributions independently, so allocation studies cannot attribute a loss to a phase.",
+    "Reported speedups rely on hardware paths that the 8GB targets lack: NVFP4 tensor cores cited by 2026 phase-aware work are Blackwell-class, absent from Ada laptop and Ampere Orin silicon, so prefill-throughput claims do not transfer to either device."
+   ],
+   "open_questions": [
+    "Does the accuracy-optimal split of a fixed 8GB budget between weight bits and KV bits actually reverse between a prefill-dominated and a decode-dominated workload, or does the reversal show up only in latency and never in quality?",
+    "What is the correct control variable for such a study — bits per parameter, bits per token of context, or achieved bytes per second — given that Orin's unified LPDDR5 puts weight reads and KV reads on the same bus while the RTX 4060 has a distinct 256 GB/s path?",
+    "Can a KV precision policy be made phase-adaptive without a second checkpoint or per-step recalibration, when Orin's ~68 GB/s leaves almost no headroom for per-token precision metadata?",
+    "Do the query-aware and saliency-based allocations (ZipCache, MixKVQ, Cocktail, TriAxialKV) retain their advantage at batch size 1, where decode is bandwidth-bound rather than compute-bound and their per-token scoring overhead is no longer amortized?"
+   ],
+   "papers": [
+    {
+     "gap": "Fixes one bit-width for all layers, heads and positions; no per-phase or per-budget allocation. Throughput and batch-size gains are measured on data-center GPUs, not on a memory-bound 8GB part, so it says nothing about the weight-vs-KV split.",
+     "method": "Quantizes the key cache per-channel and the value cache per-token, keeping a residual window of recent tokens in full precision, with no calibration or tuning.",
+     "title": "KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache",
+     "url": "https://arxiv.org/abs/2402.02750",
+     "venue": "ICML 2024",
+     "year": "2024"
+    },
+    {
+     "gap": "The datatype search is driven by perplexity, not by latency or achieved bandwidth, and the target is 1M-10M context on A100-80GB. It therefore gives no rule for whether weights or KV should absorb a scarce bit budget when decode is bandwidth-bound.",
+     "method": "Combines per-channel pre-RoPE key quantization, per-layer sensitivity-weighted non-uniform datatypes, and per-vector dense-and-sparse outlier isolation to reach sub-4-bit KV storage.",
+     "title": "KVQuant: Towards 10 Million Context Length LLM Inference with KV Cache Quantization",
+     "url": "https://arxiv.org/abs/2401.18079",
+     "venue": "NeurIPS 2024",
+     "year": "2024"
+    },
+    {
+     "gap": "Saliency is query-dependent and recomputed per decode step, so allocation is token-dynamic rather than phase-dynamic. It reports prefill and decode latency separately on A100 but never asks whether the optimal allocation flips between the two regimes.",
+     "method": "Uses a channel-separable tokenwise quantization scheme plus a normalized attention-score saliency metric to keep salient tokens at higher precision.",
+     "title": "ZipCache: Accurate and Efficient KV Cache Quantization with Salient Token Identification",
+     "url": "https://arxiv.org/abs/2405.14256",
+     "venue": "NeurIPS 2024",
+     "year": "2024"
+    },
+    {
+     "gap": "Protecting the recent window is a positional heuristic, not an optimization over a bit budget. No joint weight/KV allocation and no edge-hardware measurement; decoding speedup is shown on an 80GB GPU.",
+     "method": "Rearranges KV channels to make quantization groups more homogeneous, applies clipped group-level dynamic quantization, and preserves the most recent window at high precision.",
+     "title": "SKVQ: Sliding-window Key and Value Cache Quantization for Large Language Models",
+     "url": "https://arxiv.org/abs/2405.06219",
+     "venue": "unverified",
+     "year": "2024"
+    },
+    {
+     "gap": "The low-rank/sparse correction adds compute and metadata whose cost is not modeled on bandwidth-starved hardware. Evaluation is data-center GPU perplexity/throughput with weight precision held fixed, so the weight-vs-KV trade is out of scope.",
+     "method": "Quantizes most KV entries to ultra-low precision and compensates the residual error with a low-rank matrix plus a sparse matrix for outlier entries.",
+     "title": "GEAR: An Efficient KV Cache Compression Recipe for Near-Lossless Generative Inference of LLM",
+     "url": "https://arxiv.org/abs/2403.05527",
+     "venue": "unverified",
+     "year": "2024"
+    },
+    {
+     "gap": "Produces one static configuration for all contexts and phases; the objective aggregates accuracy and throughput over a workload mix, so it does not test whether the best point differs for prefill-heavy versus decode-heavy execution.",
+     "method": "Searches offline, via multi-objective optimization over attention-pattern-derived layer sensitivity, for per-layer (K,V) precision pairs, then applies the fixed configuration online.",
+     "title": "KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization for Efficient and Nearly Lossless LLM Inference",
+     "url": "https://arxiv.org/abs/2502.04420",
+     "venue": "ICML 2025",
+     "year": "2025"
+    },
+    {
+     "gap": "Allocation depends on query similarity, not on whether the run is prefill- or decode-bound. Evaluation is long-context GPU serving; no 8GB discrete GPU or unified-memory device appears.",
+     "method": "Scores query-context chunk similarity to pick per-chunk KV bit-widths, then reorders chunks so mixed-precision computation stays hardware-efficient.",
+     "title": "Cocktail: Chunk-Adaptive Mixed-Precision Quantization for Long-Context LLM Inference",
+     "url": "https://arxiv.org/abs/2503.23294",
+     "venue": "DATE 2025",
+     "year": "2025"
+    },
+    {
+     "gap": "Purely an accuracy-side repair at a fixed low precision; it contains no bit-allocation policy, so it cannot inform how to divide a fixed memory budget between weights and KV cache.",
+     "method": "Applies a Hadamard rotation to reduce value quantization error and adds lightweight linear correction adapters that compensate for error introduced by quantized keys at ~2 bits.",
+     "title": "KVLinC: KV Cache Quantization with Hadamard Rotation and Linear Correction",
+     "url": "https://arxiv.org/abs/2510.05373",
+     "venue": "unverified",
+     "year": "2025"
+    },
+    {
+     "gap": "The frontier is indexed by total memory and accuracy, not by achieved latency or bandwidth utilization, so it never tests whether the optimal split reverses between prefill- and decode-bound regimes. Accuracy is long-context QA/NIAH, not a real 8GB-device measurement.",
+     "method": "Maps a joint memory-versus-accuracy frontier over KV bit-width and granularity, chunked prefill, and AWQ 4-bit weights across Qwen, Llama and Mistral.",
+     "title": "KV Pareto: Systems-Level Optimization of KV Cache and Model Compression for Long Context Inference",
+     "url": "https://aclanthology.org/2026.eacl-industry.9/",
+     "venue": "EACL 2026 (Industry Track)",
+     "year": "2026"
+    },
+    {
+     "gap": "Query-aware channel selection is validated as accuracy at a memory footprint on long-CoT reasoning tasks; there is no latency model and no prefill/decode separation, so it cannot speak to a bandwidth-bound decode regime.",
+     "method": "Scores key channels by intrinsic quantization difficulty multiplied by query relevance, preserving critical channels at higher precision, with per-token value quantization.",
+     "title": "MixKVQ: Query-Aware Mixed-Precision KV Cache Quantization for Long-Context Reasoning",
+     "url": "https://aclanthology.org/2026.acl-long.326/",
+     "venue": "ACL 2026",
+     "year": "2026"
+    },
+    {
+     "gap": "Trained and evaluated only on SmolLM-135M/360M/1.7B over commonsense benchmarks, with decisions made per token at decode time only. It does not cover prefill-side or weight-side allocation, and reports no RTX- or Jetson-class result.",
+     "method": "A learned controller over lightweight token features (frequency, quality score, attention variance, entropy) selects KV precision from {2,4,8,FP16} during decoding.",
+     "title": "Don't Waste Bits! Adaptive KV-Cache Quantization for Lightweight On-Device LLMs",
+     "url": "https://arxiv.org/abs/2604.04722",
+     "venue": "CVPR 2026 (workshop)",
+     "year": "2026"
+    },
+    {
+     "gap": "Disaggregates weight and activation precision across phases but leaves KV cache precision out of the allocation entirely. The SSD-streamed second checkpoint assumes capacity that a 256 GB/s laptop GPU and a 68 GB/s Jetson do not have.",
+     "method": "Specializes quantization format, weights and storage placement per phase: low-precision compute for prefill, weight-only low-bit decode, with an optional separate NVFP4 prefill checkpoint streamed from SSD.",
+     "title": "Disaggregated Quantization: Specializing LLM Prefill and Decode",
+     "url": "https://arxiv.org/abs/2609.26333",
+     "venue": "unverified",
+     "year": "2026"
+    },
+    {
+     "gap": "Phase-normalized scoring is applied to weight tiles only; KV cache precision is never part of the allocation. The 3B-14B models on three GPUs never approach an 8GB ceiling where the weight-vs-KV trade would actually bind.",
+     "method": "Uses GPU-compatible 2D weight tiles as the common unit of precision selection, storage and execution, with phase-normalized prefill/decode sensitivity scores under a model-wide storage budget.",
+     "title": "AlignQuant: Tile-Aligned Mixed-Precision Quantization for Efficient LLM Generation",
+     "url": "https://arxiv.org/abs/2610.07457",
+     "venue": "unverified",
+     "year": "2026"
+    },
+    {
+     "gap": "The phase asymmetry is exploited for activation/weight precision and argued qualitatively; there is no measured KV bit-allocation curve across phases. NVFP4 also depends on Blackwell-class tensor cores absent from an RTX 4060 or Orin Nano.",
+     "method": "Applies NVFP4 quantization to the prefill phase while keeping decode in BF16, based on the observation that prefill tolerates quantization far better than decoding.",
+     "title": "Mix-Quant: Quantized Prefilling, Precise Decoding for Agentic LLMs",
+     "url": "https://arxiv.org/abs/2605.20315",
+     "venue": "unverified",
+     "year": "2026"
+    },
+    {
+     "gap": "Allocation is driven by token semantics under a memory budget, not by roofline regime. Evaluation is a 32B model on OSWorld on real GPUs, so the regime where weights and KV compete for a single 8GB pool is never exercised.",
+     "method": "Tags each token along temporal-recency, modality and semantic-role axes, calibrates per-tag sensitivity, and allocates INT2/INT4 under a fixed KV memory budget with fused Triton decode kernels.",
+     "title": "TriAxialKV: Toward Extreme Low-Precision KV-Cache Quantization for Agentic Inference Tasks",
+     "url": "https://arxiv.org/abs/2605.17170",
+     "venue": "unverified",
+     "year": "2026"
+    },
+    {
+     "gap": "Explicitly argues that prior methods are evaluated in prefill-like settings, yet it still reports only accuracy at 2 bits on MATH500/AIME24/HumanEval. It documents the prefill/decode evaluation mismatch without quantifying a latency crossover or deriving an allocation rule from it.",
+     "method": "A calibration-free quantizer combining Hadamard rotation with dual-axis variance normalization to correct outlying token scales that make quantization error accumulate over autoregressive steps.",
+     "title": "KVarN: Variance-Normalized KV-Cache Quantization Mitigates Error Accumulation in Reasoning Tasks",
+     "url": "https://arxiv.org/abs/2606.03458",
+     "venue": "unverified",
+     "year": "2026"
+    },
+    {
+     "gap": "The testbed is an 8.39M-parameter model orders of magnitude smaller than an 8GB-class deployment target. It audits existing compressors for fidelity and energy but proposes no bit-allocation policy and does not test prefill-bound versus decode-bound reversal.",
+     "method": "A measurement study on a 33.6 MB decoder-only LM that audits a polar-guided key-cache quantizer and a consistency-anchored pruner using a per-token decode-fidelity metric and Raspberry Pi 5 energy sampling.",
+     "title": "EdgeLLM-Nano: Auditing Polar-Guided Key-Cache Compression and Consistency-Anchored Pruning on a 33.6 MB On-Device Language Model",
+     "url": "https://arxiv.org/abs/2610.14475",
+     "venue": "unverified",
+     "year": "2026"
+    }
+   ]
+  },
+  {
+   "area": "A4 Mixed-precision / bit-width allocation under a memory budget (HAWQ lineage, RL-based allocation, sensitivity-driven allocation, 2025-2026)",
+   "saturation": "high",
+   "papers": [
+    {
+     "title": "HAQ: Hardware-Aware Automated Quantization with Mixed Precision",
+     "year": "2019",
+     "venue": "CVPR 2019",
+     "url": "https://arxiv.org/abs/1811.08886",
+     "method": "An RL agent sets per-layer bitwidth using direct hardware feedback (simulated latency/energy) instead of FLOPs or model-size proxies.",
+     "gap": "CNN-era and accelerator-simulator based; no KV cache exists in the formulation and no transformer or LLM workload is evaluated, so nothing is said about prefill vs decode binding resources."
+    },
+    {
+     "title": "HAWQ-V2: Hessian Aware trace-Weighted Quantization of Neural Networks",
+     "year": "2020",
+     "venue": "NeurIPS 2020",
+     "url": "https://arxiv.org/abs/1911.03852",
+     "method": "Ranks layers by average Hessian eigenvalue (trace) and picks exact per-layer precision from a Pareto frontier, removing manual bit selection.",
+     "gap": "Sensitivity is a static, input-agnostic second-order quantity computed on CNNs; it is not conditioned on inference phase, batch size, or available bandwidth."
+    },
+    {
+     "title": "HAWQV3: Dyadic Neural Network Quantization",
+     "year": "2021",
+     "venue": "ICML 2021",
+     "url": "https://arxiv.org/abs/2011.10680",
+     "method": "Solves an integer linear program that minimizes model perturbation subject to memory-footprint and latency constraints, with integer-only dyadic kernels.",
+     "gap": "Constraint is a single scalar memory/latency budget for a CNN on a T4; no separate weight-vs-KV budget split and no decode-time bandwidth term."
+    },
+    {
+     "title": "MixLLM: LLM Quantization with Global Mixed-precision between Output-features and Highly-efficient System Design",
+     "year": "2026",
+     "venue": "MLSys 2026",
+     "url": "https://arxiv.org/abs/2412.14590",
+     "method": "Assigns bitwidths per output feature globally across the model using an importance score, plus a two-step dequantization and pipelined kernel design.",
+     "gap": "Allocation is driven by accuracy under a byte budget with server-class kernel efficiency as the system target; no memory-capped edge hardware and no KV cache precision is allocated."
+    }
+   ]
+  }
+ ]
+}

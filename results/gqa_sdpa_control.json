@@ -1,0 +1,30 @@
+{
+ "torch": "2.6.0+cu124",
+ "length": 4096,
+ "heads": [
+  16,
+  8
+ ],
+ "head_dim": 128,
+ "dtype": "float16",
+ "rows": [
+  {
+   "case": "as-is",
+   "ok": false,
+   "error": "RuntimeError: The size of tensor a (16) must match the size of tensor b (8) at non-singleton dimension 1"
+  },
+  {
+   "case": "repeat",
+   "ok": true,
+   "peak_MB": 80.0,
+   "ms": 23.9
+  },
+  {
+   "case": "enable_gqa",
+   "ok": true,
+   "peak_MB": 2504.2,
+   "ms": 165.3
+  }
+ ],
+ "transformers": "5.20.2"
+}

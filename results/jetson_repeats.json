@@ -1,0 +1,45 @@
+{
+ "device": "Orin Nano Super",
+ "repeats": 5,
+ "p": 32768,
+ "n": 128,
+ "rows": [
+  {
+   "weights": "Q8_0",
+   "cache": "f16",
+   "rc": 1,
+   "cells": {},
+   "tail": "er for kv cache\nllama_bench: error: failed to create context with model '/home/brad/c2/models/Qwen3-1.7B-Q8_0.gguf'\n| model                          |       size |     params | backend    | ngl | n_batch | n_ubatch |            test |                  t/s |\n| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | -------: | --------------: | -------------------: |\n"
+  },
+  {
+   "weights": "Q8_0",
+   "cache": "q4_0",
+   "rc": 1,
+   "cells": {},
+   "tail": "failed to create context with model '/home/brad/c2/models/Qwen3-1.7B-Q8_0.gguf'\n| model                          |       size |     params | backend    | ngl | n_batch | n_ubatch | type_k | type_v |            test |                  t/s |\n| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | -------: | -----: | -----: | --------------: | -------------------: |\n"
+  },
+  {
+   "weights": "Q4_K_M",
+   "cache": "f16",
+   "rc": 1,
+   "cells": {},
+   "tail": " for kv cache\nllama_bench: error: failed to create context with model '/home/brad/c2/models/Qwen3-1.7B-Q4_K_M.gguf'\n| model                          |       size |     params | backend    | ngl | n_batch | n_ubatch |            test |                  t/s |\n| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | -------: | --------------: | -------------------: |\n"
+  },
+  {
+   "weights": "Q4_K_M",
+   "cache": "q4_0",
+   "rc": 0,
+   "cells": {
+    "pp32768": {
+     "mean": 571.25,
+     "sd": 2.44
+    },
+    "tg128": {
+     "mean": 35.41,
+     "sd": 0.35
+    }
+   },
+   "tail": " -----: | -----: | --------------: | -------------------: |\n| qwen3 1.7B Q4_K - Medium       |   1.03 GiB |     1.72 B | CUDA       |  99 |    1024 |      128 |   q4_0 |   q4_0 |         pp32768 |        571.25 \u00b1 2.44 |\n| qwen3 1.7B Q4_K - Medium       |   1.03 GiB |     1.72 B | CUDA       |  99 |    1024 |      128 |   q4_0 |   q4_0 |           tg128 |         35.41 \u00b1 0.35 |\n\nbuild: 2cbca38 (1)\n"
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+        {
+          "title": "AMQ: Enabling AutoML for Mixed-precision Weight-Only Quantization of Large Language Models",
+          "year": "2025",
+          "venue": "EMNLP 2025",
+          "url": "https://aclanthology.org/2025.emnlp-main.1799/",
+          "method": "AutoML search over layer-wise weight bitwidths with search-space pruning, a format-conversion-free quantization proxy, and a learned quality predictor.",
+          "gap": "Weight-only and layer-granular; the constraint is a memory limit but the objective never touches KV ca
+… [truncated: 73177 more characters]
+[status: completed, 8 agents]

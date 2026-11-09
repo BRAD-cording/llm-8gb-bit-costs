@@ -1,0 +1,262 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{quarot}
+S.~Ashkboos, A.~Mohtashami, M.~L. Croci, B.~Li, P.~Cameron, M.~Jaggi,
+  D.~Alistarh, T.~Hoefler, J.~Hensman,
+  \href{https://arxiv.org/abs/2404.00456}{{QuaRot}: Outlier-free 4-bit
+  inference in rotated {LLMs}}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2404.00456} {\path{arXiv:2404.00456}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2404.00456}
+
+\bibitem{spinquant}
+Z.~Liu, C.~Zhao, I.~Fedorov, B.~Soran, D.~Choudhary, R.~Krishnamoorthi,
+  V.~Chandra, Y.~Tian, T.~Blankevoort,
+  \href{https://arxiv.org/abs/2405.16406}{{SpinQuant}: {LLM} quantization with
+  learned rotations}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2405.16406} {\path{arXiv:2405.16406}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2405.16406}
+
+\bibitem{duquant}
+H.~Lin, H.~Xu, Y.~Wu, J.~Cui, Y.~Zhang, L.~Mou, L.~Song, Z.~Sun, Y.~Wei,
+  \href{https://arxiv.org/abs/2406.01721}{{DuQuant}: Distributing outliers via
+  dual transformation makes stronger quantized {LLMs}}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2406.01721} {\path{arXiv:2406.01721}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2406.01721}
+
+\bibitem{sun2024}
+Y.~Sun, R.~Liu, H.~Bai, H.~Bao, K.~Zhao, Y.~Li, J.~Hu, X.~Yu, L.~Hou, C.~Yuan,
+  X.~Jiang, W.~Liu, J.~Yao, \href{https://arxiv.org/abs/2410.09426}{Flatquant:
+  Flatness matters for {LLM} quantization}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2410.09426} {\path{arXiv:2410.09426}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2410.09426}
+
+\bibitem{gptq}
+E.~Frantar, S.~Ashkboos, T.~Hoefler, D.~Alistarh,
+  \href{https://arxiv.org/abs/2210.17323}{{GPTQ}: Accurate post-training
+  quantization for generative pre-trained transformers}, arXiv preprint (2022).
+\newblock \href {http://arxiv.org/abs/2210.17323} {\path{arXiv:2210.17323}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2210.17323}
+
+\bibitem{frantar2022}
+E.~Frantar, S.~P. Singh, D.~Alistarh,
+  \href{https://arxiv.org/abs/2208.11580}{Optimal brain compression: A
+  framework for accurate post-training quantization and pruning}, arXiv
+  preprint (2022).
+\newblock \href {http://arxiv.org/abs/2208.11580} {\path{arXiv:2208.11580}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2208.11580}
+
+\bibitem{hawqv2}
+Z.~Dong, Z.~Yao, Y.~Cai, D.~Arfeen, A.~Gholami, M.~W. Mahoney, K.~Keutzer,
+  \href{https://arxiv.org/abs/1911.03852}{{HAWQ-V2}: Hessian aware
+  trace-weighted quantization of neural networks}, neurIPS 2020 (2019).
+\newblock \href {http://arxiv.org/abs/1911.03852} {\path{arXiv:1911.03852}}.
+\newline\urlprefix\url{https://arxiv.org/abs/1911.03852}
+
+\bibitem{mixllm}
+Z.~Zheng, X.~Song, C.~Liu, \href{https://arxiv.org/abs/2412.14590}{{MixLLM}:
+  {LLM} quantization with global mixed-precision between output-features and
+  highly-efficient system design}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2412.14590} {\path{arXiv:2412.14590}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2412.14590}
+
+\bibitem{gamma}
+Z.~Yao, H.~Zhao, H.~Wang, X.~Han,
+  \href{https://arxiv.org/abs/2605.18475}{{GAMMA}: Global bit allocation for
+  mixed-precision models under arbitrary budgets}, arXiv preprint (2026).
+\newblock \href {http://arxiv.org/abs/2605.18475} {\path{arXiv:2605.18475}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2605.18475}
+
+\bibitem{alignquant}
+H.~Zhang, Q.~Zhang, Q.~Cao, H.~Fan, Y.~Huang, K.~Sha, Y.~Feng,
+  \href{https://arxiv.org/abs/2610.07457}{{AlignQuant}: Tile-aligned
+  mixed-precision quantization for efficient {LLM} generation}, arXiv preprint
+  (2026).
+\newblock \href {http://arxiv.org/abs/2610.07457} {\path{arXiv:2610.07457}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2610.07457}
+
+\bibitem{wang2018}
+K.~Wang, Z.~Liu, Y.~Lin, J.~Lin, S.~Han,
+  \href{https://arxiv.org/abs/1811.08886}{Haq: Hardware-aware automated
+  quantization with mixed precision}, arXiv preprint (2018).
+\newblock \href {http://arxiv.org/abs/1811.08886} {\path{arXiv:1811.08886}}.
+\newline\urlprefix\url{https://arxiv.org/abs/1811.08886}
+
+\bibitem{lin2024}
+Y.~Lin, H.~Tang, S.~Yang, Z.~Zhang, G.~Xiao, C.~Gan, S.~Han,
+  \href{https://arxiv.org/abs/2405.04532}{Qserve: W4a8kv4 quantization and
+  system co-design for efficient {LLM} serving}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2405.04532} {\path{arXiv:2405.04532}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2405.04532}
+
+\bibitem{zhao2023}
+Y.~Zhao, C.-Y. Lin, K.~Zhu, Z.~Ye, L.~Chen, S.~Zheng, L.~Ceze,
+  A.~Krishnamurthy, T.~Chen, B.~Kasikci,
+  \href{https://arxiv.org/abs/2310.19102}{Atom: Low-bit quantization for
+  efficient and accurate {LLM} serving}, arXiv preprint (2023).
+\newblock \href {http://arxiv.org/abs/2310.19102} {\path{arXiv:2310.19102}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2310.19102}
+
+\bibitem{wei2024}
+J.~Wei, S.~Cao, T.~Cao, L.~Ma, L.~Wang, Y.~Zhang, M.~Yang,
+  \href{https://arxiv.org/abs/2407.00088}{T-mac: Cpu renaissance via table
+  lookup for low-bit {LLM} deployment on edge}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2407.00088} {\path{arXiv:2407.00088}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2407.00088}
+
+\bibitem{guo2026}
+H.~Guo, N.~Guo, W.~Wang, J.~Otholt, C.~Meinel, H.~Yang,
+  \href{https://arxiv.org/abs/2606.08761}{Apex4: Efficient pure {W4A4} {LLM}
+  inference via intra-sm compute rebalancing}, arXiv preprint (2026).
+\newblock \href {http://arxiv.org/abs/2606.08761} {\path{arXiv:2606.08761}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2606.08761}
+
+\bibitem{mixquant}
+H.~Lu, Z.~Chen, G.~Fang, X.~Ma, X.~Wang,
+  \href{https://arxiv.org/abs/2605.20315}{{Mix-Quant}: Quantized prefilling,
+  precise decoding for agentic {LLMs}}, arXiv preprint (2026).
+\newblock \href {http://arxiv.org/abs/2605.20315} {\path{arXiv:2605.20315}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2605.20315}
+
+\bibitem{song2026}
+S.~Song, G.~Lee, J.~Lee, J.~Choi,
+  \href{https://arxiv.org/abs/2610.08164}{Align, then correct: Training-free
+  two-stage low-rank compensation for extremely quantized large language
+  models}, arXiv preprint (2026).
+\newblock \href {http://arxiv.org/abs/2610.08164} {\path{arXiv:2610.08164}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2610.08164}
+
+\bibitem{park2026}
+Y.~Park, H.~Kim, S.~Choi, \href{https://arxiv.org/abs/2603.08185}{Serq:
+  Saliency-aware low-rank error reconstruction for {LLM} quantization}, arXiv
+  preprint (2026).
+\newblock \href {http://arxiv.org/abs/2603.08185} {\path{arXiv:2603.08185}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2603.08185}
+
+\bibitem{liu2025}
+W.~Liu, H.~Meng, Y.~Luo, Y.~Zhao, P.~Zhang, X.~Ma,
+  \href{https://arxiv.org/abs/2508.02343}{Micromix: Efficient mixed-precision
+  quantization with microscaling formats for large language models}, iCLR 2026
+  (2025).
+\newblock \href {http://arxiv.org/abs/2508.02343} {\path{arXiv:2508.02343}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2508.02343}
+
+\bibitem{kivi}
+Z.~Liu, J.~Yuan, H.~Jin, S.~Zhong, Z.~Xu, V.~Braverman, B.~Chen, X.~Hu,
+  \href{https://arxiv.org/abs/2402.02750}{{KIVI}: A tuning-free asymmetric 2bit
+  quantization for {KV} cache}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2402.02750} {\path{arXiv:2402.02750}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2402.02750}
+
+\bibitem{kvquant}
+C.~Hooper, S.~Kim, H.~Mohammadzadeh, M.~W. Mahoney, Y.~S. Shao, K.~Keutzer,
+  A.~Gholami, \href{https://arxiv.org/abs/2401.18079}{{KVQuant}: Towards 10
+  million context length {LLM} inference with {KV} cache quantization}, arXiv
+  preprint (2024).
+\newblock \href {http://arxiv.org/abs/2401.18079} {\path{arXiv:2401.18079}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2401.18079}
+
+\bibitem{mixkvq}
+T.~Zhang, Z.~Zeng, H.~Peng, H.~Zhuang, C.~Chen,
+  \href{https://aclanthology.org/2026.acl-long.326/}{{MixKVQ}: Query-aware
+  mixed-precision {KV} cache quantization for long-context reasoning}, in:
+  Proceedings of the 64th Annual Meeting of the Association for Computational
+  Linguistics (Volume 1: Long Papers), Association for Computational
+  Linguistics, San Diego, California, United States, 2026, pp. 7189--7204.
+\newblock \href {https://doi.org/10.18653/v1/2026.acl-long.326}
+  {\path{doi:10.18653/v1/2026.acl-long.326}}.
+\newline\urlprefix\url{https://aclanthology.org/2026.acl-long.326/}
+
+\bibitem{kvpareto}
+S.~Gokhale, D.~Das, R.~Patwari, A.~Sirasao, E.~Delaye,
+  \href{https://aclanthology.org/2026.eacl-industry.9/}{{KV Pareto}:
+  Systems-level optimization of {KV} cache and model compression for long
+  context inference}, in: Proceedings of the 19th Conference of the European
+  Chapter of the Association for Computational Linguistics (Volume 5: Industry
+  Track), Association for Computational Linguistics, Rabat, Morocco, 2026, pp.
+  119--131.
+\newblock \href {https://doi.org/10.18653/v1/2026.eacl-industry.9}
+  {\path{doi:10.18653/v1/2026.eacl-industry.9}}.
+\newline\urlprefix\url{https://aclanthology.org/2026.eacl-industry.9/}
+
+\bibitem{duanmu2024}
+H.~Duanmu, Z.~Yuan, X.~Li, J.~Duan, X.~Zhang, D.~Lin,
+  \href{https://arxiv.org/abs/2405.06219}{Skvq: Sliding-window key and value
+  cache quantization for large language models}, arXiv preprint (2024).
+\newblock \href {http://arxiv.org/abs/2405.06219} {\path{arXiv:2405.06219}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2405.06219}
+
+\bibitem{su2025}
+Z.~Su, Z.~Chen, W.~Shen, H.~Wei, L.~Li, H.~Yu, K.~Yuan,
+  \href{https://arxiv.org/abs/2501.16383}{Rotatekv: Accurate and robust 2-bit
+  {KV} cache quantization for {LLMs} via outlier-aware adaptive rotations},
+  arXiv preprint (2025).
+\newblock \href {http://arxiv.org/abs/2501.16383} {\path{arXiv:2501.16383}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2501.16383}
+
+\bibitem{he2024}
+Y.~He, L.~Zhang, W.~Wu, J.~Liu, H.~Zhou, B.~Zhuang,
+  \href{https://arxiv.org/abs/2405.14256}{{ZipCache}: Accurate and efficient
+  {KV} cache quantization with salient token identification}, arXiv preprint
+  (2024).
+\newblock \href {http://arxiv.org/abs/2405.14256} {\path{arXiv:2405.14256}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2405.14256}
+
+\bibitem{kwon2023}
+W.~Kwon, Z.~Li, S.~Zhuang, Y.~Sheng, L.~Zheng, C.~H. Yu, J.~E. Gonzalez,
+  H.~Zhang, I.~Stoica, \href{https://arxiv.org/abs/2309.06180}{Efficient memory
+  management for large language model serving with pagedattention}, arXiv
+  preprint (2023).
+\newblock \href {http://arxiv.org/abs/2309.06180} {\path{arXiv:2309.06180}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2309.06180}
+
+\bibitem{prefixquant}
+M.~Chen, Y.~Liu, J.~Wang, Y.~Bin, W.~Shao, P.~Luo,
+  \href{https://arxiv.org/abs/2410.05265}{{PrefixQuant}: Eliminating outliers
+  by prefixed tokens for large language models quantization}, arXiv preprint
+  (2024).
+\newblock \href {http://arxiv.org/abs/2410.05265} {\path{arXiv:2410.05265}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2410.05265}
+
+\bibitem{ostquant}
+X.~Hu, Y.~Cheng, D.~Yang, Z.~Xu, Z.~Yuan, J.~Yu, C.~Xu, Z.~Jiang, S.~Zhou,
+  \href{https://arxiv.org/abs/2501.13987}{{OstQuant}: Refining large language
+  model quantization with orthogonal and scaling transformations for better
+  distribution fitting}, arXiv preprint (2025).
+\newblock \href {http://arxiv.org/abs/2501.13987} {\path{arXiv:2501.13987}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2501.13987}
+
+\bibitem{spectrumquant}
+D.~Haldar, I.~Patra, A.~Yousuf, C.~S. Seelamantula,
+  \href{https://arxiv.org/abs/2610.20303}{{SpectrumQuant}: Spectrum alignment
+  for {LLM} quantization}, arXiv preprint (2026).
+\newblock \href {http://arxiv.org/abs/2610.20303} {\path{arXiv:2610.20303}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2610.20303}
+
+\bibitem{gptaq}
+Y.~Li, R.~Yin, D.~Lee, S.~Xiao, P.~Panda,
+  \href{https://arxiv.org/abs/2504.02692}{{GPTAQ}: Efficient finetuning-free
+  quantization for asymmetric calibration}, arXiv preprint (2025).
+\newblock \href {http://arxiv.org/abs/2504.02692} {\path{arXiv:2504.02692}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2504.02692}
+
+\bibitem{awq}
+Z.~Yao, Z.~Dong, Z.~Zheng, A.~Gholami, J.~Yu, E.~Tan, L.~Wang, Q.~Huang,
+  Y.~Wang, M.~W. Mahoney, K.~Keutzer,
+  \href{https://arxiv.org/abs/2011.10680}{{HAWQV3}: Dyadic neural network
+  quantization}, {ICML} 2021 (2020).
+\newblock \href {http://arxiv.org/abs/2011.10680} {\path{arXiv:2011.10680}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2011.10680}
+
+\bibitem{dq}
+A.~Panferov, M.~Kleinegger, S.~Priyadarshi, T.~Blankevoort, D.~Alistarh,
+  \href{https://arxiv.org/abs/2609.26333}{{Disaggregated} quantization:
+  Specializing {LLM} prefill and decode}, arXiv preprint (2026).
+\newblock \href {http://arxiv.org/abs/2609.26333} {\path{arXiv:2609.26333}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2609.26333}
+
+\end{thebibliography}

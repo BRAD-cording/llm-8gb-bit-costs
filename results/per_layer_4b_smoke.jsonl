@@ -1,0 +1,12 @@
+{"layer": 0, "kind": "layer", "bits": 2, "n_modules": 7, "delta_nats": 7.2955078125, "pct": 147266.50564536772}
+{"layer": 0, "kind": "layer", "bits": 3, "n_modules": 7, "delta_nats": 0.014164806547619424, "pct": 1.4265602777277397}
+{"layer": 0, "kind": "layer", "bits": 4, "n_modules": 7, "delta_nats": 0.0026177598443224426, "pct": 0.26211891693539435}
+{"layer": 0, "kind": "layer", "bits": 8, "n_modules": 7, "delta_nats": -0.0004979395604394199, "pct": -0.04978156091107744}
+{"layer": 1, "kind": "layer", "bits": 2, "n_modules": 7, "delta_nats": 0.8242919623778997, "pct": 128.02656797364574}
+{"layer": 1, "kind": "layer", "bits": 3, "n_modules": 7, "delta_nats": 0.035725255647130805, "pct": 3.6371070273351735}
+{"layer": 1, "kind": "layer", "bits": 4, "n_modules": 7, "delta_nats": -0.007460746718559008, "pct": -0.7432984433124123}
+{"layer": 1, "kind": "layer", "bits": 8, "n_modules": 7, "delta_nats": -0.001729433760683463, "pct": -0.17279391518503218}
+{"layer": 2, "kind": "layer", "bits": 2, "n_modules": 7, "delta_nats": 2.1933977697649576, "pct": 796.5624547929575}
+{"layer": 2, "kind": "layer", "bits": 3, "n_modules": 7, "delta_nats": 0.4270840487637364, "pct": 53.27814846991041}
+{"layer": 2, "kind": "layer", "bits": 4, "n_modules": 7, "delta_nats": 0.011004035027472714, "pct": 1.1064802110742011}
+{"layer": 2, "kind": "layer", "bits": 8, "n_modules": 7, "delta_nats": -0.0008687709859582782, "pct": -0.08683937137076159}

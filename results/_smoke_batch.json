@@ -1,0 +1,64 @@
+{
+  "model": "C:/models/Qwen3-0.6B",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.6.0+cu124",
+  "configs": "default,policy",
+  "rows": [
+    {
+      "batch": 1,
+      "seq_len": 128,
+      "ttft_ms": 100.66,
+      "tpot_ms": 85.898,
+      "tokens_per_s_total": 11.64,
+      "tokens_per_s_per_seq": 11.642,
+      "peak_prefill_MB": 586.5,
+      "peak_decode_MB": 564.4,
+      "spilled": false,
+      "config": "default",
+      "weights_MB": 531.5,
+      "kv_bytes_per_token": 114688
+    },
+    {
+      "batch": 2,
+      "seq_len": 128,
+      "ttft_ms": 98.87,
+      "tpot_ms": 86.138,
+      "tokens_per_s_total": 23.22,
+      "tokens_per_s_per_seq": 11.609,
+      "peak_prefill_MB": 619.7,
+      "peak_decode_MB": 581.6,
+      "spilled": false,
+      "config": "default",
+      "weights_MB": 531.5,
+      "kv_bytes_per_token": 114688
+    },
+    {
+      "batch": 1,
+      "seq_len": 128,
+      "ttft_ms": 70.55,
+      "tpot_ms": 99.081,
+      "tokens_per_s_total": 10.09,
+      "tokens_per_s_per_seq": 10.093,
+      "peak_prefill_MB": 1461.1,
+      "peak_decode_MB": 1445.5,
+      "spilled": false,
+      "config": "policy",
+      "weights_MB": 1192.1,
+      "kv_bytes_per_token": 114688
+    },
+    {
+      "batch": 2,
+      "seq_len": 128,
+      "ttft_ms": 42.89,
+      "tpot_ms": 105.366,
+      "tokens_per_s_total": 18.98,
+      "tokens_per_s_per_seq": 9.491,
+      "peak_prefill_MB": 1493.9,
+      "peak_decode_MB": 1463.0,
+      "spilled": false,
+      "config": "policy",
+      "weights_MB": 1192.1,
+      "kv_bytes_per_token": 114688
+    }
+  ]
+}

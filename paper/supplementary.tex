@@ -1,0 +1,27 @@
+\documentclass[10pt,journal]{IEEEtran}
+\begin{document}
+\title{Supplementary Material:\\The Cache Bit Can Be Cheaper Than the Weight Bit on 8\,GB Edge Devices}
+\maketitle
+\section{Pre-registration and Two Falsified Hypotheses}
+\label{app:prereg}
+
+We recorded two hypotheses before the main experiments; both failed.
+
+\paragraph*{H1 (rejected): the split reverses between prefill- and decode-bound regimes}
+A discrete GPU and a unified-memory module have different roofline crossovers
+$b^* = P_{\mathrm{eff}}/B_{\mathrm{eff}}$, so the same workload should land in
+different regimes. We pre-registered $b^*_{\mathrm{Jetson}} \in [150,280]$ and
+measured $83$ against $124$ on the laptop: the module is \emph{compute-poor}
+rather than bandwidth-poor, so the two crossovers are closer and the regime
+window narrower, not wider.
+
+\paragraph*{H2 (rejected): low bit-width trades compute for bandwidth} We
+predicted $\eta_c(\text{nf4}) \le 0.85$. On the real checkpoint nf4 is
+$1.21\times$ slower than fp16 at 1k context and $1.07\times$ at 16k
+(Table~\ref{tab:nospeed}): it costs both, because dequantization is
+unfused, which is why the paper optimizes capacity instead of latency.
+
+
+\bibliographystyle{IEEEtran}
+
+\end{document}

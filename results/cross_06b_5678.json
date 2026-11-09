@@ -1,0 +1,304 @@
+{
+  "model": "C:/models/Qwen3-0.6B",
+  "text": "data/calib_arxiv.txt",
+  "w_quant": "rtn",
+  "seq_len": 1024,
+  "windows": 6,
+  "group": 128,
+  "residual": 128,
+  "precision": "fp16",
+  "baseline_mean_nll": 3.796495,
+  "baseline_ppl": 44.5448,
+  "n_quant_params": 440401920,
+  "n_lm_params": 155582464,
+  "rows": [
+    {
+      "w_bits": 4,
+      "k_bits": 4,
+      "mean_nll": 4.15409,
+      "ppl": 63.6941,
+      "rel_pct": 42.989,
+      "fold_mean": 42.787,
+      "fold_std": 3.158,
+      "folds": [
+        46.118,
+        40.858,
+        38.615,
+        45.559
+      ],
+      "weight_MB": 531.4,
+      "kv_MB": 14.7,
+      "total_MB": 546.0
+    },
+    {
+      "w_bits": 4,
+      "k_bits": 5,
+      "mean_nll": 4.12104,
+      "ppl": 61.6231,
+      "rel_pct": 38.34,
+      "fold_mean": 38.287,
+      "fold_std": 2.938,
+      "folds": [
+        42.151,
+        34.957,
+        35.975,
+        40.065
+      ],
+      "weight_MB": 531.4,
+      "kv_MB": 18.4,
+      "total_MB": 549.7
+    },
+    {
+      "w_bits": 4,
+      "k_bits": 6,
+      "mean_nll": 4.10229,
+      "ppl": 60.4788,
+      "rel_pct": 35.771,
+      "fold_mean": 35.717,
+      "fold_std": 1.409,
+      "folds": [
+        37.383,
+        34.419,
+        34.227,
+        36.839
+      ],
+      "weight_MB": 531.4,
+      "kv_MB": 22.0,
+      "total_MB": 553.4
+    },
+    {
+      "w_bits": 4,
+      "k_bits": 8,
+      "mean_nll": 4.1015,
+      "ppl": 60.4307,
+      "rel_pct": 35.663,
+      "fold_mean": 35.656,
+      "fold_std": 1.567,
+      "folds": [
+        37.296,
+        34.114,
+        34.064,
+        37.148
+      ],
+      "weight_MB": 531.4,
+      "kv_MB": 29.4,
+      "total_MB": 560.7
+    },
+    {
+      "w_bits": 5,
+      "k_bits": 4,
+      "mean_nll": 3.9141,
+      "ppl": 50.1041,
+      "rel_pct": 12.48,
+      "fold_mean": 12.468,
+      "fold_std": 1.3,
+      "folds": [
+        13.41,
+        11.638,
+        10.803,
+        14.02
+      ],
+      "weight_MB": 586.4,
+      "kv_MB": 14.7,
+      "total_MB": 601.1
+    },
+    {
+      "w_bits": 5,
+      "k_bits": 5,
+      "mean_nll": 3.86983,
+      "ppl": 47.9341,
+      "rel_pct": 7.609,
+      "fold_mean": 7.225,
+      "fold_std": 1.284,
+      "folds": [
+        7.822,
+        8.974,
+        5.588,
+        6.517
+      ],
+      "weight_MB": 586.4,
+      "kv_MB": 18.4,
+      "total_MB": 604.8
+    },
+    {
+      "w_bits": 5,
+      "k_bits": 6,
+      "mean_nll": 3.86365,
+      "ppl": 47.6388,
+      "rel_pct": 6.946,
+      "fold_mean": 6.535,
+      "fold_std": 1.255,
+      "folds": [
+        7.809,
+        7.766,
+        5.177,
+        5.388
+      ],
+      "weight_MB": 586.4,
+      "kv_MB": 22.0,
+      "total_MB": 608.4
+    },
+    {
+      "w_bits": 5,
+      "k_bits": 8,
+      "mean_nll": 3.86544,
+      "ppl": 47.7244,
+      "rel_pct": 7.138,
+      "fold_mean": 6.769,
+      "fold_std": 1.135,
+      "folds": [
+        7.749,
+        8.034,
+        5.451,
+        5.844
+      ],
+      "weight_MB": 586.4,
+      "kv_MB": 29.4,
+      "total_MB": 615.8
+    },
+    {
+      "w_bits": 6,
+      "k_bits": 4,
+      "mean_nll": 3.87379,
+      "ppl": 48.1245,
+      "rel_pct": 8.036,
+      "fold_mean": 8.433,
+      "fold_std": 1.374,
+      "folds": [
+        7.397,
+        7.129,
+        8.594,
+        10.614
+      ],
+      "weight_MB": 641.5,
+      "kv_MB": 14.7,
+      "total_MB": 656.1
+    },
+    {
+      "w_bits": 6,
+      "k_bits": 5,
+      "mean_nll": 3.83063,
+      "ppl": 46.0915,
+      "rel_pct": 3.472,
+      "fold_mean": 3.543,
+      "fold_std": 1.036,
+      "folds": [
+        4.188,
+        2.502,
+        2.575,
+        4.906
+      ],
+      "weight_MB": 641.5,
+      "kv_MB": 18.4,
+      "total_MB": 659.8
+    },
+    {
+      "w_bits": 6,
+      "k_bits": 6,
+      "mean_nll": 3.82983,
+      "ppl": 46.0546,
+      "rel_pct": 3.39,
+      "fold_mean": 3.546,
+      "fold_std": 1.422,
+      "folds": [
+        3.122,
+        3.071,
+        2.087,
+        5.903
+      ],
+      "weight_MB": 641.5,
+      "kv_MB": 22.0,
+      "total_MB": 663.5
+    },
+    {
+      "w_bits": 6,
+      "k_bits": 8,
+      "mean_nll": 3.82693,
+      "ppl": 45.9213,
+      "rel_pct": 3.09,
+      "fold_mean": 3.249,
+      "fold_std": 1.184,
+      "folds": [
+        2.941,
+        2.631,
+        2.179,
+        5.246
+      ],
+      "weight_MB": 641.5,
+      "kv_MB": 29.4,
+      "total_MB": 670.8
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 4,
+      "mean_nll": 3.8513,
+      "ppl": 47.0544,
+      "rel_pct": 5.634,
+      "fold_mean": 5.936,
+      "fold_std": 1.372,
+      "folds": [
+        6.329,
+        3.787,
+        6.036,
+        7.592
+      ],
+      "weight_MB": 751.6,
+      "kv_MB": 14.7,
+      "total_MB": 766.2
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 5,
+      "mean_nll": 3.82702,
+      "ppl": 45.9256,
+      "rel_pct": 3.1,
+      "fold_mean": 3.158,
+      "fold_std": 0.793,
+      "folds": [
+        3.49,
+        2.492,
+        2.348,
+        4.301
+      ],
+      "weight_MB": 751.6,
+      "kv_MB": 18.4,
+      "total_MB": 769.9
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 6,
+      "mean_nll": 3.8206,
+      "ppl": 45.6314,
+      "rel_pct": 2.439,
+      "fold_mean": 2.495,
+      "fold_std": 0.897,
+      "folds": [
+        1.556,
+        3.121,
+        1.678,
+        3.626
+      ],
+      "weight_MB": 751.6,
+      "kv_MB": 22.0,
+      "total_MB": 773.6
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 8,
+      "mean_nll": 3.81932,
+      "ppl": 45.573,
+      "rel_pct": 2.308,
+      "fold_mean": 2.293,
+      "fold_std": 0.786,
+      "folds": [
+        1.825,
+        2.867,
+        1.26,
+        3.219
+      ],
+      "weight_MB": 751.6,
+      "kv_MB": 29.4,
+      "total_MB": 780.9
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+ "model": "/home/brad/models/Qwen3-0.6B",
+ "device": "Orin",
+ "torch": "2.5.0a0+872d972e41.nv24.08",
+ "configs": "naive16,policy",
+ "rows": [
+  {
+   "batch": 1,
+   "seq_len": 1024,
+   "ttft_ms": 353.57,
+   "tpot_ms": 114.866,
+   "tokens_per_s_total": 8.71,
+   "tokens_per_s_per_seq": 8.706,
+   "peak_prefill_MB": 1467.5,
+   "peak_decode_MB": 1327.7,
+   "spilled": false,
+   "config": "naive16",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 4,
+   "seq_len": 1024,
+   "ttft_ms": 1752.22,
+   "tpot_ms": 141.414,
+   "tokens_per_s_total": 28.29,
+   "tokens_per_s_per_seq": 7.071,
+   "peak_prefill_MB": 2260.3,
+   "peak_decode_MB": 1709.0,
+   "spilled": false,
+   "config": "naive16",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 16,
+   "seq_len": 1024,
+   "error": "RuntimeError: NVML_SUCCESS == r INTERNAL ASSERT FAILED at \"/opt/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp\":838, please report ",
+   "config": "naive16",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 1,
+   "seq_len": 4096,
+   "ttft_ms": 2812.21,
+   "tpot_ms": 142.395,
+   "tokens_per_s_total": 7.02,
+   "tokens_per_s_per_seq": 7.023,
+   "peak_prefill_MB": 2318.6,
+   "peak_decode_MB": 1705.2,
+   "spilled": false,
+   "config": "naive16",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 4,
+   "seq_len": 4096,
+   "error": "RuntimeError: NVML_SUCCESS == r INTERNAL ASSERT FAILED at \"/opt/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp\":838, please report ",
+   "config": "naive16",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 16,
+   "seq_len": 4096,
+   "error": "RuntimeError: NVML_SUCCESS == r INTERNAL ASSERT FAILED at \"/opt/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp\":838, please report ",
+   "config": "naive16",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 1,
+   "seq_len": 1024,
+   "ttft_ms": 561.9,
+   "tpot_ms": 166.69,
+   "tokens_per_s_total": 6.0,
+   "tokens_per_s_per_seq": 5.999,
+   "peak_prefill_MB": 1467.5,
+   "peak_decode_MB": 1336.1,
+   "spilled": false,
+   "config": "policy",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 4,
+   "seq_len": 1024,
+   "ttft_ms": 1559.34,
+   "tpot_ms": 465.841,
+   "tokens_per_s_total": 8.59,
+   "tokens_per_s_per_seq": 2.147,
+   "peak_prefill_MB": 2260.3,
+   "peak_decode_MB": 1742.3,
+   "spilled": false,
+   "config": "policy",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 16,
+   "seq_len": 1024,
+   "error": "RuntimeError: NVML_SUCCESS == r INTERNAL ASSERT FAILED at \"/opt/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp\":838, please report ",
+   "config": "policy",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 1,
+   "seq_len": 4096,
+   "ttft_ms": 3156.68,
+   "tpot_ms": 476.102,
+   "tokens_per_s_total": 2.1,
+   "tokens_per_s_per_seq": 2.1,
+   "peak_prefill_MB": 2318.6,
+   "peak_decode_MB": 1745.4,
+   "spilled": false,
+   "config": "policy",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 4,
+   "seq_len": 4096,
+   "error": "RuntimeError: NVML_SUCCESS == r INTERNAL ASSERT FAILED at \"/opt/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp\":838, please report ",
+   "config": "policy",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  },
+  {
+   "batch": 16,
+   "seq_len": 4096,
+   "error": "RuntimeError: NVML_SUCCESS == r INTERNAL ASSERT FAILED at \"/opt/pytorch/pytorch/c10/cuda/CUDACachingAllocator.cpp\":838, please report ",
+   "config": "policy",
+   "weights_MB": 1192.1,
+   "kv_bytes_per_token": 114688
+  }
+ ]
+}

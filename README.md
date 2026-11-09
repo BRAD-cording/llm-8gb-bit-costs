@@ -7,11 +7,15 @@ novelty; repositioned and targeted at the *IEEE Internet of Things Journal*).
 
 Every number, table and figure in the paper is produced by a script in this
 repository, and every table is generated from a measurement file rather than
-transcribed. A single command rebuilds the results, the figures, the allocator
-inputs and both manuscript versions, and then runs the checks.
+transcribed. The measurements themselves take hours and are committed under
+`results/`; a single command rebuilds everything derived from them --- the
+figures, the tidy CSV, the allocator inputs, the paper-side checks and the
+PDF --- and then runs the checks. Pass `--with-measurements` to also re-run the
+three fast local measurements.
 
 ```bash
-python experiments/run_all.py      # 17 stages; prints ALL OK on success
+python experiments/run_all.py             # 15 stages + the PDF; ALL OK on success
+python experiments/run_all.py --with-measurements   # + the three fast local measurements
 ```
 
 ## What the paper claims, and where to check it
@@ -21,6 +25,8 @@ python experiments/run_all.py      # 17 stages; prints ALL OK on success
 | The serving stack sets the memory budget before any bit does ($32\times$ attention peak, $5.8\times$ prefill) | `src/bench/gqa_patch.py`, `src/bench/regime_sweep.py` | `results/stack_*.json` |
 | 4-bit weights buy little or no time | `src/bench/*`, `src/eval/deploy_compare.py` | `results/deploy_*.json` |
 | One cache bit costs less accuracy than one weight bit ($9.0\times$, $13.3\times$) | `src/eval/strength_matched.py`, `src/eval/gptq_win.py`, `src/eval/kivi_official_eval.py` | `results/strength_*.json`, `results/gptq_official_*.json`, `results/kivi_official_*.json` |
+| The exchange rate is bit-dependent, not an artefact of one 4-bit point ($9.5\times$ at 4--6 weight bits, $0.5\times$ at 6--8) | `src/eval/bit_cost_cross.py` | `results/cross_06b_rtn.json` |
+| At 4k tokens the shipped recipe (4-bit weights, fp16 cache) costs $+36.67\%$ in 766 MB against $+1.49\%$ in 869 MB for 8-bit weights with an 8-bit cache | `src/eval/bit_cost_cross.py` (`--seq-len 4096`) | `results/cross_06b_4k.json` |
 | Same ordering on WikiText-2 ($10.9\times$, $7.7\times$) | `src/eval/strength_matched.py --text data/wikitext2_test.txt` | `results/strength_*_wikitext.json` |
 | At 4 bits the cache scheme does not change long-context retrieval; at 2 bits it decides (5/5 vs 0/5) | `src/eval/passkey_eval.py`, `src/eval/passkey_long.py` | `results/passkey_*.json` |
 | Packed 4-bit cache is $3.2\times$ smaller, measured on the allocator | `src/eval/packed_cache_footprint.py` | `results/packed_cache_06b.json` |
@@ -38,7 +44,7 @@ src/eval/       perplexity, bit-cost, strength-matched, GPTQ, KIVI, passkey,
                 packed-footprint, deployment and the llama.cpp executed-policy
                 sweep
 src/alloc/      the multiple-choice knapsack solver and its inputs
-experiments/    the 16-stage pipeline plus the individual checkers
+experiments/    the pipeline plus the individual checkers
 results/        measurement files, and short notes explaining the failures
 paper/          IEEEtran master; paper/jsa is generated from it
 third_party/    vendored third-party code, with its licence

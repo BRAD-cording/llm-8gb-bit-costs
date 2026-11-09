@@ -1,0 +1,192 @@
+{
+ "conf": "fp16",
+ "weights_bits": 16,
+ "kv_bits": 16,
+ "n": 26,
+ "correct": 6,
+ "acc": 0.23076923076923078,
+ "rows": [
+  {
+   "i": 0,
+   "qtype": "count",
+   "answer": "8",
+   "said": "to determine how many lines above contain the word ne-c, i n",
+   "ok": false
+  },
+  {
+   "i": 1,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a system that is part of the ras (remote acc",
+   "ok": false
+  },
+  {
+   "i": 2,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the answer is \\boxed{2}.\nthe given log excerpt contains two ",
+   "ok": true
+  },
+  {
+   "i": 3,
+   "qtype": "system",
+   "answer": "bgl",
+   "said": "the log is from a system that is likely a server or a comput",
+   "ok": false
+  },
+  {
+   "i": 4,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the number of lines above that contain the word \"received\" i",
+   "ok": false
+  },
+  {
+   "i": 5,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the dfs (distributed file system) sys",
+   "ok": true
+  },
+  {
+   "i": 6,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the log excerpt contains 1 line that contains the word \"adde",
+   "ok": false
+  },
+  {
+   "i": 7,
+   "qtype": "system",
+   "answer": "hdfs",
+   "said": "the log is produced by the datanode component of the hadoop ",
+   "ok": false
+  },
+  {
+   "i": 8,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the number of lines above that contain the word step_sputils",
+   "ok": false
+  },
+  {
+   "i": 9,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log was produced by the step system, which is a fitness ",
+   "ok": false
+  },
+  {
+   "i": 10,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the number of lines above that contain the word \"totalcalori",
+   "ok": false
+  },
+  {
+   "i": 11,
+   "qtype": "system",
+   "answer": "healthapp",
+   "said": "the log is produced by the step system, which is a component",
+   "ok": false
+  },
+  {
+   "i": 12,
+   "qtype": "count",
+   "answer": "6",
+   "said": "the answer is 1.\nexplanation: the line \"jul  1 10:56:42",
+   "ok": false
+  },
+  {
+   "i": 13,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the system is combo.\nthe log above is from the system named ",
+   "ok": false
+  },
+  {
+   "i": 14,
+   "qtype": "count",
+   "answer": "2",
+   "said": "the log excerpt contains 10 lines that contain the word \"new",
+   "ok": false
+  },
+  {
+   "i": 15,
+   "qtype": "system",
+   "answer": "linux",
+   "said": "the system that produced the log is the \"combo\" system. the ",
+   "ok": false
+  },
+  {
+   "i": 16,
+   "qtype": "count",
+   "answer": "4",
+   "said": "1\nexplanation: the line with the word figagglomerator.c is t",
+   "ok": false
+  },
+  {
+   "i": 17,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system running the apple operati",
+   "ok": true
+  },
+  {
+   "i": 18,
+   "qtype": "count",
+   "answer": "3",
+   "said": "the word \"mdns\" appears in the following lines: 14, 15, 16,",
+   "ok": false
+  },
+  {
+   "i": 19,
+   "qtype": "system",
+   "answer": "mac",
+   "said": "the log was produced by the system running macos, specifical",
+   "ok": true
+  },
+  {
+   "i": 20,
+   "qtype": "count",
+   "answer": "7",
+   "said": "1\nexplanation: the line \"nova-api.log.1.2017-05-16",
+   "ok": false
+  },
+  {
+   "i": 21,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log is produced by the nova compute and nova api systems",
+   "ok": true
+  },
+  {
+   "i": 22,
+   "qtype": "count",
+   "answer": "8",
+   "said": "the word \"nova.compute.claims\" appears in the log entry: \n\nn",
+   "ok": false
+  },
+  {
+   "i": 23,
+   "qtype": "system",
+   "answer": "openstack",
+   "said": "the log above was produced by the nova system, which is part",
+   "ok": true
+  },
+  {
+   "i": 24,
+   "qtype": "count",
+   "answer": "7",
+   "said": "the word \"interrupting\" appears in the following lines: 2015",
+   "ok": false
+  },
+  {
+   "i": 25,
+   "qtype": "system",
+   "answer": "zookeeper",
+   "said": "the log is from a quorumcnxmanager system, which is part of ",
+   "ok": false
+  }
+ ]
+}

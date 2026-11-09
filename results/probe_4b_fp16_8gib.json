@@ -1,0 +1,10 @@
+{
+  "probe": "4B fp16 load on RTX 4060 Laptop (8 GiB)",
+  "free_before_gib": 6.93,
+  "total_gib": 8.0,
+  "fp16_loaded": true,
+  "free_after_gib": 0.0,
+  "seconds": 11.5,
+  "interpretation": "The model loads only because Windows WDDM backs the over-budget allocation with shared host memory; no device memory is left for any KV cache. A forward pass therefore cannot run at 32k, and a per-item curve on the fp16 base is not measurable on this device.",
+  "consequence": "4B@32k per-item weights curve cannot be produced in the paper's protocol (fp16 base). Measured alternative: per-item on an nf4 base at 8k, or keep the 0.6B grid and state the binding-regime gap."
+}

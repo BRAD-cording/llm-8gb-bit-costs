@@ -31,6 +31,10 @@ plt.rcParams.update({
     "figure.dpi": 200,
     "axes.grid": True,
     "grid.alpha": 0.3,
+    # Embed TrueType (Type 42) instead of Type 3: IEEE PDF eXpress rejects
+    # documents that contain Type 3 fonts.
+    "pdf.fonttype": 42,
+    "ps.fonttype": 42,
 })
 
 

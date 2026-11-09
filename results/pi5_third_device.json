@@ -1,0 +1,33 @@
+{
+ "device": "Raspberry Pi 5 Model B Rev 1.0, 8 GB, Cortex-A76 x4, CPU only",
+ "runtime": "llama.cpp master build (cmake Release, GGML_NATIVE), Debian 12, 6.6.51+rpt-rpi-2712",
+ "memory": {
+  "nominal_mb": 8192,
+  "total_mb": 8048,
+  "available_after_boot_mb": 7809,
+  "unusable_fraction": 0.047
+ },
+ "throughput_17b_4k": {
+  "weights": "Q4_K_M 1.03 GiB",
+  "f16_cache": {
+   "prefill_t_s": 39.68,
+   "decode_t_s": 6.52
+  },
+  "q4_0_cache": {
+   "prefill_t_s": 16.47,
+   "decode_t_s": 6.51
+  },
+  "prefill_change_pct": -58.5
+ },
+ "capacity_4b": {
+  "32k": {
+   "f16": "ok 11.9/2.9",
+   "q4_0": "ok 12.1/2.9"
+  },
+  "64k": {
+   "f16": "context creation failed",
+   "q4_0": "ok 12.3/3.0"
+  }
+ },
+ "protocol": "llama-bench -p 4096 -n 64 -r 2 -t 4 -ub 128 -b 1024; context arms via llama-cli -c N -n 2"
+}

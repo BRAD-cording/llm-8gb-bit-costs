@@ -1,0 +1,88 @@
+{
+  "model": "C:/models/_smol/models/HuggingFaceTB--SmolLM2-135M/snapshots/master",
+  "text": "data/calib_arxiv.txt",
+  "w_quant": "rtn",
+  "seq_len": 4096,
+  "windows": 4,
+  "group": 128,
+  "residual": 128,
+  "precision": "fp16",
+  "baseline_mean_nll": 3.684665,
+  "baseline_ppl": 39.8318,
+  "n_quant_params": 106168320,
+  "n_lm_params": 28311552,
+  "rows": [
+    {
+      "w_bits": 4,
+      "k_bits": 8,
+      "mean_nll": 4.38941,
+      "ppl": 80.5932,
+      "rel_pct": 102.334,
+      "fold_mean": 102.428,
+      "fold_std": 6.115,
+      "folds": [
+        92.197,
+        105.713,
+        103.669,
+        108.133
+      ],
+      "weight_MB": 109.7,
+      "kv_MB": 47.2,
+      "total_MB": 156.9
+    },
+    {
+      "w_bits": 4,
+      "k_bits": 16,
+      "mean_nll": 4.38618,
+      "ppl": 80.3332,
+      "rel_pct": 101.681,
+      "fold_mean": 101.79,
+      "fold_std": 6.569,
+      "folds": [
+        91.018,
+        104.388,
+        103.015,
+        108.74
+      ],
+      "weight_MB": 109.7,
+      "kv_MB": 94.4,
+      "total_MB": 204.1
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 8,
+      "mean_nll": 3.69023,
+      "ppl": 40.0542,
+      "rel_pct": 0.558,
+      "fold_mean": 0.558,
+      "fold_std": 0.099,
+      "folds": [
+        0.545,
+        0.707,
+        0.427,
+        0.554
+      ],
+      "weight_MB": 162.8,
+      "kv_MB": 47.2,
+      "total_MB": 210.0
+    },
+    {
+      "w_bits": 8,
+      "k_bits": 16,
+      "mean_nll": 3.68662,
+      "ppl": 39.9097,
+      "rel_pct": 0.196,
+      "fold_mean": 0.196,
+      "fold_std": 0.135,
+      "folds": [
+        0.425,
+        0.118,
+        0.081,
+        0.159
+      ],
+      "weight_MB": 162.8,
+      "kv_MB": 94.4,
+      "total_MB": 257.2
+    }
+  ]
+}

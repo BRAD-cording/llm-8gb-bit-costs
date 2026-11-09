@@ -25,3 +25,20 @@ PLAN.md
 DELIVERABLES.md
 texput.log
 gptq_log_*.log
+
+# downloaded model weights (re-fetchable: see src/data/fetch_model.py)
+.cache_gguf/
+
+# scratch scripts and page renders used while editing the manuscript
+paper/_*.py
+paper/*.png
+_*.py
+__pycache__/
+*.pyc
+paper/*.py
+paper/*.zip
+paper/*.txt
+paper/_subm_test/
+paper/.tmp_*
+paper/.cited_keys.txt
+/main_txt.txt
